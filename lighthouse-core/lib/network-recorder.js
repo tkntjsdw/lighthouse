@@ -305,14 +305,21 @@ class NetworkRecorder extends EventEmitter {
   }
 
   /**
+   * @param {LH.Crdp.Target.ReceivedMessageFromTargetEvent} data
+   */
+  onReceivedMessageFromTarget(data) {
+    /** @type {LH.Protocol.RawMessage} */
+    const protocolMessage = JSON.parse(data.message);
+    if ('id' in protocolMessage) return;
+
+    this.dispatch(protocolMessage);
+  }
+
+  /**
    * Routes network events to their handlers, so we can construct networkRecords
    * @param {LH.Protocol.RawEventMessage} event
    */
   dispatch(event) {
-    if (!event.method.startsWith('Network.')) {
-      return;
-    }
-
     switch (event.method) {
       case 'Network.requestWillBeSent': return this.onRequestWillBeSent(event.params);
       case 'Network.requestServedFromCache': return this.onRequestServedFromCache(event.params);
@@ -321,6 +328,7 @@ class NetworkRecorder extends EventEmitter {
       case 'Network.loadingFinished': return this.onLoadingFinished(event.params);
       case 'Network.loadingFailed': return this.onLoadingFailed(event.params);
       case 'Network.resourceChangedPriority': return this.onResourceChangedPriority(event.params);
+      case 'Target.receivedMessageFromTarget': return this.onReceivedMessageFromTarget(event.params); // eslint-disable-line max-len
       default: return;
     }
   }
