@@ -6,7 +6,7 @@
 'use strict';
 
 /**
- * Config file for running PWA smokehouse audits.
+ * Config file for running the OOPIF tests
  */
 module.exports = {
   extends: 'lighthouse:default',

@@ -6,7 +6,7 @@
 'use strict';
 
 /**
- * Expected Lighthouse audit values for sites with various errors.
+ * Expected Lighthouse audit values for sites with OOPIFS.
  */
 module.exports = [
   {
