@@ -5,8 +5,21 @@
  */
 'use strict';
 
-// Add plugin to default Lighthouse audits.
+/** @type {LH.Config.Plugin} */
 module.exports = {
-  extends: 'lighthouse:default',
-  plugins: ['searchable'],
+  // Additional audit to run on information Lighthouse gathered.
+  audits: [{
+    path: 'lighthouse-plugin-searchable/searchable-audit.js',
+  }],
+
+  // A new category in the report for the new audit's output.
+  category: {
+    title: 'My Plugin Category',
+    description: 'Results for our new plugin category.',
+    auditRefs: [
+      {id: 'searchable-audit', weight: 1},
+      {id: 'is-on-https', weight: 1}, // Can also reference audits in the default config.
+      {id: 'meta-description', weight: 1},
+    ],
+  },
 };

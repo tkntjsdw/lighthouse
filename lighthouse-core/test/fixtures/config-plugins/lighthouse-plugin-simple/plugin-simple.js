@@ -5,8 +5,14 @@
  */
 'use strict';
 
-// Add plugin to default Lighthouse audits.
+/** @type {LH.Config.Plugin} */
 module.exports = {
-  extends: 'lighthouse:default',
-  plugins: ['searchable'],
+  audits: [
+    {path: 'redirects'},
+    {path: 'user-timings'},
+  ],
+  category: {
+    title: 'Simple',
+    auditRefs: [],
+  },
 };

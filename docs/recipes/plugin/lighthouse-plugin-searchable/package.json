@@ -1,5 +1,5 @@
 {
   "name": "lighthouse-plugin-searchable",
   "private": true,
-  "main": "./plugin.js"
+  "main": "./plugin-searchable.js"
 }
