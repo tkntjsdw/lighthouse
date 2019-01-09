@@ -78,7 +78,7 @@ describe('ConfigPlugin', () => {
       audits: evilAudits,
       categories: {
         'evil-plugin': evilCategory,
-      }
+      },
     });
     assert.strictEqual(Object.getOwnPropertyDescriptor(pluginJson, 'audits').get, undefined);
   });
