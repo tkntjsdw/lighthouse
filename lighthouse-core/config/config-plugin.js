@@ -48,23 +48,23 @@ class ConfigPlugin {
    * Extract and validate the list of AuditDefns added by the plugin (or undefined
    * if no additional audits are being added by the plugin).
    * @param {unknown} auditsJson
-   * @param {string} fullPluginName
+   * @param {string} pluginName
    * @return {Array<{path: string}>|undefined}
    */
-  static _parseAuditsList(auditsJson, fullPluginName) {
+  static _parseAuditsList(auditsJson, pluginName) {
     // Plugin audits aren't required (relying on LH default audits) so fall back to [].
     if (auditsJson === undefined) {
       return undefined;
     } else if (!isArrayOfUnknownObjects(auditsJson)) {
-      throw new Error(`${fullPluginName} has an invalid audits array.`);
+      throw new Error(`${pluginName} has an invalid audits array.`);
     }
 
     return auditsJson.map(auditDefnJson => {
       const {path, ...invalidRest} = auditDefnJson;
-      assertNoExcessProperties(invalidRest, fullPluginName, 'audit');
+      assertNoExcessProperties(invalidRest, pluginName, 'audit');
 
       if (typeof path !== 'string') {
-        throw new Error(`${fullPluginName} has a missing audit path.`);
+        throw new Error(`${pluginName} has a missing audit path.`);
       }
       return {
         path,
@@ -75,23 +75,23 @@ class ConfigPlugin {
   /**
    * Extract and validate the list of category AuditRefs added by the plugin.
    * @param {unknown} auditRefsJson
-   * @param {string} fullPluginName
+   * @param {string} pluginName
    * @return {Array<LH.Config.AuditRefJson>}
    */
-  static _parseAuditRefsList(auditRefsJson, fullPluginName) {
+  static _parseAuditRefsList(auditRefsJson, pluginName) {
     if (!isArrayOfUnknownObjects(auditRefsJson)) {
-      throw new Error(`${fullPluginName} has no valid auditsRefs.`);
+      throw new Error(`${pluginName} has no valid auditsRefs.`);
     }
 
     return auditRefsJson.map(auditRefJson => {
       const {id, weight, ...invalidRest} = auditRefJson;
-      assertNoExcessProperties(invalidRest, fullPluginName, 'auditRef');
+      assertNoExcessProperties(invalidRest, pluginName, 'auditRef');
 
       if (typeof id !== 'string') {
-        throw new Error(`${fullPluginName} has an invalid auditRef id.`);
+        throw new Error(`${pluginName} has an invalid auditRef id.`);
       }
       if (typeof weight !== 'number') {
-        throw new Error(`${fullPluginName} has an invalid auditRef weight.`);
+        throw new Error(`${pluginName} has an invalid auditRef weight.`);
       }
 
       return {
@@ -104,12 +104,12 @@ class ConfigPlugin {
   /**
    * Extract and validate the category added by the plugin.
    * @param {unknown} categoryJson
-   * @param {string} fullPluginName
+   * @param {string} pluginName
    * @return {LH.Config.CategoryJson}
    */
-  static _parseCategory(categoryJson, fullPluginName) {
+  static _parseCategory(categoryJson, pluginName) {
     if (!isObjectOfUnknownProperties(categoryJson)) {
-      throw new Error(`${fullPluginName} has no valid category.`);
+      throw new Error(`${pluginName} has no valid category.`);
     }
 
     const {
@@ -120,18 +120,18 @@ class ConfigPlugin {
       ...invalidRest
     } = categoryJson;
 
-    assertNoExcessProperties(invalidRest, fullPluginName, 'category');
+    assertNoExcessProperties(invalidRest, pluginName, 'category');
 
     if (typeof title !== 'string') {
-      throw new Error(`${fullPluginName} has an invalid category tile.`);
+      throw new Error(`${pluginName} has an invalid category tile.`);
     }
     if (typeof description !== 'string' && typeof description !== 'undefined') {
-      throw new Error(`${fullPluginName} has an invalid category description.`);
+      throw new Error(`${pluginName} has an invalid category description.`);
     }
     if (typeof manualDescription !== 'string' && typeof manualDescription !== 'undefined') {
-      throw new Error(`${fullPluginName} has an invalid category manualDescription.`);
+      throw new Error(`${pluginName} has an invalid category manualDescription.`);
     }
-    const auditRefs = ConfigPlugin._parseAuditRefsList(auditRefsJson, fullPluginName);
+    const auditRefs = ConfigPlugin._parseAuditRefsList(auditRefsJson, pluginName);
 
     return {
       title,
@@ -149,12 +149,10 @@ class ConfigPlugin {
    * @return {LH.Config.Json}
    */
   static parsePlugin(pluginJson, pluginName) {
-    const fullName = `lighthouse-plugin-${pluginName}`;
-
     // Clone to prevent modifications or original and to deactivate any live properties.
     pluginJson = JSON.parse(JSON.stringify(pluginJson));
     if (!isObjectOfUnknownProperties(pluginJson)) {
-      throw new Error(`${fullName} is not defined as an object.`);
+      throw new Error(`${pluginName} is not defined as an object.`);
     }
 
     const {
@@ -163,12 +161,12 @@ class ConfigPlugin {
       ...invalidRest
     } = pluginJson;
 
-    assertNoExcessProperties(invalidRest, fullName);
+    assertNoExcessProperties(invalidRest, pluginName);
 
     return {
-      audits: ConfigPlugin._parseAuditsList(pluginAuditsJson, fullName),
+      audits: ConfigPlugin._parseAuditsList(pluginAuditsJson, pluginName),
       categories: {
-        [fullName]: ConfigPlugin._parseCategory(pluginCategoryJson, fullName),
+        [pluginName]: ConfigPlugin._parseCategory(pluginCategoryJson, pluginName),
       },
     };
   }

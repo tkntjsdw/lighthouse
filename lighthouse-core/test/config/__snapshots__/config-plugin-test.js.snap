@@ -11,7 +11,7 @@ Object {
     "lighthouse-plugin-nice-plugin": Object {
       "auditRefs": Array [
         Object {
-          "id": "nice-plugin",
+          "id": "nice-audit",
           "weight": 1,
         },
         Object {

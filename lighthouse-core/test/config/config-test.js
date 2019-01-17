@@ -702,7 +702,7 @@ describe('Config', () => {
     it('should append audits', () => {
       const configJson = {
         audits: ['viewport', 'metrics'],
-        plugins: ['simple'],
+        plugins: ['lighthouse-plugin-simple'],
       };
       const config = new Config(configJson, {configPath: configFixturePath});
       assert.deepStrictEqual(config.audits.map(a => a.path),
@@ -712,7 +712,7 @@ describe('Config', () => {
     it('should append a category', () => {
       const configJson = {
         extends: 'lighthouse:default',
-        plugins: ['simple'],
+        plugins: ['lighthouse-plugin-simple'],
       };
       const config = new Config(configJson, {configPath: configFixturePath});
       const categoryNames = Object.keys(config.categories);
@@ -724,7 +724,7 @@ describe('Config', () => {
     it('should throw if the plugin is invalid', () => {
       const configJson = {
         extends: 'lighthouse:default',
-        plugins: ['no-category'],
+        plugins: ['lighthouse-plugin-no-category'],
       };
       // Required to have a `category`, so plugin is invalid.
       assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
@@ -734,31 +734,31 @@ describe('Config', () => {
     it('should throw if the plugin is not found', () => {
       const configJson = {
         extends: 'lighthouse:default',
-        plugins: ['not-a-plugin'],
+        plugins: ['lighthouse-plugin-not-a-plugin'],
       };
       assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
         /^Error: Unable to locate plugin: lighthouse-plugin-not-a-plugin/);
     });
 
-    it('should throw if the plugin name would shadow a default category id', () => {
+    it('should throw if the plugin name does not begin with "lighthouse-plugin-"', () => {
       const configJson = {
         extends: 'lighthouse:default',
-        plugins: ['performance'],
+        plugins: ['just-let-me-be-a-plugin'],
       };
       assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
-        /^Error: plugin name 'lighthouse-plugin-performance' not allowed.*default/);
+        /^Error: plugin name 'just-let-me-be-a-plugin' does not start with 'lighthouse-plugin-'/);
     });
 
     it('should throw if the plugin name would shadow a category id', () => {
       const configJson = {
         extends: 'lighthouse:default',
-        plugins: ['simple'],
+        plugins: ['lighthouse-plugin-simple'],
         categories: {
-          simple: {auditRefs: [{id: 'missing-audit'}]},
+          'lighthouse-plugin-simple': {auditRefs: [{id: 'missing-audit'}]},
         },
       };
       assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
-        /^Error: plugin name 'lighthouse-plugin-simple' not allowed/);
+        /^Error: plugin name 'lighthouse-plugin-simple' not allowed because it is the id of a category/); // eslint-disable-line max-len
     });
   });
 

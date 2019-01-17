@@ -164,18 +164,18 @@ function assertValidGatherer(gathererInstance, gathererName) {
 }
 
 /**
- * Throws if pluginName collides with a default category and/or is already
- * found in the configJSON.
+ * Throws if pluginName is invalid or (somehow) collides with a category in the
+ * configJSON being added to.
  * @param {LH.Config.Json} configJSON
  * @param {string} pluginName
  */
 function assertValidPluginName(configJSON, pluginName) {
-  if (defaultConfig.categories && defaultConfig.categories[pluginName]) {
-    throw new Error(`plugin name 'lighthouse-plugin-${pluginName}' not allowed because it is the id of a default category`); // eslint-disable-line max-len
+  if (!/^lighthouse-plugin-/.test(pluginName)) {
+    throw new Error(`plugin name '${pluginName}' does not start with 'lighthouse-plugin-'`);
   }
 
   if (configJSON.categories && configJSON.categories[pluginName]) {
-    throw new Error(`plugin name 'lighthouse-plugin-${pluginName}' not allowed because it is the id of a category already found in config`); // eslint-disable-line max-len
+    throw new Error(`plugin name '${pluginName}' not allowed because it is the id of a category already found in config`); // eslint-disable-line max-len
   }
 }
 
@@ -470,8 +470,7 @@ class Config {
       for (const pluginName of pluginNames) {
         assertValidPluginName(configJSON, pluginName);
 
-        const filename = `lighthouse-plugin-${pluginName}`;
-        const pluginPath = Config.resolveModule(filename, configDir, 'plugin');
+        const pluginPath = Config.resolveModule(pluginName, configDir, 'plugin');
         const rawPluginJson = require(pluginPath);
         const pluginJson = ConfigPlugin.parsePlugin(rawPluginJson, pluginName);
 

@@ -18,14 +18,14 @@ function deepClone(val) {
   return JSON.parse(JSON.stringify(val));
 }
 
-const nicePluginName = 'nice-plugin';
+const nicePluginName = 'lighthouse-plugin-nice-plugin';
 const nicePlugin = {
   audits: [{path: 'not/a/path/audit.js'}],
   category: {
     title: 'Nice Plugin',
     description: 'A nice plugin for nice testing',
     auditRefs: [
-      {id: nicePluginName, weight: 1},
+      {id: 'nice-audit', weight: 1},
       {id: 'viewport', weight: 220},
     ],
   },
@@ -78,7 +78,7 @@ describe('ConfigPlugin', () => {
       category: evilCategory,
     };
 
-    const pluginJson = ConfigPlugin.parsePlugin(evilPlugin, 'evil');
+    const pluginJson = ConfigPlugin.parsePlugin(evilPlugin, 'lighthouse-plugin-evil');
     assert.deepStrictEqual(pluginJson, {
       audits: evilAudits,
       categories: {
@@ -139,7 +139,7 @@ describe('ConfigPlugin', () => {
   describe('`category`', () => {
     it('correctly adds the category under the plugin\'s name', () => {
       const pluginJson = ConfigPlugin.parsePlugin(nicePlugin, nicePluginName);
-      assert.ok(pluginJson.categories[`lighthouse-plugin-${nicePluginName}`]);
+      assert.ok(pluginJson.categories[nicePluginName]);
     });
 
     it('throws if category is missing', () => {
@@ -201,8 +201,8 @@ describe('ConfigPlugin', () => {
       it('correctly passes through the contained auditRefs', () => {
         const pluginJson = ConfigPlugin.parsePlugin(nicePlugin, nicePluginName);
 
-        const auditRefs = pluginJson.categories[`lighthouse-plugin-${nicePluginName}`].auditRefs;
-        assert.deepStrictEqual(auditRefs[0], {id: nicePluginName, weight: 1});
+        const auditRefs = pluginJson.categories[nicePluginName].auditRefs;
+        assert.deepStrictEqual(auditRefs[0], {id: 'nice-audit', weight: 1});
         assert.deepStrictEqual(auditRefs[1], {id: 'viewport', weight: 220});
       });
 
