@@ -42,6 +42,11 @@ describe('ConfigPlugin', () => {
       /^Error: lighthouse-plugin-nice-plugin is not defined as an object/);
   });
 
+  it('throws on an array instead of a plugin object', () => {
+    assert.throws(() => ConfigPlugin.parsePlugin([], nicePluginName),
+      /^Error: lighthouse-plugin-nice-plugin is not defined as an object/);
+  });
+
   it('throws if there are excess plugin properties', () => {
     const pluginClone = deepClone(nicePlugin);
     pluginClone.extraProperty = 'extra';

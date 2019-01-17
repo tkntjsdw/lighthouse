@@ -18,7 +18,7 @@ function isArrayOfUnknownObjects(arr) {
  * @return {val is Record<string, unknown>}
  */
 function isObjectOfUnknownProperties(val) {
-  return typeof val === 'object' && val !== null;
+  return typeof val === 'object' && val !== null && !Array.isArray(val);
 }
 
 /**
