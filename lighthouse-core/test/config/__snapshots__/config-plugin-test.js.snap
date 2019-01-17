@@ -8,7 +8,7 @@ Object {
     },
   ],
   "categories": Object {
-    "nice-plugin": Object {
+    "lighthouse-plugin-nice-plugin": Object {
       "auditRefs": Array [
         Object {
           "id": "nice-plugin",

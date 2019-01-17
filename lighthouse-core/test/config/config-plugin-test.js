@@ -78,11 +78,11 @@ describe('ConfigPlugin', () => {
       category: evilCategory,
     };
 
-    const pluginJson = ConfigPlugin.parsePlugin(evilPlugin, 'evil-plugin');
+    const pluginJson = ConfigPlugin.parsePlugin(evilPlugin, 'evil');
     assert.deepStrictEqual(pluginJson, {
       audits: evilAudits,
       categories: {
-        'evil-plugin': evilCategory,
+        'lighthouse-plugin-evil': evilCategory,
       },
     });
     assert.strictEqual(Object.getOwnPropertyDescriptor(pluginJson, 'audits').get, undefined);
@@ -139,7 +139,7 @@ describe('ConfigPlugin', () => {
   describe('`category`', () => {
     it('correctly adds the category under the plugin\'s name', () => {
       const pluginJson = ConfigPlugin.parsePlugin(nicePlugin, nicePluginName);
-      assert.ok(pluginJson.categories[nicePluginName]);
+      assert.ok(pluginJson.categories[`lighthouse-plugin-${nicePluginName}`]);
     });
 
     it('throws if category is missing', () => {
@@ -201,7 +201,7 @@ describe('ConfigPlugin', () => {
       it('correctly passes through the contained auditRefs', () => {
         const pluginJson = ConfigPlugin.parsePlugin(nicePlugin, nicePluginName);
 
-        const auditRefs = pluginJson.categories[nicePluginName].auditRefs;
+        const auditRefs = pluginJson.categories[`lighthouse-plugin-${nicePluginName}`].auditRefs;
         assert.deepStrictEqual(auditRefs[0], {id: nicePluginName, weight: 1});
         assert.deepStrictEqual(auditRefs[1], {id: 'viewport', weight: 220});
       });

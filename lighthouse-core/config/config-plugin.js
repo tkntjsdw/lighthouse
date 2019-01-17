@@ -168,7 +168,7 @@ class ConfigPlugin {
     return {
       audits: ConfigPlugin._parseAuditsList(pluginAuditsJson, fullName),
       categories: {
-        [pluginName]: ConfigPlugin._parseCategory(pluginCategoryJson, fullName),
+        [fullName]: ConfigPlugin._parseCategory(pluginCategoryJson, fullName),
       },
     };
   }

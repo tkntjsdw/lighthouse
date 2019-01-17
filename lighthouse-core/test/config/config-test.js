@@ -717,8 +717,8 @@ describe('Config', () => {
       const config = new Config(configJson, {configPath: configFixturePath});
       const categoryNames = Object.keys(config.categories);
       assert.ok(categoryNames.length > 1);
-      assert.strictEqual(categoryNames[categoryNames.length - 1], 'simple');
-      assert.strictEqual(config.categories.simple.title, 'Simple');
+      assert.strictEqual(categoryNames[categoryNames.length - 1], 'lighthouse-plugin-simple');
+      assert.strictEqual(config.categories['lighthouse-plugin-simple'].title, 'Simple');
     });
 
     it('should throw if the plugin is invalid', () => {
