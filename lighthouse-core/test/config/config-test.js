@@ -739,6 +739,27 @@ describe('Config', () => {
       assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
         /^Error: Unable to locate plugin: lighthouse-plugin-not-a-plugin/);
     });
+
+    it('should throw if the plugin name would shadow a default category id', () => {
+      const configJson = {
+        extends: 'lighthouse:default',
+        plugins: ['performance'],
+      };
+      assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
+        /^Error: plugin name 'lighthouse-plugin-performance' not allowed.*default/);
+    });
+
+    it('should throw if the plugin name would shadow a category id', () => {
+      const configJson = {
+        extends: 'lighthouse:default',
+        plugins: ['simple'],
+        categories: {
+          simple: {auditRefs: [{id: 'missing-audit'}]},
+        },
+      };
+      assert.throws(() => new Config(configJson, {configPath: configFixturePath}),
+        /^Error: plugin name 'lighthouse-plugin-simple' not allowed/);
+    });
   });
 
   describe('getCategories', () => {

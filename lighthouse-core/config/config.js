@@ -164,6 +164,22 @@ function assertValidGatherer(gathererInstance, gathererName) {
 }
 
 /**
+ * Throws if pluginName collides with a default category and/or is already
+ * found in the configJSON.
+ * @param {LH.Config.Json} configJSON
+ * @param {string} pluginName
+ */
+function assertValidPluginName(configJSON, pluginName) {
+  if (defaultConfig.categories && defaultConfig.categories[pluginName]) {
+    throw new Error(`plugin name 'lighthouse-plugin-${pluginName}' not allowed because it is the id of a default category`); // eslint-disable-line max-len
+  }
+
+  if (configJSON.categories && configJSON.categories[pluginName]) {
+    throw new Error(`plugin name 'lighthouse-plugin-${pluginName}' not allowed because it is the id of a category already found in config`); // eslint-disable-line max-len
+  }
+}
+
+/**
  * Creates a settings object from potential flags object by dropping all the properties
  * that don't exist on Config.Settings.
  * @param {Partial<LH.Flags>=} flags
@@ -452,6 +468,8 @@ class Config {
 
     if (pluginNames) {
       for (const pluginName of pluginNames) {
+        assertValidPluginName(configJSON, pluginName);
+
         const filename = `lighthouse-plugin-${pluginName}`;
         const pluginPath = Config.resolveModule(filename, configDir, 'plugin');
         const rawPluginJson = require(pluginPath);

@@ -22,6 +22,25 @@ function isObjectOfUnknownProperties(val) {
 }
 
 /**
+ * Asserts that obj has no own properties, throwing a nice error message if it does.
+ * Plugin and object name are included for nicer logging.
+ * @param {Record<string, unknown>} obj
+ * @param {string} pluginName
+ * @param {string=} objectName
+ */
+function assertNoExcessProperties(obj, pluginName, objectName) {
+  if (objectName) {
+    objectName += ' ';
+  }
+
+  const invalidKeys = Object.keys(obj);
+  if (invalidKeys.length > 0) {
+    const keys = invalidKeys.join(', ');
+    throw new Error(`${pluginName} has unrecognized ${objectName}properties: [${keys}].`);
+  }
+}
+
+/**
  * A set of methods for extracting and validating a Lighthouse plugin config.
  */
 class ConfigPlugin {
@@ -42,12 +61,7 @@ class ConfigPlugin {
 
     return auditsJson.map(auditDefnJson => {
       const {path, ...invalidRest} = auditDefnJson;
-
-      const invalidKeys = Object.keys(invalidRest);
-      if (invalidKeys.length > 0) {
-        const keys = invalidKeys.join(', ');
-        throw new Error(`${fullPluginName} has invalid audit properties: [${keys}].`);
-      }
+      assertNoExcessProperties(invalidRest, fullPluginName, 'audit');
 
       if (typeof path !== 'string') {
         throw new Error(`${fullPluginName} has a missing audit path.`);
@@ -71,12 +85,7 @@ class ConfigPlugin {
 
     return auditRefsJson.map(auditRefJson => {
       const {id, weight, ...invalidRest} = auditRefJson;
-
-      const invalidKeys = Object.keys(invalidRest);
-      if (invalidKeys.length > 0) {
-        const keys = invalidKeys.join(', ');
-        throw new Error(`${fullPluginName} has invalid auditRef properties [${keys}].`);
-      }
+      assertNoExcessProperties(invalidRest, fullPluginName, 'auditRef');
 
       if (typeof id !== 'string') {
         throw new Error(`${fullPluginName} has an invalid auditRef id.`);
@@ -111,11 +120,7 @@ class ConfigPlugin {
       ...invalidRest
     } = categoryJson;
 
-    const invalidKeys = Object.keys(invalidRest);
-    if (invalidKeys.length > 0) {
-      const keys = invalidKeys.join(', ');
-      throw new Error(`${fullPluginName} has invalid category properties [${keys}].`);
-    }
+    assertNoExcessProperties(invalidRest, fullPluginName, 'category');
 
     if (typeof title !== 'string') {
       throw new Error(`${fullPluginName} has an invalid category tile.`);
@@ -158,11 +163,7 @@ class ConfigPlugin {
       ...invalidRest
     } = pluginJson;
 
-    // Assert no other properties found.
-    const invalidKeys = Object.keys(invalidRest);
-    if (invalidKeys.length > 0) {
-      throw new Error(`${fullName} has invalid properties [${invalidKeys.join(', ')}].`);
-    }
+    assertNoExcessProperties(invalidRest, fullName);
 
     return {
       audits: ConfigPlugin._parseAuditsList(pluginAuditsJson, fullName),
