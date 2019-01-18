@@ -45,7 +45,7 @@ class BootupTime extends Audit {
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
-      requiredArtifacts: ['traces'],
+      requiredArtifacts: ['traces', 'URL'],
     };
   }
 
@@ -80,17 +80,19 @@ class BootupTime extends Audit {
   /**
    * @param {LH.Artifacts.TaskNode[]} tasks
    * @param {Set<string>} jsURLs
+   * @param {string} finalURL
    * @return {Map<string, Object<string, number>>}
    */
-  static getExecutionTimingsByURL(tasks, jsURLs) {
+  static getExecutionTimingsByURL(tasks, jsURLs, finalURL) {
     /** @type {Map<string, Object<string, number>>} */
     const result = new Map();
 
     for (const task of tasks) {
       const jsURL = task.attributableURLs.find(url => jsURLs.has(url));
       const fallbackURL = task.attributableURLs[0];
-      const attributableURL = jsURL || fallbackURL;
-      if (!attributableURL || attributableURL === 'about:blank') continue;
+      let attributableURL = jsURL || fallbackURL;
+      // If we can't find what URL was responsible for this execution, just attribute it to the root page.
+      if (!attributableURL || attributableURL === 'about:blank') attributableURL = finalURL;
 
       const timingByGroupId = result.get(attributableURL) || {};
       const originalTime = timingByGroupId[task.group.id] || 0;
@@ -107,6 +109,7 @@ class BootupTime extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
+    const finalURL = artifacts.URL.finalUrl;
     const settings = context.settings || {};
     const trace = artifacts.traces[BootupTime.DEFAULT_PASS];
     const devtoolsLog = artifacts.devtoolsLogs[BootupTime.DEFAULT_PASS];
@@ -116,33 +119,33 @@ class BootupTime extends Audit {
       settings.throttling.cpuSlowdownMultiplier : 1;
 
     const jsURLs = BootupTime.getJavaScriptURLs(networkRecords);
-    const executionTimings = BootupTime.getExecutionTimingsByURL(tasks, jsURLs);
+    const executionTimings = BootupTime.getExecutionTimingsByURL(tasks, jsURLs, finalURL);
 
     let hadExcessiveChromeExtension = false;
     let totalBootupTime = 0;
     const results = Array.from(executionTimings)
       .map(([url, timingByGroupId]) => {
-        // Add up the totalBootupTime for all the taskGroups
-        let bootupTimeForURL = 0;
+        // Add up the totalExecutionTime for all the taskGroups
+        let totalExecutionTimeForURL = 0;
         for (const [groupId, timespanMs] of Object.entries(timingByGroupId)) {
           timingByGroupId[groupId] = timespanMs * multiplier;
-          bootupTimeForURL += timespanMs * multiplier;
-        }
-
-        // Add up all the execution time of shown URLs
-        if (bootupTimeForURL >= context.options.thresholdInMs) {
-          totalBootupTime += bootupTimeForURL;
+          totalExecutionTimeForURL += timespanMs * multiplier;
         }
 
         const scriptingTotal = timingByGroupId[taskGroups.scriptEvaluation.id] || 0;
         const parseCompileTotal = timingByGroupId[taskGroups.scriptParseCompile.id] || 0;
+
+        // Add up all the JavaScript time of shown URLs
+        if (totalExecutionTimeForURL >= context.options.thresholdInMs) {
+          totalBootupTime += scriptingTotal + parseCompileTotal;
+        }
 
         hadExcessiveChromeExtension = hadExcessiveChromeExtension ||
           (url.startsWith('chrome-extension:') && scriptingTotal > 100);
 
         return {
           url: url,
-          total: bootupTimeForURL,
+          total: totalExecutionTimeForURL,
           // Highlight the JavaScript task costs
           scripting: scriptingTotal,
           scriptParseCompile: parseCompileTotal,
