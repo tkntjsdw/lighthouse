@@ -99,6 +99,15 @@
       "rawValue": 3969.136,
       "displayValue": "4.0 s"
     },
+    "first-contentful-paint-3g": {
+      "id": "first-contentful-paint-3g",
+      "title": "First Contentful Paint",
+      "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint).",
+      "score": 0.22,
+      "scoreDisplayMode": "numeric",
+      "rawValue": 8321.9015,
+      "displayValue": "8.3 s"
+    },
     "load-fast-enough-for-pwa": {
       "id": "load-fast-enough-for-pwa",
       "title": "Page load is fast enough on mobile networks",
@@ -2929,6 +2938,10 @@
           "weight": 0
         },
         {
+          "id": "first-contentful-paint-3g",
+          "weight": 0
+        },
+        {
           "id": "metrics",
           "weight": 0
         },
@@ -3584,6 +3597,42 @@
       },
       {
         "startTime": 0,
+        "name": "lh:audit:first-contentful-paint-3g",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:computed:FirstContentfulPaint",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:computed:LanternFirstContentfulPaint",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:computed:PageDependencyGraph",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:computed:LoadSimulator",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:computed:NetworkAnalysis",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
         "name": "lh:audit:load-fast-enough-for-pwa",
         "duration": 100,
         "entryType": "measure"
@@ -3728,19 +3777,7 @@
       },
       {
         "startTime": 0,
-        "name": "lh:computed:PageDependencyGraph",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
         "name": "lh:computed:LoadSimulator",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:computed:NetworkAnalysis",
         "duration": 100,
         "entryType": "measure"
       },
@@ -4393,10 +4430,12 @@
     },
     "icuMessagePaths": {
       "lighthouse-core/audits/metrics/first-contentful-paint.js | title": [
-        "audits[first-contentful-paint].title"
+        "audits[first-contentful-paint].title",
+        "audits[first-contentful-paint-3g].title"
       ],
       "lighthouse-core/audits/metrics/first-contentful-paint.js | description": [
-        "audits[first-contentful-paint].description"
+        "audits[first-contentful-paint].description",
+        "audits[first-contentful-paint-3g].description"
       ],
       "lighthouse-core/lib/i18n/i18n.js | seconds": [
         {
@@ -4410,6 +4449,12 @@
             "timeInMs": 3969.136
           },
           "path": "audits[first-meaningful-paint].displayValue"
+        },
+        {
+          "values": {
+            "timeInMs": 8321.9015
+          },
+          "path": "audits[first-contentful-paint-3g].displayValue"
         },
         {
           "values": {

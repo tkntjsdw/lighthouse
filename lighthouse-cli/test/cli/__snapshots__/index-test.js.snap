@@ -28,6 +28,9 @@ Object {
       "path": "metrics/first-meaningful-paint",
     },
     Object {
+      "path": "metrics/first-contentful-paint-3g",
+    },
+    Object {
       "path": "load-fast-enough-for-pwa",
     },
     Object {
@@ -773,6 +776,10 @@ Object {
         },
         Object {
           "id": "network-requests",
+          "weight": 0,
+        },
+        Object {
+          "id": "first-contentful-paint-3g",
           "weight": 0,
         },
         Object {
