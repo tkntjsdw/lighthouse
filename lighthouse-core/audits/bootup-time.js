@@ -22,7 +22,7 @@ const UIStrings = {
     'You may find delivering smaller JS payloads helps with this. [Learn ' +
     'more](https://developers.google.com/web/tools/lighthouse/audits/bootup).',
   /** Label for the total time column in a data table; entries will be the number of milliseconds spent executing per resource loaded by the page. */
-  columnTotal: 'Total',
+  columnTotal: 'Total CPU Time',
   /** Label for a time column in a data table; entries will be the number of milliseconds spent evaluating script for every script loaded by the page. */
   columnScriptEval: 'Script Evaluation',
   /** Label for a time column in a data table; entries will be the number of milliseconds spent parsing script files for every script loaded by the page. */
@@ -92,7 +92,7 @@ class BootupTime extends Audit {
       const fallbackURL = task.attributableURLs[0];
       let attributableURL = jsURL || fallbackURL;
       // If we can't find what URL was responsible for this execution, just attribute it to the root page.
-      if (!attributableURL || attributableURL === 'about:blank') attributableURL = finalURL;
+      if (!attributableURL || attributableURL === 'about:blank') attributableURL = 'Other';
 
       const timingByGroupId = result.get(attributableURL) || {};
       const originalTime = timingByGroupId[task.group.id] || 0;

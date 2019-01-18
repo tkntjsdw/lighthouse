@@ -152,7 +152,7 @@ class MainThreadTasks {
   /**
    * @param {TaskNode} task
    * @param {string[]} parentURLs
-   * @param {{timers: Map<string, TaskNode>}} priorTaskData
+   * @param {PriorTaskData} priorTaskData
    */
   static _computeRecursiveAttributableURLs(task, parentURLs, priorTaskData) {
     const argsData = task.event.args.data || {};
