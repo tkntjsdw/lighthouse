@@ -45,7 +45,7 @@ class BootupTime extends Audit {
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
-      requiredArtifacts: ['traces', 'URL'],
+      requiredArtifacts: ['traces'],
     };
   }
 
@@ -80,10 +80,9 @@ class BootupTime extends Audit {
   /**
    * @param {LH.Artifacts.TaskNode[]} tasks
    * @param {Set<string>} jsURLs
-   * @param {string} finalURL
    * @return {Map<string, Object<string, number>>}
    */
-  static getExecutionTimingsByURL(tasks, jsURLs, finalURL) {
+  static getExecutionTimingsByURL(tasks, jsURLs) {
     /** @type {Map<string, Object<string, number>>} */
     const result = new Map();
 
@@ -109,7 +108,6 @@ class BootupTime extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
-    const finalURL = artifacts.URL.finalUrl;
     const settings = context.settings || {};
     const trace = artifacts.traces[BootupTime.DEFAULT_PASS];
     const devtoolsLog = artifacts.devtoolsLogs[BootupTime.DEFAULT_PASS];
@@ -119,7 +117,7 @@ class BootupTime extends Audit {
       settings.throttling.cpuSlowdownMultiplier : 1;
 
     const jsURLs = BootupTime.getJavaScriptURLs(networkRecords);
-    const executionTimings = BootupTime.getExecutionTimingsByURL(tasks, jsURLs, finalURL);
+    const executionTimings = BootupTime.getExecutionTimingsByURL(tasks, jsURLs);
 
     let hadExcessiveChromeExtension = false;
     let totalBootupTime = 0;

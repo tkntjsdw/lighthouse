@@ -5,6 +5,8 @@
  */
 'use strict';
 
+/* eslint-disable */
+
 window.library = {};
 window.library.setTimeout = (fn, time) => {
   setTimeout(() => {

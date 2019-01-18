@@ -5,6 +5,8 @@
  */
 'use strict';
 
+/* eslint-disable */
+
 if (window.location.search.includes('setTimeout')) {
   window.library.setTimeout(() => {
     window.library.stall(3050);
