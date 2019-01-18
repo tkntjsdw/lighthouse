@@ -701,12 +701,12 @@ describe('Config', () => {
 
     it('should append audits', () => {
       const configJson = {
-        audits: ['viewport', 'metrics'],
+        audits: ['installable-manifest', 'metrics'],
         plugins: ['lighthouse-plugin-simple'],
       };
       const config = new Config(configJson, {configPath: configFixturePath});
       assert.deepStrictEqual(config.audits.map(a => a.path),
-        ['viewport', 'metrics', 'redirects', 'user-timings']);
+        ['installable-manifest', 'metrics', 'redirects', 'user-timings']);
     });
 
     it('should append a category', () => {

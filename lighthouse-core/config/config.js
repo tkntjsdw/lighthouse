@@ -170,7 +170,7 @@ function assertValidGatherer(gathererInstance, gathererName) {
  * @param {string} pluginName
  */
 function assertValidPluginName(configJSON, pluginName) {
-  if (!/^lighthouse-plugin-/.test(pluginName)) {
+  if (!pluginName.startsWith('lighthouse-plugin-')) {
     throw new Error(`plugin name '${pluginName}' does not start with 'lighthouse-plugin-'`);
   }
 

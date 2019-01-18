@@ -28,7 +28,7 @@ function isObjectOfUnknownProperties(val) {
  * @param {string} pluginName
  * @param {string=} objectName
  */
-function assertNoExcessProperties(obj, pluginName, objectName) {
+function assertNoExcessProperties(obj, pluginName, objectName = '') {
   if (objectName) {
     objectName += ' ';
   }
@@ -36,7 +36,7 @@ function assertNoExcessProperties(obj, pluginName, objectName) {
   const invalidKeys = Object.keys(obj);
   if (invalidKeys.length > 0) {
     const keys = invalidKeys.join(', ');
-    throw new Error(`${pluginName} has unrecognized ${objectName}properties: [${keys}].`);
+    throw new Error(`${pluginName} has unrecognized ${objectName}properties: [${keys}]`);
   }
 }
 

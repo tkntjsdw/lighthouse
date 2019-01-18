@@ -15,7 +15,7 @@ Object {
           "weight": 1,
         },
         Object {
-          "id": "viewport",
+          "id": "installable-manifest",
           "weight": 220,
         },
       ],

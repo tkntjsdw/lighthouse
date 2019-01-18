@@ -26,7 +26,7 @@ const nicePlugin = {
     description: 'A nice plugin for nice testing',
     auditRefs: [
       {id: 'nice-audit', weight: 1},
-      {id: 'viewport', weight: 220},
+      {id: 'installable-manifest', weight: 220},
     ],
   },
 };
@@ -52,7 +52,7 @@ describe('ConfigPlugin', () => {
     pluginClone.extraProperty = 'extra';
 
     assert.throws(() => ConfigPlugin.parsePlugin(pluginClone, nicePluginName),
-      /^Error: lighthouse-plugin-nice-plugin.*extraProperty/);
+      /^Error: lighthouse-plugin-nice-plugin has unrecognized properties: \[extraProperty\]$/);
   });
 
   it('deals only with the JSON roundtrip version of the passed-in object', () => {
@@ -203,7 +203,7 @@ describe('ConfigPlugin', () => {
 
         const auditRefs = pluginJson.categories[nicePluginName].auditRefs;
         assert.deepStrictEqual(auditRefs[0], {id: 'nice-audit', weight: 1});
-        assert.deepStrictEqual(auditRefs[1], {id: 'viewport', weight: 220});
+        assert.deepStrictEqual(auditRefs[1], {id: 'installable-manifest', weight: 220});
       });
 
       it('throws if auditRefs is missing', () => {
