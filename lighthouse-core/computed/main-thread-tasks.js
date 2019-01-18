@@ -245,7 +245,6 @@ class MainThreadTasks {
       }
     }
 
-    console.log(tasks.filter(task => task.duration > 50))
     return tasks;
   }
 

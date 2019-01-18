@@ -9,44 +9,45 @@
  * Expected Lighthouse audit values for tricky metrics tests
  */
 module.exports = [
-  // {
-  //   requestedUrl: 'http://localhost:10200/tricky-tti.html',
-  //   finalUrl: 'http://localhost:10200/tricky-tti.html',
-  //   audits: {
-  //     'first-cpu-idle': {
-  //       score: '<75',
-  //       rawValue: '>9000',
-  //     },
-  //     'interactive': {
-  //       score: '<75',
-  //       rawValue: '>9000',
-  //     },
-  //   },
-  // },
-  // {
-  //   requestedUrl: 'http://localhost:10200/delayed-fcp.html',
-  //   finalUrl: 'http://localhost:10200/delayed-fcp.html',
-  //   audits: {
-  //     'first-contentful-paint': {
-  //       rawValue: '>1', // We just want to check that it doesn't error
-  //     },
-  //   },
-  // },
-  // {
-  //   requestedUrl: 'http://localhost:10200/tricky-main-thread.html?setTimeout',
-  //   finalUrl: 'http://localhost:10200/tricky-main-thread.html?setTimeout',
-  //   audits: {
-  //     'bootup-time': {
-  //       details: {
-  //         items: {
-  //           0: {
-  //             url: /main-thread-consumer/,
-  //           },
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    requestedUrl: 'http://localhost:10200/tricky-tti.html',
+    finalUrl: 'http://localhost:10200/tricky-tti.html',
+    audits: {
+      'first-cpu-idle': {
+        score: '<75',
+        rawValue: '>9000',
+      },
+      'interactive': {
+        score: '<75',
+        rawValue: '>9000',
+      },
+    },
+  },
+  {
+    requestedUrl: 'http://localhost:10200/delayed-fcp.html',
+    finalUrl: 'http://localhost:10200/delayed-fcp.html',
+    audits: {
+      'first-contentful-paint': {
+        rawValue: '>1', // We just want to check that it doesn't error
+      },
+    },
+  },
+  {
+    requestedUrl: 'http://localhost:10200/tricky-main-thread.html?setTimeout',
+    finalUrl: 'http://localhost:10200/tricky-main-thread.html?setTimeout',
+    audits: {
+      'bootup-time': {
+        details: {
+          items: {
+            0: {
+              url: /main-thread-consumer/,
+              scripting: '>1000',
+            },
+          },
+        },
+      },
+    },
+  },
   {
     requestedUrl: 'http://localhost:10200/tricky-main-thread.html?fetch',
     finalUrl: 'http://localhost:10200/tricky-main-thread.html?fetch',
@@ -55,7 +56,9 @@ module.exports = [
         details: {
           items: {
             0: {
-              url: /main-thread-consumer/,
+              // TODO: requires async stacks, https://github.com/GoogleChrome/lighthouse/pull/5504
+              // url: /main-thread-consumer/,
+              scripting: '>1000',
             },
           },
         },
