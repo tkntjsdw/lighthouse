@@ -7,6 +7,8 @@
 
 const Gatherer = require('./gatherer');
 const NetworkRequest = require('../../lib/network-request');
+const getElementsInDocumentString = require('../../lib/page-functions.js').getElementsInDocumentString; // eslint-disable-line max-len
+const URL = require('../../lib/url-shim.js');
 
 /**
  * @fileoverview Gets JavaScript file contents.
@@ -20,7 +22,7 @@ class Scripts extends Gatherer {
   async afterPass(passContext, loadData) {
     const driver = passContext.driver;
 
-    /** @type {Object<string, string>} */
+    /** @type {LH.Artifacts['Scripts']} */
     const scriptContentMap = {};
     const scriptRecords = loadData.networkRecords
       .filter(record => record.resourceType === NetworkRequest.TYPES.Script);
@@ -32,6 +34,23 @@ class Scripts extends Gatherer {
           scriptContentMap[record.requestId] = content;
         }
       } catch (e) {}
+    }
+
+    /** @type {string[]} */
+    const inlineScripts = await driver.evaluateAsync(`(() => {
+      ${getElementsInDocumentString};
+
+      return getElementsInDocument('script')
+        .filter(meta => !meta.src && meta.text.trim())
+        .map(meta => meta.text);
+    })()`, {useIsolation: true});
+    if (inlineScripts.length) {
+      const mainResource = loadData.networkRecords.find(
+        request => URL.equalWithExcludedFragments(request.url, passContext.url));
+      if (!mainResource) {
+        throw new Error('could not locate mainResource');
+      }
+      scriptContentMap[mainResource.requestId] = inlineScripts;
     }
 
     return scriptContentMap;

@@ -78,20 +78,24 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
     const items = [];
     const warnings = [];
     for (const requestId of Object.keys(artifacts.Scripts)) {
-      const scriptContent = artifacts.Scripts[requestId];
+      const scriptContentEntry = artifacts.Scripts[requestId];
+      const scriptContents = Array.isArray(scriptContentEntry) ?
+        scriptContentEntry : [scriptContentEntry];
       const networkRecord = networkRecords.find(record => record.requestId === requestId);
-      if (!networkRecord || !scriptContent) continue;
+      if (!networkRecord || !scriptContents) continue;
 
-      try {
-        const result = UnminifiedJavaScript.computeWaste(scriptContent, networkRecord);
-        // If the ratio is minimal, the file is likely already minified, so ignore it.
-        // If the total number of bytes to be saved is quite small, it's also safe to ignore.
-        if (result.wastedPercent < IGNORE_THRESHOLD_IN_PERCENT ||
-          result.wastedBytes < IGNORE_THRESHOLD_IN_BYTES ||
-          !Number.isFinite(result.wastedBytes)) continue;
-        items.push(result);
-      } catch (err) {
-        warnings.push(`Unable to process ${networkRecord.url}: ${err.message}`);
+      for (const scriptContent of scriptContents) {
+        try {
+          const result = UnminifiedJavaScript.computeWaste(scriptContent, networkRecord);
+          // If the ratio is minimal, the file is likely already minified, so ignore it.
+          // If the total number of bytes to be saved is quite small, it's also safe to ignore.
+          if (result.wastedPercent < IGNORE_THRESHOLD_IN_PERCENT ||
+            result.wastedBytes < IGNORE_THRESHOLD_IN_BYTES ||
+            !Number.isFinite(result.wastedBytes)) continue;
+          items.push(result);
+        } catch (err) {
+          warnings.push(`Unable to process ${networkRecord.url}: ${err.message}`);
+        }
       }
     }
 

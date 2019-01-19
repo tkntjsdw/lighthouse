@@ -30,7 +30,7 @@ module.exports = [
           overallSavingsBytes: '>45000',
           overallSavingsMs: '>500',
           items: {
-            length: 1,
+            length: 3,
           },
         },
       },
