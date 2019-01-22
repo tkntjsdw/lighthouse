@@ -22,8 +22,8 @@ const config = {
       auditRefs: [
         {id: 'first-contentful-paint-3g', weight: 0},
       ],
-    }
-  }
+    },
+  },
 };
 
 module.exports = config;
