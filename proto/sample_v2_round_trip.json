@@ -2114,42 +2114,11 @@
         }, 
         "unminified-javascript": {
             "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).", 
-            "details": {
-                "headings": [
-                    {
-                        "key": "url", 
-                        "label": "URL", 
-                        "valueType": "url"
-                    }, 
-                    {
-                        "key": "totalBytes", 
-                        "label": "Size (KB)", 
-                        "valueType": "bytes"
-                    }, 
-                    {
-                        "key": "wastedBytes", 
-                        "label": "Potential Savings (KB)", 
-                        "valueType": "bytes"
-                    }
-                ], 
-                "items": [
-                    {
-                        "totalBytes": 71654.0, 
-                        "url": "http://localhost:10200/zone.js", 
-                        "wastedBytes": 30470.0, 
-                        "wastedPercent": 42.52388078488413
-                    }
-                ], 
-                "overallSavingsBytes": 30470.0, 
-                "overallSavingsMs": 150.0, 
-                "type": "opportunity"
-            }, 
-            "displayValue": "Potential savings of 30\u00a0KB", 
+            "errorMessage": "artifacts.Scripts is not iterable", 
             "id": "unminified-javascript", 
-            "score": 0.88, 
-            "scoreDisplayMode": "numeric", 
-            "title": "Minify JavaScript", 
-            "warnings": []
+            "score": null, 
+            "scoreDisplayMode": "error", 
+            "title": "Minify JavaScript"
         }, 
         "unused-css-rules": {
             "description": "Remove unused rules from stylesheets to reduce unnecessary bytes consumed by network activity. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/unused-css).", 

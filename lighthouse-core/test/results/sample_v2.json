@@ -1998,41 +1998,10 @@
       "id": "unminified-javascript",
       "title": "Minify JavaScript",
       "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).",
-      "score": 0.88,
-      "scoreDisplayMode": "numeric",
-      "rawValue": 150,
-      "displayValue": "Potential savings of 30 KB",
-      "warnings": [],
-      "details": {
-        "type": "opportunity",
-        "headings": [
-          {
-            "key": "url",
-            "valueType": "url",
-            "label": "URL"
-          },
-          {
-            "key": "totalBytes",
-            "valueType": "bytes",
-            "label": "Size (KB)"
-          },
-          {
-            "key": "wastedBytes",
-            "valueType": "bytes",
-            "label": "Potential Savings (KB)"
-          }
-        ],
-        "items": [
-          {
-            "url": "http://localhost:10200/zone.js",
-            "totalBytes": 71654,
-            "wastedBytes": 30470,
-            "wastedPercent": 42.52388078488413
-          }
-        ],
-        "overallSavingsMs": 150,
-        "overallSavingsBytes": 30470
-      }
+      "score": null,
+      "scoreDisplayMode": "error",
+      "rawValue": null,
+      "errorMessage": "artifacts.Scripts is not iterable"
     },
     "unused-css-rules": {
       "id": "unused-css-rules",
@@ -4549,7 +4518,6 @@
         "audits[uses-long-cache-ttl].details.headings[0].text",
         "audits[total-byte-weight].details.headings[0].text",
         "audits[render-blocking-resources].details.headings[0].label",
-        "audits[unminified-javascript].details.headings[0].label",
         "audits[uses-webp-images].details.headings[1].label",
         "audits[uses-text-compression].details.headings[0].label"
       ],
@@ -4819,7 +4787,6 @@
         "audits[uses-long-cache-ttl].details.headings[2].text",
         "audits[total-byte-weight].details.headings[1].text",
         "audits[render-blocking-resources].details.headings[1].label",
-        "audits[unminified-javascript].details.headings[1].label",
         "audits[uses-webp-images].details.headings[2].label",
         "audits[uses-text-compression].details.headings[1].label"
       ],
@@ -4872,13 +4839,19 @@
       "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | description": [
         "audits[unminified-javascript].description"
       ],
+      "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | title": [
+        "audits[unused-css-rules].title"
+      ],
+      "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | description": [
+        "audits[unused-css-rules].description"
+      ],
+      "lighthouse-core/audits/byte-efficiency/uses-webp-images.js | title": [
+        "audits[uses-webp-images].title"
+      ],
+      "lighthouse-core/audits/byte-efficiency/uses-webp-images.js | description": [
+        "audits[uses-webp-images].description"
+      ],
       "lighthouse-core/lib/i18n/i18n.js | displayValueByteSavings": [
-        {
-          "values": {
-            "wastedBytes": 30470
-          },
-          "path": "audits[unminified-javascript].displayValue"
-        },
         {
           "values": {
             "wastedBytes": 8526
@@ -4893,21 +4866,8 @@
         }
       ],
       "lighthouse-core/lib/i18n/i18n.js | columnWastedBytes": [
-        "audits[unminified-javascript].details.headings[2].label",
         "audits[uses-webp-images].details.headings[3].label",
         "audits[uses-text-compression].details.headings[2].label"
-      ],
-      "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | title": [
-        "audits[unused-css-rules].title"
-      ],
-      "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | description": [
-        "audits[unused-css-rules].description"
-      ],
-      "lighthouse-core/audits/byte-efficiency/uses-webp-images.js | title": [
-        "audits[uses-webp-images].title"
-      ],
-      "lighthouse-core/audits/byte-efficiency/uses-webp-images.js | description": [
-        "audits[uses-webp-images].description"
       ],
       "lighthouse-core/audits/byte-efficiency/uses-optimized-images.js | title": [
         "audits[uses-optimized-images].title"
