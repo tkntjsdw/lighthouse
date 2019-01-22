@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const Audit = require('../audit');
+const Audit = require('../audit.js');
 const regular3G = require('../../config/constants.js').throttling.mobileRegluar3G;
 const i18n = require('../../lib/i18n/i18n.js');
 const FCP = require('./first-contentful-paint.js');
