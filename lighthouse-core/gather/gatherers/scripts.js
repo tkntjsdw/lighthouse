@@ -23,18 +23,7 @@ class Scripts extends Gatherer {
     const driver = passContext.driver;
 
     /** @type {LH.Artifacts['Scripts']} */
-    const scriptContentMap = {};
-    const scriptRecords = loadData.networkRecords
-      .filter(record => record.resourceType === NetworkRequest.TYPES.Script);
-
-    for (const record of scriptRecords) {
-      try {
-        const content = await driver.getRequestContent(record.requestId);
-        if (content) {
-          scriptContentMap[record.requestId] = content;
-        }
-      } catch (e) {}
-    }
+    const scripts = [];
 
     /** @type {string[]} */
     const inlineScripts = await driver.evaluateAsync(`(() => {
@@ -44,16 +33,35 @@ class Scripts extends Gatherer {
         .filter(meta => !meta.src && meta.text.trim())
         .map(meta => meta.text);
     })()`, {useIsolation: true});
+
     if (inlineScripts.length) {
       const mainResource = loadData.networkRecords.find(
         request => URL.equalWithExcludedFragments(request.url, passContext.url));
       if (!mainResource) {
         throw new Error('could not locate mainResource');
       }
-      scriptContentMap[mainResource.requestId] = inlineScripts;
+      scripts.push(...inlineScripts.map(code => ({
+        code,
+        requestId: mainResource.requestId,
+      })));
     }
 
-    return scriptContentMap;
+    const scriptRecords = loadData.networkRecords
+      .filter(record => record.resourceType === NetworkRequest.TYPES.Script);
+
+    for (const record of scriptRecords) {
+      try {
+        const content = await driver.getRequestContent(record.requestId);
+        if (content) {
+          scripts.push({
+            code: content,
+            requestId: record.requestId,
+          });
+        }
+      } catch (e) {}
+    }
+
+    return scripts;
   }
 }
 
