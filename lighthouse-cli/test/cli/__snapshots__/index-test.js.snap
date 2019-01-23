@@ -1102,9 +1102,6 @@ Object {
           "path": "seo/embedded-content",
         },
         Object {
-          "path": "seo/canonical",
-        },
-        Object {
           "path": "seo/robots-txt",
         },
       ],

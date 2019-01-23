@@ -107,7 +107,6 @@ const defaultConfig = {
       'seo/crawlable-links',
       'seo/hreflang',
       'seo/embedded-content',
-      'seo/canonical',
       'seo/robots-txt',
     ],
   },
