@@ -6,44 +6,8 @@
 'use strict';
 
 const Audit = require('../audit');
-const LinkHeader = require('http-link-header');
 const URL = require('../../lib/url-shim');
 const MainResource = require('../../computed/main-resource.js');
-const LINK_HEADER = 'link';
-
-/**
- * @param {string} headerValue
- * @returns {Array<string>}
- */
-function getCanonicalLinksFromHeader(headerValue) {
-  const linkHeader = LinkHeader.parse(headerValue);
-
-  return linkHeader.get('rel', 'canonical').map(c => c.uri);
-}
-
-/**
- * @param {string} headerValue
- * @returns {Array<string>}
- */
-function getHreflangsFromHeader(headerValue) {
-  const linkHeader = LinkHeader.parse(headerValue);
-
-  return linkHeader.get('rel', 'alternate').map(h => h.uri);
-}
-
-/**
- * Returns true if given string is a valid absolute or relative URL
- * @param {string} url
- * @returns {boolean}
- */
-function isValidRelativeOrAbsoluteURL(url) {
-  try {
-    new URL(url, 'https://example.com/');
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
 
 /**
  * Returns a primary domain for provided URL (e.g. http://www.example.com -> example.com).
@@ -66,7 +30,7 @@ class Canonical extends Audit {
       failureTitle: 'Document does not have a valid `rel=canonical`',
       description: 'Canonical links suggest which URL to show in search results. ' +
         '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/canonical).',
-      requiredArtifacts: ['Canonical', 'Hreflang', 'URL'],
+      requiredArtifacts: ['LinkElements', 'URL'],
     };
   }
 
@@ -75,102 +39,102 @@ class Canonical extends Audit {
    * @param {LH.Audit.Context} context
    * @return {Promise<LH.Audit.Product>}
    */
-  static audit(artifacts, context) {
+  static async audit(artifacts, context) {
     const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
 
-    return MainResource.request({devtoolsLog, URL: artifacts.URL}, context)
-      .then(mainResource => {
-        const baseURL = new URL(mainResource.url);
-        /** @type {Array<string>} */
-        let canonicals = [];
-        /** @type {Array<string>} */
-        let hreflangs = [];
+    const mainResource = await MainResource.request({devtoolsLog, URL: artifacts.URL}, context);
+    const baseURL = new URL(mainResource.url);
 
-        mainResource.responseHeaders && mainResource.responseHeaders
-          .filter(h => h.name.toLowerCase() === LINK_HEADER)
-          .forEach(h => {
-            canonicals = canonicals.concat(getCanonicalLinksFromHeader(h.value));
-            hreflangs = hreflangs.concat(getHreflangsFromHeader(h.value));
-          });
+    /** @type {Set<string>} */
+    const uniqueCanonicalURLs = new Set();
+    /** @type {string[]} */
+    const hreflangURLs = [];
 
-        for (const canonical of artifacts.Canonical) {
-          if (canonical !== null) {
-            canonicals.push(canonical);
-          }
-        }
-        // we should only fail if there are multiple conflicting URLs
-        // see: https://github.com/GoogleChrome/lighthouse/issues/3178#issuecomment-381181762
-        canonicals = Array.from(new Set(canonicals));
+    /** @type {LH.Artifacts.LinkElement|undefined} */
+    let invalidCanonicalLink;
+    /** @type {LH.Artifacts.LinkElement|undefined} */
+    let relativeCanonicallink;
+    for (const link of artifacts.LinkElements) {
+      if (link.source === 'body') continue;
 
-        artifacts.Hreflang.forEach(({href}) => hreflangs.push(href));
+      if (link.rel === 'canonical') {
+        if (!link.hrefRaw) continue;
 
-        hreflangs = hreflangs
-          .filter(href => isValidRelativeOrAbsoluteURL(href))
-          .map(href => (new URL(href, baseURL)).href); // normalize URLs
+        if (!link.href) invalidCanonicalLink = link;
+        else if (!URL.isValid(link.hrefRaw)) relativeCanonicallink = link;
+        else uniqueCanonicalURLs.add(link.href);
+      } else if (link.rel === 'alternate') {
+        if (link.href && link.hreflang) hreflangURLs.push(link.href);
+      }
+    }
 
-        if (canonicals.length === 0) {
-          return {
-            rawValue: true,
-            notApplicable: true,
-          };
-        }
+    // the canonical link is totally invalid
+    if (invalidCanonicalLink) {
+      return {
+        rawValue: false,
+        explanation: `Invalid URL (${invalidCanonicalLink.hrefRaw})`,
+      };
+    }
 
-        if (canonicals.length > 1) {
-          return {
-            rawValue: false,
-            explanation: `Multiple conflicting URLs (${canonicals.join(', ')})`,
-          };
-        }
+    // the canonical link is valid, but it's relative which isn't allowed
+    if (relativeCanonicallink) {
+      return {
+        rawValue: false,
+        explanation: `Relative URL (${relativeCanonicallink.hrefRaw})`,
+      };
+    }
 
-        const canonical = canonicals[0];
+    /** @type {string[]} */
+    const canonicalURLs = Array.from(uniqueCanonicalURLs);
 
-        if (!isValidRelativeOrAbsoluteURL(canonical)) {
-          return {
-            rawValue: false,
-            explanation: `Invalid URL (${canonical})`,
-          };
-        }
+    // there's no canonical URL at all, we're done
+    if (canonicalURLs.length === 0) {
+      return {
+        rawValue: true,
+        notApplicable: true,
+      };
+    }
 
-        if (!URL.isValid(canonical)) {
-          return {
-            rawValue: false,
-            explanation: `Relative URL (${canonical})`,
-          };
-        }
+    // we have multiple conflicting canonical URls, we're done
+    if (canonicalURLs.length > 1) {
+      return {
+        rawValue: false,
+        explanation: `Multiple conflicting URLs (${canonicalURLs.join(', ')})`,
+      };
+    }
 
-        const canonicalURL = new URL(canonical);
+    const canonicalURL = new URL(canonicalURLs[0]);
 
-        // cross-language or cross-country canonicals are a common issue
-        if (hreflangs.includes(baseURL.href) && hreflangs.includes(canonicalURL.href) &&
-          baseURL.href !== canonicalURL.href) {
-          return {
-            rawValue: false,
-            explanation: `Points to another hreflang location (${baseURL.href})`,
-          };
-        }
+    // cross-language or cross-country canonicals are a common issue
+    if (hreflangURLs.includes(baseURL.href) && hreflangURLs.includes(canonicalURL.href) &&
+      baseURL.href !== canonicalURL.href) {
+      return {
+        rawValue: false,
+        explanation: `Points to another hreflang location (${baseURL.href})`,
+      };
+    }
 
-        // bing and yahoo don't allow canonical URLs pointing to different domains, it's also
-        // a common mistake to publish a page with canonical pointing to e.g. a test domain or localhost
-        if (getPrimaryDomain(canonicalURL) !== getPrimaryDomain(baseURL)) {
-          return {
-            rawValue: false,
-            explanation: `Points to a different domain (${canonicalURL})`,
-          };
-        }
+    // bing and yahoo don't allow canonical URLs pointing to different domains, it's also
+    // a common mistake to publish a page with canonical pointing to e.g. a test domain or localhost
+    if (getPrimaryDomain(canonicalURL) !== getPrimaryDomain(baseURL)) {
+      return {
+        rawValue: false,
+        explanation: `Points to a different domain (${canonicalURL})`,
+      };
+    }
 
-        // another common mistake is to have canonical pointing from all pages of the website to its root
-        if (canonicalURL.origin === baseURL.origin &&
-          canonicalURL.pathname === '/' && baseURL.pathname !== '/') {
-          return {
-            rawValue: false,
-            explanation: 'Points to a root of the same origin',
-          };
-        }
+    // another common mistake is to have canonical pointing from all pages of the website to its root
+    if (canonicalURL.origin === baseURL.origin &&
+      canonicalURL.pathname === '/' && baseURL.pathname !== '/') {
+      return {
+        rawValue: false,
+        explanation: 'Points to a root of the same origin',
+      };
+    }
 
-        return {
-          rawValue: true,
-        };
-      });
+    return {
+      rawValue: true,
+    };
   }
 }
 

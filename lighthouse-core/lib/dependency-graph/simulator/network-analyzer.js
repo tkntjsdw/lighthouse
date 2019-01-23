@@ -6,7 +6,8 @@
 'use strict';
 
 const INITIAL_CWD = 14 * 1024;
-const NetworkRequest = require('../../network-request');
+const NetworkRequest = require('../../network-request.js');
+const URL = require('../../url-shim.js');
 
 // Assume that 40% of TTFB was server response time by default for static assets
 const DEFAULT_SERVER_RESPONSE_PERCENTAGE = 0.4;
@@ -443,9 +444,18 @@ class NetworkAnalyzer {
 
   /**
    * @param {Array<LH.Artifacts.NetworkRequest>} records
+   * @param {string} [finalURL]
    * @return {LH.Artifacts.NetworkRequest}
    */
-  static findMainDocument(records) {
+  static findMainDocument(records, finalURL) {
+    // Try to find an exact match with the final URL first if we have one
+    if (finalURL) {
+      // equalWithExcludedFragments is expensive, so check that the finalUrl starts with the request first
+      const mainResource = records.find(request => finalURL.startsWith(request.url) &&
+        URL.equalWithExcludedFragments(request.url, finalURL));
+      if (mainResource) return mainResource;
+    }
+
     const documentRequests = records.filter(record => record.resourceType ===
         NetworkRequest.TYPES.Document);
     // The main document is the earliest document request, using position in networkRecords array to break ties.

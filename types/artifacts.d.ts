@@ -170,10 +170,20 @@ declare global {
 
       /** @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#Attributes */
       export interface LinkElement {
-        rel: string
-        href: string
+        /** The `rel` attribute of the link, normalized to lower case. @see https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types */
+        rel: 'alternate'|'canonical'|'dns-prefetch'|'preconnect'|'preload'|'stylesheet'|string;
+        /** The `href` attribute of the link or `null` if it was invalid in the header. */
+        href: string | null
+        /** The raw value of the `href` attribute. Only different from `href` when source is 'header' */
+        hrefRaw: string
+        /** The `hreflang` attribute of the link */
+        hreflang: string
+        /** The `as` attribute of the link */
         as: string
+        /** The `crossOrigin` attribute of the link */
         crossOrigin: 'anonymous'|'use-credentials'|null
+        /** Where the link was found, either in the DOM or in the headers of the main document */
+        source: 'head'|'body'|'headers'
       }
 
       export interface Font {

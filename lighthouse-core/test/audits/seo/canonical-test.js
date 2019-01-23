@@ -12,18 +12,26 @@ const networkRecordsToDevtoolsLog = require('../../network-records-to-devtools-l
 /* eslint-env jest */
 
 describe('SEO: Document has valid canonical link', () => {
+  function link(overrides) {
+    if (overrides.href && !overrides.hrefRaw) overrides.hrefRaw = overrides.href;
+    return {
+      rel: '',
+      href: null,
+      hrefRaw: '',
+      hreflang: '',
+      source: 'head',
+      ...overrides,
+    };
+  }
+
   it('succeeds when there are no canonical links', () => {
     const finalUrl = 'https://example.com/';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: [],
-      Hreflang: [],
+      LinkElements: [],
     };
 
     const context = {computedCache: new Map()};
@@ -34,19 +42,15 @@ describe('SEO: Document has valid canonical link', () => {
 
   it('fails when there are multiple canonical links', () => {
     const finalUrl = 'http://www.example.com/';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [{
-        name: 'Link',
-        value: '<https://example.com>; rel="canonical"',
-      }],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https://www.example.com'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'head', href: 'https://www.example.com'}),
+        link({rel: 'canonical', source: 'headers', href: 'https://example.com'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
@@ -58,61 +62,56 @@ describe('SEO: Document has valid canonical link', () => {
 
   it('fails when canonical url is invalid', () => {
     const finalUrl = 'http://www.example.com';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https:// example.com'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'head', href: null, hrefRaw: 'https:// example.com'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
     return CanonicalAudit.audit(artifacts, context).then(auditResult => {
-      assert.equal(auditResult.rawValue, false);
-      assert.ok(auditResult.explanation.includes('Invalid'), auditResult.explanation);
+      const {rawValue, explanation} = auditResult;
+      assert.equal(rawValue, false);
+      assert.ok(explanation.includes('Invalid') && explanation.includes('https:// '), explanation);
     });
   });
 
   it('fails when canonical url is relative', () => {
     const finalUrl = 'https://example.com/de/';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['/'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'headers', href: 'https://www.example.com', hrefRaw: '/'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
     return CanonicalAudit.audit(artifacts, context).then(auditResult => {
-      assert.equal(auditResult.rawValue, false);
-      assert.ok(auditResult.explanation.includes('Relative'), auditResult.explanation);
+      const {rawValue, explanation} = auditResult;
+      assert.equal(rawValue, false);
+      assert.ok(explanation.includes('Relative') && explanation.includes('/'), explanation);
     });
   });
 
   it('fails when canonical points to a different hreflang', () => {
-    const finalUrl = 'https://example.com';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [{
-        name: 'Link',
-        value: '<https://example.com/>; rel="alternate"; hreflang="xx"',
-      }],
-    };
+    const finalUrl = 'https://example.com/';
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https://example.com/fr/'],
-      Hreflang: [{href: 'https://example.com/fr/'}],
+      LinkElements: [
+        link({rel: 'alternate', source: 'headers', href: 'https://example.com/', hreflang: 'xx'}),
+        link({rel: 'canonical', source: 'head', href: 'https://example.com/fr'}),
+        link({rel: 'alternate', source: 'head', href: 'https://example.com/fr', hreflang: 'fr'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
@@ -124,16 +123,14 @@ describe('SEO: Document has valid canonical link', () => {
 
   it('fails when canonical points to a different domain', () => {
     const finalUrl = 'http://localhost.test';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https://example.com/'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'head', href: 'https://example.com'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
@@ -145,16 +142,14 @@ describe('SEO: Document has valid canonical link', () => {
 
   it('fails when canonical points to the root while current URL is not the root', () => {
     const finalUrl = 'https://example.com/articles/cats-and-you';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https://example.com/'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'head', href: 'https://example.com'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
@@ -166,19 +161,15 @@ describe('SEO: Document has valid canonical link', () => {
 
   it('succeeds when there are multiple identical canonical links', () => {
     const finalUrl = 'http://www.example.com/';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [{
-        name: 'Link',
-        value: '<https://www.example.com>; rel="canonical"',
-      }],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https://www.example.com'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'head', href: 'https://example.com'}),
+        link({rel: 'canonical', source: 'headers', href: 'https://example.com'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
@@ -189,16 +180,14 @@ describe('SEO: Document has valid canonical link', () => {
 
   it('succeeds when valid canonical is provided via meta tag', () => {
     const finalUrl = 'http://example.com/articles/cats-and-you?utm_source=twitter';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [],
-    };
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: ['https://example.com/articles/cats-and-you'],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'head', href: 'https://example.com/articles/cats-and-you'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
@@ -208,20 +197,33 @@ describe('SEO: Document has valid canonical link', () => {
   });
 
   it('succeeds when valid canonical is provided via header', () => {
-    const finalUrl = 'http://example.com/articles/cats-and-you?utm_source=twitter';
-    const mainResource = {
-      url: finalUrl,
-      responseHeaders: [{
-        name: 'Link',
-        value: '<http://example.com/articles/cats-and-you>; rel="canonical"',
-      }],
-    };
+    const finalUrl = 'http://example.com/articles/cats?utm_source=twitter';
+    const mainResource = {url: finalUrl};
     const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
     const artifacts = {
       devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
       URL: {finalUrl},
-      Canonical: [],
-      Hreflang: [],
+      LinkElements: [
+        link({rel: 'canonical', source: 'headers', href: 'https://example.com/articles/cats'}),
+      ],
+    };
+
+    const context = {computedCache: new Map()};
+    return CanonicalAudit.audit(artifacts, context).then(auditResult => {
+      assert.equal(auditResult.rawValue, true);
+    });
+  });
+
+  it('succeeds when invalid canonical is provided in body', () => {
+    const finalUrl = 'http://example.com/articles/cats-and-you?utm_source=twitter';
+    const mainResource = {url: finalUrl};
+    const devtoolsLog = networkRecordsToDevtoolsLog([mainResource]);
+    const artifacts = {
+      devtoolsLogs: {[CanonicalAudit.DEFAULT_PASS]: devtoolsLog},
+      URL: {finalUrl},
+      LinkElements: [
+        link({rel: 'canonical', source: 'body', href: 'https://foo.com'}),
+      ],
     };
 
     const context = {computedCache: new Map()};
