@@ -5,8 +5,8 @@
  */
 'use strict';
 
-const Audit = require('../../../audits/metrics/first-contentful-paint-3g.js');
-const options = Audit.defaultOptions;
+const FCP3G = require('../../../audits/metrics/first-contentful-paint-3g.js');
+const options = FCP3G.defaultOptions;
 
 const pwaTrace = require('../../fixtures/traces/progressive-app-m60.json');
 const pwaDevtoolsLog = require('../../fixtures/traces/progressive-app-m60.devtools.log.json');
@@ -17,14 +17,14 @@ describe('Performance: first-contentful-paint-3g audit', () => {
   it('evaluates valid input correctly', async () => {
     const artifacts = {
       traces: {
-        [Audit.DEFAULT_PASS]: pwaTrace,
+        [FCP3G.DEFAULT_PASS]: pwaTrace,
       },
       devtoolsLogs: {
-        [Audit.DEFAULT_PASS]: pwaDevtoolsLog,
+        [FCP3G.DEFAULT_PASS]: pwaDevtoolsLog,
       },
     };
 
-    const result = await Audit.audit(artifacts, {settings: {}, options, computedCache: new Map()});
+    const result = await FCP3G.audit(artifacts, {settings: {}, options, computedCache: new Map()});
     // Use InlineSnapshot here so changes to Lantern coefficients can be easily updated en masse
     expect({score: result.score, value: Math.round(result.rawValue)}).toMatchInlineSnapshot(`
 Object {
