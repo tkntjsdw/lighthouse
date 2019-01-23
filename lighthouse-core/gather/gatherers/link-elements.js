@@ -6,6 +6,7 @@
 'use strict';
 
 const Gatherer = require('./gatherer.js');
+const URL = require('../../lib/url-shim.js');
 const NetworkAnalyzer = require('../../lib/dependency-graph/simulator/network-analyzer.js');
 const LinkHeader = require('http-link-header');
 const getElementsInDocumentString = require('../../lib/page-functions.js')

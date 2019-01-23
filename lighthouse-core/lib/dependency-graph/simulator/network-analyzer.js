@@ -458,6 +458,7 @@ class NetworkAnalyzer {
 
     const documentRequests = records.filter(record => record.resourceType ===
         NetworkRequest.TYPES.Document);
+    if (!documentRequests.length) throw new Error('Unable to identify the main resource');
     // The main document is the earliest document request, using position in networkRecords array to break ties.
     return documentRequests.reduce((min, r) => (r.startTime < min.startTime ? r : min));
   }
