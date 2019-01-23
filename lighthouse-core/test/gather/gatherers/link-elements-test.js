@@ -30,13 +30,13 @@ describe('Link Elements gatherer', () => {
   function setMainDocumentHeaders(headers) {
     const url = 'https://example.com';
     loadData.networkRecords.push({url, responseHeaders: headers, resourceType: 'Document'});
-    passContext.baseArtifacts.URL.finalUrl = url;
+    passContext.url = url;
   }
 
   beforeEach(() => {
     linkElementsInDOM = [];
     const driver = {evaluateAsync: () => Promise.resolve(linkElementsInDOM)};
-    passContext = {driver, baseArtifacts: {URL: {finalUrl: ''}}};
+    passContext = {driver, url: ''};
     loadData = {networkRecords: [{url: '', responseHeaders: [], resourceType: 'Document'}]};
   });
 

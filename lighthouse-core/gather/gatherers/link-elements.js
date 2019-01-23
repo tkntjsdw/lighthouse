@@ -67,7 +67,7 @@ class LinkElements extends Gatherer {
    * @return {LH.Artifacts['LinkElements']}
    */
   static getLinkElementsInHeaders(passContext, loadData) {
-    const finalUrl = passContext.baseArtifacts.URL.finalUrl;
+    const finalUrl = passContext.url;
     const records = loadData.networkRecords;
     const mainDocument = NetworkAnalyzer.findMainDocument(records, finalUrl);
     if (!mainDocument) return [];
