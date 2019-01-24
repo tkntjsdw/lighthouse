@@ -15,7 +15,7 @@
     "message": "Atrybuty [aria-*] nie pasują do swoich ról"
   },
   "lighthouse-core/audits/accessibility/aria-allowed-attr.js | title": {
-    "message": "Atrybuty [aria-*] odpowiadają ich rolom"
+    "message": "Atrybuty [aria-*] odpowiadają swoim rolom"
   },
   "lighthouse-core/audits/accessibility/aria-required-attr.js | description": {
     "message": "Niektóre role ARIA mają atrybuty wymagane, które opisują stan elementu na potrzeby czytników ekranu. [Więcej informacji](https://dequeuniversity.com/rules/axe/2.2/aria-required-attr?application=lighthouse)."
@@ -309,7 +309,7 @@
     "message": "Elementy <video> zawierają element <track> z atrybutem [kind=\"captions\"]"
   },
   "lighthouse-core/audits/accessibility/video-description.js | description": {
-    "message": "Audiodeskrypcja dostarcza ważne informacje, których nie ma w dialogach – na przykład o wyrazie twarzy i scenach. [Więcej informacji](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
+    "message": "Audiodeskrypcja dostarcza ważnych informacji, których nie ma w dialogach – na przykład o wyrazie twarzy i scenerii. [Więcej informacji](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/video-description.js | failureTitle": {
     "message": "Elementy <video> nie zawierają elementu <track> z atrybutem [kind=\"description\"]."
@@ -597,7 +597,7 @@
     "message": "Elementy poprawnie używają atrybutów"
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupDescription": {
-    "message": "To są możliwości dostosowania treści w taki sposób, by były bardziej przystępne dla użytkowników technologii wspomagających takich jak czytniki ekranu."
+    "message": "To są możliwości dostosowania treści w taki sposób, by były bardziej przystępne dla użytkowników technologii wspomagających, takich jak czytniki ekranu."
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupTitle": {
     "message": "Elementy dobrze opisują treści"
@@ -609,7 +609,7 @@
     "message": "Elementy mają wyróżniające je nazwy"
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupDescription": {
-    "message": "To możliwości ulepszenia interpretacji treści przez użytkowników mających różne ustawienia języka."
+    "message": "To są możliwości ulepszenia interpretacji treści przez użytkowników mających różne ustawienia języka."
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupTitle": {
     "message": "Strona ma prawidłowo określony język"

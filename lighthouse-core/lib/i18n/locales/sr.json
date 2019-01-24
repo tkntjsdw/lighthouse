@@ -87,10 +87,10 @@
     "message": "Када дугме нема назив прилагођен функцији приступачности, читачи екрана га најављују као „дугме“, па корисници који се ослањају на читаче екрана не могу да га користе. [Сазнајте више](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/button-name.js | failureTitle": {
-    "message": "Дугмад немају назив прилагођен функцији приступачности"
+    "message": "Дугмад нема називе прилагођене функцијама приступачности"
   },
   "lighthouse-core/audits/accessibility/button-name.js | title": {
-    "message": "Дугмад имају назив прилагођен функцији приступачности"
+    "message": "Дугмад има називе прилагођене функцијама приступачности"
   },
   "lighthouse-core/audits/accessibility/bypass.js | description": {
     "message": "Када се додају начини за заобилажење, садржај који се понавља омогућава да се корисници тастатуре ефикасније крећу кроз страницу. [Сазнајте више](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
@@ -210,7 +210,7 @@
     "message": "Презентациони елементи „<table>“ избегавају употребу атрибута „<th>“, „<caption>“ или „[summary]“."
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
-    "message": "Текст линка (и алтернативни текст за слике када се користи за линкове) који је препознатљив, јединствен и може да с фокусира олакшава кретање за кориснике читача екрана. [Сазнајте више](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
+    "message": "Текст линка (и алтернативни текст за слике када се користи за линкове) који је препознатљив, јединствен и може да се фокусира олакшава кретање за кориснике читача екрана. [Сазнајте више](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
     "message": "Назив линкова не може да се препозна"
@@ -219,7 +219,7 @@
     "message": "Назив линкова може да се препозна"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
-    "message": "Читачи екрана читају листе на посебан начин. Правилна структура листе омогућава лакши излаз читача екрана. [Сазнајте више](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
+    "message": "Читачи екрана читају листе на посебан начин. Правилна структура листе олакшава разумевање читача екрана. [Сазнајте више](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/list.js | failureTitle": {
     "message": "Листе не садрже искључиво елементе „<li>“ и елементе које подржавају скрипте („<script>“ и „<template>“)."

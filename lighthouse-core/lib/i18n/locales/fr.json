@@ -129,7 +129,7 @@
     "message": "Les éléments de liste de définition sont encapsulés dans des éléments <dl>"
   },
   "lighthouse-core/audits/accessibility/document-title.js | description": {
-    "message": "Le titre donne aux utilisateurs de lecteurs d'écran un aperçu de la page. En outre, les moteurs de recherche s'appuient sur ce dernier pour déterminer la pertinence du contenu proposé. [En savoir plus](https://developers.google.com/web/tools/lighthouse/audits/title)."
+    "message": "Le titre donne aux utilisateurs de lecteurs d'écran un aperçu de la page. En outre, les moteurs de recherche s'appuient principalement sur ce dernier pour déterminer la pertinence du contenu proposé. [En savoir plus](https://developers.google.com/web/tools/lighthouse/audits/title)."
   },
   "lighthouse-core/audits/accessibility/document-title.js | failureTitle": {
     "message": "Le document ne contient pas d'élément <title>"
@@ -174,7 +174,7 @@
     "message": "La valeur de l'attribut [lang] de l'élément <html> est valide"
   },
   "lighthouse-core/audits/accessibility/image-alt.js | description": {
-    "message": "Les éléments informatifs doivent contenir un texte alternatif court et descriptif. L'attribut alt peut rester vide pour les éléments décoratifs. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/image-alt?application=lighthouse)."
+    "message": "Les éléments informatifs doivent contenir un texte de substitution court et descriptif. L'attribut alt peut rester vide pour les éléments décoratifs. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/image-alt?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/image-alt.js | failureTitle": {
     "message": "Des éléments d'image n'ont pas d'attribut [alt]"
@@ -183,7 +183,7 @@
     "message": "Les éléments d'image possèdent un attribut [alt]"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | description": {
-    "message": "Lorsqu'une image est utilisée comme bouton <input>, vous pouvez aider les utilisateurs de lecteurs d'écran à comprendre son utilité en ajoutant du texte alternatif. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
+    "message": "Lorsqu'une image est utilisée comme bouton <input>, vous pouvez aider les utilisateurs de lecteurs d'écran à comprendre son utilité en ajoutant du texte de substitution. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | failureTitle": {
     "message": "Les éléments <input type=\"image\"> n'ont pas de texte [alt]"
@@ -210,7 +210,7 @@
     "message": "Les éléments <table> de type présentation ne font pas appel aux éléments <th> et <caption>, ni à l'attribut [summary]"
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
-    "message": "Rédigez du texte visible et unique pour les liens (et pour le texte alternatif des images, si vous vous en servez dans des liens), afin que les utilisateurs de lecteurs d'écran puissent facilement positionner le curseur dessus et bénéficient d'une meilleure expérience de navigation. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
+    "message": "Rédigez du texte visible et unique pour les liens (et pour le texte de substitution des images, si vous vous en servez dans des liens), afin que les utilisateurs de lecteurs d'écran puissent facilement positionner le curseur dessus et bénéficient d'une meilleure expérience de navigation. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
     "message": "Les liens n'ont pas de nom visible"
@@ -279,7 +279,7 @@
     "message": "Les cellules d'un élément <table> qui utilisent l'attribut [headers] font référence à d'autres cellules du même tableau"
   },
   "lighthouse-core/audits/accessibility/td-headers-attr.js | title": {
-    "message": "Les cellules d'un élément <table> qui utilisent l'attribut [headers] font référence à d'autres cellules dans le même tableau uniquement"
+    "message": "Les cellules d'un élément <table> qui utilisent l'attribut [headers] font uniquement référence à d'autres cellules dans le même tableau"
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | description": {
     "message": "Les lecteurs d'écran proposent des fonctionnalités qui permettent de naviguer plus simplement dans les tableaux. En vous assurant que les en-têtes de tableaux fassent toujours référence à un ensemble de cellules spécifique, vous pourrez améliorer l'expérience des utilisateurs de lecteurs d'écran. [En savoir plus](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
@@ -663,7 +663,7 @@
     "message": "Possibilités d'installation"
   },
   "lighthouse-core/config/default-config.js | pwaOptimizedGroupTitle": {
-    "message": "PWA optimisée"
+    "message": "Optimisation PWA"
   },
   "lighthouse-core/lib/i18n/i18n.js | columnCacheTTL": {
     "message": "Cache de la valeur TTL"

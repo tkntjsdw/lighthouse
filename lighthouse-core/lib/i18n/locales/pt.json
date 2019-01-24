@@ -201,7 +201,7 @@
     "message": "Os elementos de formulário têm etiquetas associadas"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | description": {
-    "message": "Não inclua elementos de dados, como os elementos \"th\" ou \"legenda\", nem o atributo \"resumo\" em uma tabela utilizada para fins de layout, já que isso pode gerar uma experiência confusa para os usuários de leitores de telas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
+    "message": "Não inclua elementos de dados, como os elementos \"th\" ou \"caption\", nem o atributo \"summary\" em uma tabela utilizada para fins de layout, já que isso pode gerar uma experiência confusa para os usuários de leitores de telas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/layout-table.js | failureTitle": {
     "message": "Os elementos `<table>` de apresentação não evitam o uso de `<th>`, `<caption>` ou do atributo `[summary]`."
@@ -624,7 +624,7 @@
     "message": "Veja aqui oportunidades de garantir que seu HTML tenha a estrutura correta."
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupTitle": {
-    "message": "Os elementos estão bem estruturados"
+    "message": "Elementos que estão bem estruturados"
   },
   "lighthouse-core/config/default-config.js | diagnosticsGroupDescription": {
     "message": "Mais informações sobre o desempenho do seu aplicativo."

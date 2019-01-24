@@ -72,7 +72,7 @@
     "message": "Atributi »[aria-*]« so veljavni in niso napačno črkovani"
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | description": {
-    "message": "Podnapisi poskrbijo, da so zvočni elementi uporabni za gluhe ali slušno prizadete, tako da zagotavljajo ključne informacije, na primer kdo govori, kaj govori in druge neverbalne informacije. [Več o tem](https://dequeuniversity.com/rules/axe/2.2/audio-caption?application=lighthouse)."
+    "message": "Podnapisi poskrbijo, da so zvočni elementi uporabni za gluhe ali slušno prizadete tako, da zagotavljajo ključne informacije, na primer, kdo govori, kaj govori in druge neverbalne informacije. [Več o tem](https://dequeuniversity.com/rules/axe/2.2/audio-caption?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | failureTitle": {
     "message": "Elementi »<audio>« nimajo elementa »<track>« s podnapisi »[kind=\"captions\"]«."
@@ -129,7 +129,7 @@
     "message": "Elementi seznamov opredelitev so oviti z elementi »<dl>«"
   },
   "lighthouse-core/audits/accessibility/document-title.js | description": {
-    "message": "Naslov uporabnikom bralnikov zaslona zagotavlja pregled strani, uporabniki iskalnikov pa se nanašajo zanj pri določanju, ali je stran pomembna za njihovo iskanje. [Več o tem](https://developers.google.com/web/tools/lighthouse/audits/title)."
+    "message": "Naslov uporabnikom bralnikov zaslona zagotavlja pregled strani, uporabniki iskalnikov pa se nanašajo nanj pri določanju, ali je stran pomembna za njihovo iskanje. [Več o tem](https://developers.google.com/web/tools/lighthouse/audits/title)."
   },
   "lighthouse-core/audits/accessibility/document-title.js | failureTitle": {
     "message": "Dokument nima elementa »<title>«"
@@ -165,7 +165,7 @@
     "message": "Element »<html>« ima atribut »[lang]«"
   },
   "lighthouse-core/audits/accessibility/html-lang-valid.js | description": {
-    "message": "Če določitev veljaven jezik [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question), pomagate bralnikom zaslona ustrezno predstaviti besedilo. [Več o tem](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)."
+    "message": "Če določite veljaven jezik [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question), pomagate bralnikom zaslona ustrezno predstaviti besedilo. [Več o tem](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/html-lang-valid.js | failureTitle": {
     "message": "Element »<html>« nima veljavne vrednosti za atribut »[lang]«."

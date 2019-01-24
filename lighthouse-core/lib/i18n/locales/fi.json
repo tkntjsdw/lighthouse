@@ -72,7 +72,7 @@
     "message": "[aria-*]-määritteet ovat kelvollisia eivätkä sisällä kirjoitusvirheitä"
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | description": {
-    "message": "Tekstitykset tuovat äänielementit kuurojen tai kuulovammaisten käyttäjien ulottuville kertomalla kuka puhuu tietyllä hetkellä ja mitä hän sanoo sekä antamalla muita ei-puhetietoja. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/audio-caption?application=lighthouse)."
+    "message": "Tekstitykset tekevät äänielementeistä merkittäviä kuuroille tai heikkokuuloisille kertomalla kuka puhuu ja mitä sekä antamalla muita kuin puheeseen liittyviä tietoja. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/audio-caption?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | failureTitle": {
     "message": "<audio>-elementit eivät sisällä <track>-elementtiä, jossa on [kind=\"captions\"]."
@@ -84,7 +84,7 @@
     "message": "Hylätyt elementit"
   },
   "lighthouse-core/audits/accessibility/button-name.js | description": {
-    "message": "Kun painikkeen nimi ei ole esteetön, näytönlukuohjelmat ilmoittavat sen olevan painike, jolloin se ei ole hyödyllinen näytönlukuohjelmia tarvitseville käyttäjille. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
+    "message": "Kun painikkeen nimi ei ole esteetön, näytönlukuohjelmat ilmoittavat sen painikkeeksi, jolloin se on hyödytön näytönlukuohjelmia tarvitseville käyttäjille. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/button-name.js | failureTitle": {
     "message": "Painikkeiden nimet eivät ole esteettömiä"
@@ -93,7 +93,7 @@
     "message": "Painikkeiden nimet ovat esteettömiä"
   },
   "lighthouse-core/audits/accessibility/bypass.js | description": {
-    "message": "Toistuvan sisällön ohittamisvaihtoehtojen lisääminen auttaa näppäimistön käyttäjiä siirtymään sivulla tehokkaammin. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
+    "message": "Tapojen lisääminen toistuvan sisällön ohittamiseen auttaa näppäimistön käyttäjiä siirtymään sivulla tehokkaammin. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/bypass.js | failureTitle": {
     "message": "Sivu ei sisällä otsikkoa, ohituslinkkiä tai maamerkin aluetta"
@@ -102,7 +102,7 @@
     "message": "Sivu sisältää otsikon, ohituslinkin tai maamerkin alueen"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | description": {
-    "message": "Alhaisen kontrastin tekstin lukeminen on monelle käyttäjälle vaikeaa tai mahdotonta. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
+    "message": "Alhaisen kontrastin teksti on monelle vaikea tai mahdoton lukea. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | failureTitle": {
     "message": "Taustan ja etualan värien kontrastisuhde ei ole riittävä."
@@ -111,7 +111,7 @@
     "message": "Taustan ja etualan värien kontrastisuhde on riittävä"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | description": {
-    "message": "Kun määritelmäluetteloita ei ole merkitty kunnolla, näytönlukuohjelmien tuottama sisältö voi olla hämmentävää tai epätarkkaa. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
+    "message": "Kun määritelmäluetteloita ei ole merkitty kunnolla, näytönlukuohjelmien tuottama sisältö voi olla sekavaa tai epätarkkaa. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/definition-list.js | failureTitle": {
     "message": "(<dl>)-elementit eivät sisällä vain oikein järjestettyjä <dt>- ja <dd>-ryhmiä ja <script>- tai <template>-elementtejä."
@@ -129,7 +129,7 @@
     "message": "Määritelmien luettelokohdat on yhdistetty <dl>-elementteihin"
   },
   "lighthouse-core/audits/accessibility/document-title.js | description": {
-    "message": "Näytönlukuohjelman käyttäjät saavat nimen avulla yleiskuvan sivusta. Nimi on välttämätön hakukoneen käyttäjille, kun he selvittävät sivun oleellisuutta heidän haulleen. [Lue lisää](https://developers.google.com/web/tools/lighthouse/audits/title)."
+    "message": "Nimi antaa näytönlukuohjelmaa käyttäville yleiskuvan sivusta, ja hakukoneen käyttäjille nimi on tärkeä oleellisten sivujen löytämiseen hakutuloksista. [Lue lisää](https://developers.google.com/web/tools/lighthouse/audits/title)."
   },
   "lighthouse-core/audits/accessibility/document-title.js | failureTitle": {
     "message": "Dokumentissa ei ole <title>-elementtiä"
@@ -156,7 +156,7 @@
     "message": "<frame>- tai <iframe>-elementeillä on nimi"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "Jos sivulla ei ole kielimääritettä, näytönlukuohjelma olettaa kielen olevan oletuskieli, jonka käyttäjä on valinnut näytönlukuohjelman käyttöönoton yhteydessä. Jos oletuskieli ei ole käytössä sivulla, näytönlukuohjelma ei ehkä ilmoita sivun tekstiä oikein. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
+    "message": "Jos sivulla ei ole kielimääritettä, näytönlukuohjelma arvioi kieleksi oletuskielen, jonka käyttäjä valitsi ottaessaan näytönlukuohjelman käyttöön. Jos oletuskieli ei ole käytössä sivulla, näytönlukuohjelma voi ilmoittaa sivun tekstin väärin. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
     "message": "<html>-elementissä ei ole [lang]-määritettä"
@@ -183,7 +183,7 @@
     "message": "Kuvaelementeillä on [alt]-määritteet"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | description": {
-    "message": "Kun kuvaa käytetään <input>-painikkeena, vaihtoehtoisen tekstin lisääminen voi auttaa näytönlukuohjelman käyttäjiä ymmärtämään painikkeen tarkoituksen. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
+    "message": "Kun <input>-painikkeena käytetään kuvaa, vaihtoehtoisen tekstin lisääminen voi auttaa näytönlukuohjelman käyttäjiä ymmärtämään painikkeen tarkoituksen. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | failureTitle": {
     "message": "<input type=\"image\">-elementeillä ei ole [alt]-tekstiä"
@@ -201,7 +201,7 @@
     "message": "Lomake-elementeillä on niihin liittyvät tunnisteet"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | description": {
-    "message": "Asettelua varten luodussa taulukossa ei pitäisi olla dataelementtejä, kuten taulukoiden otsikko ‑elementtejä, tekstityselementtejä tai yhteenvetomääritteitä, koska ne voivat tehdä käyttökokemuksesta hämmentävää näytönlukuohjelman käyttäjille. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
+    "message": "Asettelua varten luodussa taulukossa ei pitäisi olla dataelementtejä, kuten taulukoiden otsikko ‑elementtejä, tekstityselementtejä tai yhteenvetomääritteitä, koska ne voivat tehdä näytönlukuohjelman käytöstä sekavaa. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/layout-table.js | failureTitle": {
     "message": "Esittelyyn tarkoitetut <table>-elementit eivät vältä <th>- tai <caption>-elementtien tai [summary]-määritteiden käyttöä."
@@ -210,7 +210,7 @@
     "message": "Esittelyyn tarkoitetut <table>-elementit välttävät <th>- tai <caption>-elementtien tai [summary]-määritteiden käyttöä."
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
-    "message": "Linkkiteksti (ja vaihtoehtoinen teksti kuvia varten, kun niitä käytetään linkkeinä), joka on erottuva, yksilöllinen ja tarkennettavissa, parantaa näytönlukuohjelman käyttäjien navigointikokemusta. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
+    "message": "Linkkiteksti (ja vaihtoehtoinen teksti kuvia varten, kun niitä käytetään linkkeinä), joka on erottuva, yksilöllinen ja tarkennettavissa, parantaa näytönlukuohjelmaa käyttävien navigointikokemusta. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
     "message": "Linkkien nimet eivät ole helposti erottuvia"
@@ -237,7 +237,7 @@
     "message": "Luettelokohdat (<li>) sisältyvät ylätason elementteihin <ul> tai <ol>"
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | description": {
-    "message": "Käyttäjät eivät odota sivun päivittyvän automaattisesti. Automaattinen päivitys myös siirtäisi kohdistuksen takaisin sivun yläreunaan. Tämä voi tehdä käyttökokemuksesta turhauttavan tai hämmentävän. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)."
+    "message": "Käyttäjät eivät odota sivun päivittyvän automaattisesti, ja päivittäminen siirtää kohdistuksen takaisin sivun yläreunaan. Tämä voi tehdä käytöstä turhauttavaa tai sekavaa. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | failureTitle": {
     "message": "Dokumentissa on käytössä <meta http-equiv=\"refresh\">"
@@ -246,7 +246,7 @@
     "message": "<meta http-equiv=\"refresh\"> ei ole käytössä dokumentissa"
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | description": {
-    "message": "Zoomauksen poistaminen käytöstä on ongelmallista heikkonäköisille käyttäjille, joille näytön suurennuksen käyttö on välttämätöntä, jotta he näkevät verkkosivun sisällön kunnolla. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
+    "message": "Zoomauksen poistaminen käytöstä aiheuttaa ongelmia heikkonäköisille käyttäjille, jotka tarvitsevat näytön suurennusta nähdäkseen verkkosivun sisällön kunnolla. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | failureTitle": {
     "message": "[user-scalable=\"no\"] on käytössä elementissä <meta name=\"viewport\"> tai [maximum-scale]-määrite on pienempi kuin 5."
@@ -264,7 +264,7 @@
     "message": "<object>-elementeillä on [alt]-tekstit"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | description": {
-    "message": "Navigointijärjestys on eksplisiittinen, jos arvo on suurempi kuin 0. Vaikka ratkaisu on teknisesti hyväksyttävä, se aiheuttaa usein turhauttavia kokemuksia niille käyttäjille, joille avustustekniikat ovat välttämättömiä. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
+    "message": "Navigointijärjestys on eksplisiittinen, jos arvo on suurempi kuin 0. Vaikka ratkaisu on teknisesti käypä, se tekee usein kokemuksesta turhauttavaa avustustekniikkaa tarvitseville käyttäjille. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/tabindex.js | failureTitle": {
     "message": "Joidenkin elementtien [tabindex]-arvo on suurempi kuin 0"
@@ -282,7 +282,7 @@
     "message": "[headers]-määritettä käyttävät <table>-elementin solut viittaavat vain toisiin soluihin samassa taulukossa."
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | description": {
-    "message": "Näytönlukuohjelmissa on ominaisuuksia, jotka tekevät taulukoissa siirtymisestä helpompaa. Voit parantaa näytönlukuohjelman käyttäjien kokemusta varmistamalla, että taulukoiden otsikot viittaavat aina johonkin solujoukkoon. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
+    "message": "Näytönlukuohjelmissa on ominaisuuksia, jotka tekevät taulukoissa siirtymisestä helpompaa. Voit parantaa näytönlukuohjelmaa käyttävien kokemusta varmistamalla, että taulukoiden otsikot viittaavat aina johonkin solujoukkoon. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | failureTitle": {
     "message": "(<th>)-elementit ja elementit, joissa on [role=\"columnheader\"/\"rowheader\"], eivät sisällä niissä kuvattuja datasoluja"
@@ -300,7 +300,7 @@
     "message": "[lang]-määritteiden arvot ovat kelvollisia"
   },
   "lighthouse-core/audits/accessibility/video-caption.js | description": {
-    "message": "Kun videossa on tekstitykset, kuurojen ja kuulovammaisten käyttäjien on helpompi hyödyntää videon tietoja. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/video-caption?application=lighthouse)."
+    "message": "Kun videossa on tekstitykset, kuurot ja heikkokuuloiset saavat videon tiedot paremmin. [Lue lisää](https://dequeuniversity.com/rules/axe/2.2/video-caption?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/video-caption.js | failureTitle": {
     "message": "<video>-elementit eivät sisällä <track>-elementtiä, jossa on [kind=\"captions\"]."
@@ -579,49 +579,49 @@
     "message": "Lataa tärkeät pyynnöt etukäteen"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia parantaa ARIA:n käyttöä sovelluksessasi, mikä voi parantaa avustusteknologian (kuten näytönlukuohjelman) käyttäjien kokemusta."
+    "message": "Näillä voit parantaa ARIA:n käyttöä sovelluksessasi, mikä voi tehdä avustusteknologiaa (kuten näytönlukuohjelmaa) käyttävien kokemuksesta paremman."
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
     "message": "ARIA-määritteet noudattavat parhaita käytäntöjä"
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia parantaa sisältösi luettavuutta."
+    "message": "Näillä voit parantaa sisältösi luettavuutta."
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupTitle": {
     "message": "Värikontrasti on riittävä"
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia parantaa HTML-elementtien konfiguraatiota."
+    "message": "Näillä voit parantaa HTML-elementtien konfiguraatiota."
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupTitle": {
     "message": "Elementit käyttävät määritteitä oikein"
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia parantaa sisältösi ymmärrettävyyttä avustusteknologian (kuten näytönlukuohjelman) käyttäjille."
+    "message": "Näillä voit parantaa sisältösi ymmärrettävyyttä avustusteknologiaa (kuten näytönlukuohjelmaa) käyttäville."
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupTitle": {
     "message": "Elementit kuvaavat sisältöä hyvin"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupDescription": {
-    "message": "Näillä voit parantaa sovelluksen ohjainten semantiikkaa. Tämä voi parantaa avustusteknologian (kuten näytönlukuohjelman) käyttäjien kokemusta."
+    "message": "Näillä voit parantaa sovelluksen ohjainten semantiikkaa. Tämä voi parantaa avustusteknologiaa (kuten näytönlukuohjelmaa) käyttävien kokemusta."
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupTitle": {
     "message": "Elementeillä on helposti erottuvat nimet"
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia parantaa tulkintoja, joita eri alueiden käyttäjät tekevät sisällöstäsi."
+    "message": "Näillä voit parantaa tulkintoja, joita eri alueiden käyttäjät tekevät sisällöstäsi."
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupTitle": {
     "message": "Sivulla määritetään kelvollinen kieli"
   },
   "lighthouse-core/config/default-config.js | a11yMetaGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia parantaa sivustosi käyttökokemusta"
+    "message": "Näillä voit parantaa sivustosi käyttökokemusta."
   },
   "lighthouse-core/config/default-config.js | a11yMetaGroupTitle": {
     "message": "Sisällönkuvauskenttiä käytetään oikein"
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupDescription": {
-    "message": "Nämä ovat mahdollisuuksia varmistaa, että HTML:llä on sopiva rakenne."
+    "message": "Näillä voit varmistaa, että HTML:llä on sopiva rakenne."
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupTitle": {
     "message": "Elementeillä on hyvä rakenne"
@@ -705,7 +705,7 @@
     "message": "DNS-palvelimet eivät voineet ratkaista verkkotunnusta."
   },
   "lighthouse-core/lib/lh-error.js | internalChromeError": {
-    "message": "Tapahtui sisäinen Chrome-virhe. Käynnistä Chrome uudelleen ja suorita sitten Lighthouse uudelleen."
+    "message": "Tapahtui sisäinen Chrome-virhe. Käynnistä Chrome uudelleen ja yritä suorittaa Lighthouse sen jälkeen."
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailed": {
     "message": "Lighthouse ei pystynyt lataamaan pyytämääsi sivua luotettavasti. Varmista, että testaat oikeaa URL-osoitetta ja että palvelin vastaa kunnolla kaikkiin pyyntöihin."
@@ -723,7 +723,7 @@
     "message": "Lighthouse ei pystynyt lataamaan pyytämääsi sivua luotettavasti. Varmista, että testaat oikeaa URL-osoitetta ja että palvelin vastaa kunnolla kaikkiin pyyntöihin. (Tilakoodi: {statusCode})"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadTookTooLong": {
-    "message": "Sivun lataaminen kesti liian kauan. Lyhennä sivun latausaikaa raportin ehdotusten mukaisesti ja suorita sitten Lighthouse uudelleen. ({errorCode})"
+    "message": "Sivun lataaminen kesti liian kauan. Lyhennä sivun latausaikaa raportin ehdotusten mukaisesti ja yritä suorittaa Lighthouse sen jälkeen. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | protocolTimeout": {
     "message": "DevTools-protokollan vastauksen odotus on ylittänyt sille lasketun ajan. (Tapa: {protocolMethod})"
@@ -732,7 +732,7 @@
     "message": "Resurssisisällön hakeminen on ylittänyt sille varatun ajan"
   },
   "lighthouse-core/lib/lh-error.js | urlInvalid": {
-    "message": "Kirjoittamasi URL-osoite vaikuttaa virheelliseltä."
+    "message": "Kirjoittamasi URL-osoite näyttää olevan virheellinen."
   },
   "lighthouse-core/report/html/renderer/util.js | auditGroupExpandTooltip": {
     "message": "Näytä tarkastukset"

@@ -1,321 +1,321 @@
 {
   "lighthouse-core/audits/accessibility/accesskeys.js | description": {
-    "message": "Access keys let users quickly focus a part of the page. For proper navigation, each access key must be unique. [Learn more](https://dequeuniversity.com/rules/axe/2.2/accesskeys?application=lighthouse)."
+    "message": "액세스 키를 사용하면 사용자가 페이지의 특정 부분에 신속하게 초점을 맞출 수 있습니다. 적절한 탐색이 이루어지려면 모든 액세스 키가 고유해야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/accesskeys?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/accesskeys.js | failureTitle": {
-    "message": "`[accesskey]` values are not unique"
+    "message": "`[accesskey]` 값이 고유하지 않습니다"
   },
   "lighthouse-core/audits/accessibility/accesskeys.js | title": {
-    "message": "`[accesskey]` values are unique"
+    "message": "`[accesskey]` 값이 고유합니다"
   },
   "lighthouse-core/audits/accessibility/aria-allowed-attr.js | description": {
-    "message": "Each ARIA `role` supports a specific subset of `aria-*` attributes. Mismatching these invalidates the `aria-*` attributes. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-allowed-attr?application=lighthouse)."
+    "message": "각각의 ARIA `role`은 `aria-*` 속성으로 구성된 특정 하위 세트를 지원합니다. 이 두 가지가 일치하지 않으면 `aria-*` 속성이 유효하지 않게 됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-allowed-attr?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-allowed-attr.js | failureTitle": {
-    "message": "`[aria-*]` attributes do not match their roles"
+    "message": "`[aria-*]` 속성이 역할과 일치하지 않습니다"
   },
   "lighthouse-core/audits/accessibility/aria-allowed-attr.js | title": {
-    "message": "`[aria-*]` attributes match their roles"
+    "message": "`[aria-*]` 속성이 역할과 일치합니다"
   },
   "lighthouse-core/audits/accessibility/aria-required-attr.js | description": {
-    "message": "Some ARIA roles have required attributes that describe the state of the element to screen readers. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-required-attr?application=lighthouse)."
+    "message": "일부 ARIA 역할에는 스크린 리더에 대한 요소의 상태를 설명하는 속성이 필요합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-required-attr?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-required-attr.js | failureTitle": {
-    "message": "`[role]`s do not have all required `[aria-*]` attributes"
+    "message": "`[role]`에 필요한 모든 `[aria-*]` 속성이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/aria-required-attr.js | title": {
-    "message": "`[role]`s have all required `[aria-*]` attributes"
+    "message": "`[role]`에 모든 필수 `[aria-*]` 속성이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | description": {
-    "message": "Some ARIA parent roles must contain specific child roles to perform their intended accessibility functions. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)."
+    "message": "일부 ARIA 상위 역할이 의도한 접근성 기능을 실행하려면 특정 하위 역할을 포함하고 있어야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | failureTitle": {
-    "message": "Elements with `[role]` that require specific children `[role]`s, are missing."
+    "message": "특정 하위 `[role]`이 필요한 요소에 `[role]`이 누락되었습니다"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | title": {
-    "message": "Elements with `[role]` that require specific children `[role]`s, are present"
+    "message": "특정 하위 `[role]`이 필요한 요소에 `[role]`이 있습니다"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | description": {
-    "message": "Some ARIA child roles must be contained by specific parent roles to properly perform their intended accessibility functions. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
+    "message": "일부 ARIA 하위 역할이 의도한 접근성 기능을 적절하게 실행하려면 특정 상위 역할에 포함되어 있어야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | failureTitle": {
-    "message": "`[role]`s are not contained by their required parent element"
+    "message": "필수 상위 요소에 `[role]`이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | title": {
-    "message": "`[role]`s are contained by their required parent element"
+    "message": "`[role]`은 필수 상위 요소에 포함됩니다"
   },
   "lighthouse-core/audits/accessibility/aria-roles.js | description": {
-    "message": "ARIA roles must have valid values in order to perform their intended accessibility functions. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-roles?application=lighthouse)."
+    "message": "ARIA 역할이 의도한 접근성 기능을 실행하려면 유효한 값을 포함하고 있어야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-roles?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-roles.js | failureTitle": {
-    "message": "`[role]` values are not valid"
+    "message": "`[role]` 값이 유효하지 않습니다"
   },
   "lighthouse-core/audits/accessibility/aria-roles.js | title": {
-    "message": "`[role]` values are valid"
+    "message": "`[role]` 값이 유효합니다"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr-value.js | description": {
-    "message": "Assistive technologies, like screen readers, can't interpret ARIA attributes with invalid values. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse)."
+    "message": "스크린 리더와 같은 지원 기술은 잘못된 값이 있는 ARIA 속성을 해석하지 못합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr-value.js | failureTitle": {
-    "message": "`[aria-*]` attributes do not have valid values"
+    "message": "`[aria-*]` 속성에 유효한 값이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr-value.js | title": {
-    "message": "`[aria-*]` attributes have valid values"
+    "message": "`[aria-*]` 속성에 유효한 값이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | description": {
-    "message": "Assistive technologies, like screen readers, can't interpret ARIA attributes with invalid names. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr?application=lighthouse)."
+    "message": "스크린 리더와 같은 지원 기술은 잘못된 이름이 있는 ARIA 속성을 해석하지 못합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | failureTitle": {
-    "message": "`[aria-*]` attributes are not valid or misspelled"
+    "message": "`[aria-*]` 속성이 잘못되었거나 철자가 틀렸습니다"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | title": {
-    "message": "`[aria-*]` attributes are valid and not misspelled"
+    "message": "`[aria-*]` 속성이 유효하며 철자가 틀리지 않았습니다"
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | description": {
-    "message": "Captions make audio elements usable for deaf or hearing-impaired users, providing critical information such as who is talking, what they're saying, and other non-speech information. [Learn more](https://dequeuniversity.com/rules/axe/2.2/audio-caption?application=lighthouse)."
+    "message": "캡션이 있으면 청각장애인이나 청각에 문제가 있는 사용자도 오디오 요소를 사용할 수 있게 되며 말하고 있는 사람, 말하는 내용, 기타 비음성적 정보와 같은 중요 정보가 제공됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/audio-caption?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | failureTitle": {
-    "message": "`<audio>` elements are missing a `<track>` element with `[kind=\"captions\"]`."
+    "message": "`<audio>` 요소에 `[kind=\"captions\"]`가 있는 `<track>` 요소가 누락되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/audio-caption.js | title": {
-    "message": "`<audio>` elements contain a `<track>` element with `[kind=\"captions\"]`"
+    "message": "`<audio>` 요소에 `[kind=\"captions\"]`가 있는 `<track>` 요소가 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/axe-audit.js | failingElementsHeader": {
-    "message": "Failing Elements"
+    "message": "실패한 요소"
   },
   "lighthouse-core/audits/accessibility/button-name.js | description": {
-    "message": "When a button doesn't have an accessible name, screen readers announce it as \"button\", making it unusable for users who rely on screen readers. [Learn more](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
+    "message": "버튼에 접근 가능한 이름이 없는 경우 스크린 리더가 해당 버튼을 '버튼'이라고 읽기 때문에 스크린 리더에 의존하는 사용자에게 쓸모없게 됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/button-name.js | failureTitle": {
-    "message": "Buttons do not have an accessible name"
+    "message": "버튼에 접근 가능한 이름이 없습니다"
   },
   "lighthouse-core/audits/accessibility/button-name.js | title": {
-    "message": "Buttons have an accessible name"
+    "message": "버튼에 접근 가능한 이름이 있습니다"
   },
   "lighthouse-core/audits/accessibility/bypass.js | description": {
-    "message": "Adding ways to bypass repetitive content lets keyboard users navigate the page more efficiently. [Learn more](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
+    "message": "반복적인 콘텐츠를 건너뛸 수 있는 방법을 추가하면 키보드 사용자가 페이지를 좀 더 효율적으로 탐색할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/bypass.js | failureTitle": {
-    "message": "The page does not contain a heading, skip link, or landmark region"
+    "message": "페이지에 제목, 링크 건너뛰기, 랜드마크 영역이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/bypass.js | title": {
-    "message": "The page contains a heading, skip link, or landmark region"
+    "message": "페이지에 제목, 링크 건너뛰기, 랜드마크 영역이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | description": {
-    "message": "Low-contrast text is difficult or impossible for many users to read. [Learn more](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
+    "message": "많은 사용자가 저대비 텍스트를 읽는 데 어려움을 겪거나 전혀 읽지 못합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | failureTitle": {
-    "message": "Background and foreground colors do not have a sufficient contrast ratio."
+    "message": "백그라운드 및 포그라운드 색상의 대비율이 충분하지 않습니다"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | title": {
-    "message": "Background and foreground colors have a sufficient contrast ratio"
+    "message": "백그라운드 및 포그라운드 색상의 대비율이 충분합니다"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | description": {
-    "message": "When definition lists are not properly marked up, screen readers may produce confusing or inaccurate output. [Learn more](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
+    "message": "정의 목록이 적절하게 표시되지 않으면 스크린 리더가 혼란스럽거나 정확하지 않은 내용을 말할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | failureTitle": {
-    "message": "`<dl>`'s do not contain only properly-ordered `<dt>` and `<dd>` groups, `<script>` or `<template>` elements."
+    "message": "`<dl>`에 순서가 올바른 `<dt>` 및 `<dd>` 그룹, `<script>` 또는 `<template>` 요소만 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | title": {
-    "message": "`<dl>`'s contain only properly-ordered `<dt>` and `<dd>` groups, `<script>` or `<template>` elements."
+    "message": "`<dl>`이 순서가 올바른 `<dt>` 및 `<dd>` 그룹, `<script>` 또는 `<template>` 요소만 포함합니다"
   },
   "lighthouse-core/audits/accessibility/dlitem.js | description": {
-    "message": "Definition list items (`<dt>` and `<dd>`) must be wrapped in a parent `<dl>` element to ensure that screen readers can properly announce them. [Learn more](https://dequeuniversity.com/rules/axe/2.2/dlitem?application=lighthouse)."
+    "message": "스크린 리더가 정의 목록 항목(`<dt>` 및 `<dd>`)을 적절하게 읽으려면 정의 목록 항목이 상위 `<dl>` 요소에 래핑되어 있어야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/dlitem?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/dlitem.js | failureTitle": {
-    "message": "Definition list items are not wrapped in `<dl>` elements"
+    "message": "정의 목록 항목이 `<dl>` 요소에 래핑되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/dlitem.js | title": {
-    "message": "Definition list items are wrapped in `<dl>` elements"
+    "message": "정의 목록 항목이 `<dl>` 요소에 래핑되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/document-title.js | description": {
-    "message": "The title gives screen reader users an overview of the page, and search engine users rely on it heavily to determine if a page is relevant to their search. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/title)."
+    "message": "제목을 사용하면 스크린 리더 사용자에게는 페이지의 개요를 제공할 수 있으며 검색엔진 사용자는 페이지가 자신의 검색어와 관련되어 있는지 판단하기 위해 제목에 크게 의존합니다. [자세히 알아보기](https://developers.google.com/web/tools/lighthouse/audits/title)"
   },
   "lighthouse-core/audits/accessibility/document-title.js | failureTitle": {
-    "message": "Document doesn't have a `<title>` element"
+    "message": "문서에 `<title>` 요소가 없습니다"
   },
   "lighthouse-core/audits/accessibility/document-title.js | title": {
-    "message": "Document has a `<title>` element"
+    "message": "문서에 `<title>` 요소가 있습니다"
   },
   "lighthouse-core/audits/accessibility/duplicate-id.js | description": {
-    "message": "The value of an id attribute must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/2.2/duplicate-id?application=lighthouse)."
+    "message": "지원 기술에서 다른 인스턴스를 간과하여 넘어가는 일을 방지하려면 ID 속성값이 고유해야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/duplicate-id?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/duplicate-id.js | failureTitle": {
-    "message": "`[id]` attributes on the page are not unique"
+    "message": "페이지에 있는 `[id]` 속성이 고유하지 않습니다"
   },
   "lighthouse-core/audits/accessibility/duplicate-id.js | title": {
-    "message": "`[id]` attributes on the page are unique"
+    "message": "페이지에 있는 `[id]` 속성이 고유합니다"
   },
   "lighthouse-core/audits/accessibility/frame-title.js | description": {
-    "message": "Screen reader users rely on frame titles to describe the contents of frames. [Learn more](https://dequeuniversity.com/rules/axe/2.2/frame-title?application=lighthouse)."
+    "message": "스크린 리더 사용자는 프레임 콘텐츠를 설명해 주는 프레임 제목을 사용합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/frame-title?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/frame-title.js | failureTitle": {
-    "message": "`<frame>` or `<iframe>` elements do not have a title"
+    "message": "`<frame>` 또는 `<iframe>` 요소에 제목이 없습니다"
   },
   "lighthouse-core/audits/accessibility/frame-title.js | title": {
-    "message": "`<frame>` or `<iframe>` elements have a title"
+    "message": "`<frame>` 또는 `<iframe>` 요소에 제목이 있습니다"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "If a page doesn't specify a lang attribute, a screen reader assumes that the page is in the default language that the user chose when setting up the screen reader. If the page isn't actually in the default language, then the screen reader might not announce the page's text correctly. [Learn more](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
+    "message": "페이지에서 lang 속성을 지정하지 않는 경우 스크린 리더는 사용자가 스크린 리더를 설정할 때 선택한 기본 언어로 페이지가 작성되어 있다고 가정합니다. 페이지가 기본 언어로 작성되어 있지 않으면 스크린 리더가 페이지에 있는 텍스트를 제대로 읽어줄 수 없습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
-    "message": "`<html>` element does not have a `[lang]` attribute"
+    "message": "`<html>` 요소에 `[lang]` 속성이 없습니다"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | title": {
-    "message": "`<html>` element has a `[lang]` attribute"
+    "message": "`<html>` 요소에 `[lang]` 속성이 있습니다"
   },
   "lighthouse-core/audits/accessibility/html-lang-valid.js | description": {
-    "message": "Specifying a valid [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question) helps screen readers announce text properly. [Learn more](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)."
+    "message": "유효한 [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question)를 지정하면 스크린 리더가 텍스트를 올바르게 읽는 데 도움이 됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/html-lang-valid.js | failureTitle": {
-    "message": "`<html>` element does not have a valid value for its `[lang]` attribute."
+    "message": "`<html>` 요소에 `[lang]` 속성에 맞는 유효한 값이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/html-lang-valid.js | title": {
-    "message": "`<html>` element has a valid value for its `[lang]` attribute"
+    "message": "`<html>` 요소에 `[lang]` 속성에 맞는 유효한 값이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/image-alt.js | description": {
-    "message": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more](https://dequeuniversity.com/rules/axe/2.2/image-alt?application=lighthouse)."
+    "message": "정보 요소는 짧아야 하며 설명을 제공하는 대체 텍스트를 목표로 해야 합니다. 장식 요소는 alt 속성이 비어 있는 경우 무시될 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/image-alt?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/image-alt.js | failureTitle": {
-    "message": "Image elements do not have `[alt]` attributes"
+    "message": "이미지 요소에 `[alt]` 속성이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/image-alt.js | title": {
-    "message": "Image elements have `[alt]` attributes"
+    "message": "이미지 요소에 `[alt]` 속성이 있습니다"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | description": {
-    "message": "When an image is being used as an `<input>` button, providing alternative text can help screen reader users understand the purpose of the button. [Learn more](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
+    "message": "이미지가 `<input>` 버튼으로 사용되는 경우 대체 텍스트를 제공하면 스크린 리더 사용자가 버튼의 목적을 쉽게 이해할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | failureTitle": {
-    "message": "`<input type=\"image\">` elements do not have `[alt]` text"
+    "message": "`<input type=\"image\">` 요소에 `[alt]` 텍스트가 없습니다"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | title": {
-    "message": "`<input type=\"image\">` elements have `[alt]` text"
+    "message": "`<input type=\"image\">` 요소에 `[alt]` 텍스트가 있습니다"
   },
   "lighthouse-core/audits/accessibility/label.js | description": {
-    "message": "Labels ensure that form controls are announced properly by assistive technologies, like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/2.2/label?application=lighthouse)."
+    "message": "라벨을 사용하면 스크린 리더와 같은 지원 기술이 양식 컨트롤을 적절하게 읽을 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/label?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/label.js | failureTitle": {
-    "message": "Form elements do not have associated labels"
+    "message": "양식 요소에 관련 라벨이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/label.js | title": {
-    "message": "Form elements have associated labels"
+    "message": "양식 요소에 관련 라벨이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | description": {
-    "message": "A table being used for layout purposes should not include data elements, such as the th or caption elements or the summary attribute, because this can create a confusing experience for screen reader users. [Learn more](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
+    "message": "스크린 리더 사용자에게 혼란스러운 환경이 발생될 수 있으므로 레이아웃 용도로 사용되는 표에는 th 또는 caption 요소와 같은 데이터 요소나 summary 속성이 포함되지 않아야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | failureTitle": {
-    "message": "Presentational `<table>` elements do not avoid using `<th>`, `<caption>` or the `[summary]` attribute."
+    "message": "프레젠테이션과 관련된 `<table>` 요소가 `<th>`, `<caption>` 또는 `[summary]` 속성 사용을 방지하지 않습니다"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | title": {
-    "message": "Presentational `<table>` elements avoid using `<th>`, `<caption>` or the `[summary]` attribute."
+    "message": "프레젠테이션과 관련된 `<table>` 요소가 `<th>`, `<caption>` 또는 `[summary]` 속성 사용을 방지합니다"
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
-    "message": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
+    "message": "인식하기 쉽고, 고유하고, 초점을 맞추기 쉬운 링크 텍스트(및 이미지가 링크로 사용되는 경우 이미지의 대체 텍스트)를 사용하면 스크린 리더 사용자의 탐색 환경을 개선할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
-    "message": "Links do not have a discernible name"
+    "message": "링크에 인식 가능한 이름이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/link-name.js | title": {
-    "message": "Links have a discernible name"
+    "message": "링크에 인식 가능한 이름이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
-    "message": "Screen readers have a specific way of announcing lists. Ensuring proper list structure aids screen reader output. [Learn more](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
+    "message": "스크린 리더에는 목록을 읽는 특정 방식이 있습니다. 목록 구조를 적절히 작성하면 스크린 리더 출력에 도움이 됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/list.js | failureTitle": {
-    "message": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`)."
+    "message": "목록에 `<li>` 요소 및 스크립트 지원 요소(`<script>` 및 `<template>`)만 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/list.js | title": {
-    "message": "Lists contain only `<li>` elements and script supporting elements (`<script>` and `<template>`)."
+    "message": "목록에 `<li>` 요소 및 스크립트 지원 요소(`<script>` 및 `<template>`)만 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/listitem.js | description": {
-    "message": "Screen readers require list items (`<li>`) to be contained within a parent `<ul>` or `<ol>` to be announced properly. [Learn more](https://dequeuniversity.com/rules/axe/2.2/listitem?application=lighthouse)."
+    "message": "스크린 리더가 목록 항목(`<li>`)을 적절하게 읽으려면 목록 항목이 상위 `<ul>` 또는 `<ol>`에 포함되어 있어야 합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/listitem?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/listitem.js | failureTitle": {
-    "message": "List items (`<li>`) are not contained within `<ul>` or `<ol>` parent elements."
+    "message": "목록 항목(`<li>`)이 `<ul>`또는 `<ol>` 상위 요소에 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/listitem.js | title": {
-    "message": "List items (`<li>`) are contained within `<ul>` or `<ol>` parent elements"
+    "message": "목록 항목(`<li>`)이 `<ul>` 또는 `<ol>` 상위 요소에 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | description": {
-    "message": "Users do not expect a page to refresh automatically, and doing so will move focus back to the top of the page. This may create a frustrating or confusing experience. [Learn more](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)."
+    "message": "사용자는 페이지가 자동으로 새로고침된다고 예상하지 못하기 때문에 페이지가 자동으로 새로고침되면 초점이 다시 페이지 상단에 맞춰집니다. 이로 인해 불쾌하거나 혼란스러운 상황이 발생할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | failureTitle": {
-    "message": "The document uses `<meta http-equiv=\"refresh\">`"
+    "message": "문서에 `<meta http-equiv=\"refresh\">` 태그가 사용됩니다"
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | title": {
-    "message": "The document does not use `<meta http-equiv=\"refresh\">`"
+    "message": "문서에 `<meta http-equiv=\"refresh\">`가 사용되지 않습니다"
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | description": {
-    "message": "Disabling zooming is problematic for users with low vision who rely on screen magnification to properly see the contents of a web page. [Learn more](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
+    "message": "확대/축소를 사용 중지하면 저시력으로 인해 웹페이지의 콘텐츠를 제대로 확인하기 위해 화면 확대를 사용하는 사용자에게 문제가 될 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | failureTitle": {
-    "message": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5."
+    "message": "`<meta name=\"viewport\">` 요소에 `[user-scalable=\"no\"]`가 사용되거나 `[maximum-scale]` 속성이 5보다 작습니다"
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | title": {
-    "message": "`[user-scalable=\"no\"]` is not used in the `<meta name=\"viewport\">` element and the `[maximum-scale]` attribute is not less than 5."
+    "message": "`<meta name=\"viewport\">` 요소에 `[user-scalable=\"no\"]`가 사용되어 있지 않으며 `[maximum-scale]` 속성이 5 미만이 아닙니다"
   },
   "lighthouse-core/audits/accessibility/object-alt.js | description": {
-    "message": "Screen readers cannot translate non-text content. Adding alt text to `<object>` elements helps screen readers convey meaning to users. [Learn more](https://dequeuniversity.com/rules/axe/2.2/object-alt?application=lighthouse)."
+    "message": "스크린 리더는 텍스트가 아닌 콘텐츠를 번역할 수 없습니다. `<object>` 요소에 alt 텍스트를 추가하면 스크린 리더가 사용자에게 의미를 전달하는 데 도움이 됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/object-alt?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/object-alt.js | failureTitle": {
-    "message": "`<object>` elements do not have `[alt]` text"
+    "message": "`<object>` 요소에 `[alt]` 텍스트가 없습니다"
   },
   "lighthouse-core/audits/accessibility/object-alt.js | title": {
-    "message": "`<object>` elements have `[alt]` text"
+    "message": "`<object>` 요소에 `[alt]` 텍스트가 있습니다"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | description": {
-    "message": "A value greater than 0 implies an explicit navigation ordering. Although technically valid, this often creates frustrating experiences for users who rely on assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
+    "message": "0보다 큰 값은 명시적인 탐색 순서를 의미합니다. 기술적으로는 유효하나 지원 기술에 의존하는 사용자에게 불편한 환경이 발생되는 경우가 많습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | failureTitle": {
-    "message": "Some elements have a `[tabindex]` value greater than 0"
+    "message": "일부 요소에 0보다 큰 `[tabindex]` 값이 있습니다"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | title": {
-    "message": "No element has a `[tabindex]` value greater than 0"
+    "message": "요소에 0보다 큰 `[tabindex]` 값이 없습니다"
   },
   "lighthouse-core/audits/accessibility/td-headers-attr.js | description": {
-    "message": "Screen readers have features to make navigating tables easier. Ensuring `<td>` cells using the `[headers]` attribute only refer to other cells in the same table may improve the experience for screen reader users. [Learn more](https://dequeuniversity.com/rules/axe/2.2/td-headers-attr?application=lighthouse)."
+    "message": "스크린 리더에는 표를 좀 더 쉽게 탐색하는 기능이 있습니다. `[headers]` 속성을 사용하는 `<td>` 셀이 동일한 표에 있는 다른 셀만 참조하게 하면 스크린 리더 사용자 환경을 개선할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/td-headers-attr?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/td-headers-attr.js | failureTitle": {
-    "message": "Cells in a `<table>` element that use the `[headers]` attribute refers to other cells of that same table."
+    "message": "`[header]` 속성을 사용하는 `<table>` 요소의 셀이 동일한 표에 있는 다른 셀을 참조합니다"
   },
   "lighthouse-core/audits/accessibility/td-headers-attr.js | title": {
-    "message": "Cells in a `<table>` element that use the `[headers]` attribute only refer to other cells of that same table."
+    "message": "`[headers]` 속성을 사용하는 `<table>` 요소의 셀이 동일한 표에 있는 다른 셀만 참조하고 있습니다"
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | description": {
-    "message": "Screen readers have features to make navigating tables easier. Ensuring table headers always refer to some set of cells may improve the experience for screen reader users. [Learn more](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
+    "message": "스크린 리더에는 표를 좀 더 쉽게 탐색하는 기능이 있습니다. 표 헤더에서 항상 셀 세트 일부를 참조하게 하면 스크린 리더 사용자 환경이 개선될 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | failureTitle": {
-    "message": "`<th>` elements and elements with `[role=\"columnheader\"/\"rowheader\"]` do not have data cells they describe."
+    "message": "`<th>` 요소 및 `[role=\"columnheader\"/\"rowheader\"]`가 있는 요소에 해당 요소에서 설명하는 데이터 셀이 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | title": {
-    "message": "`<th>` elements and elements with `[role=\"columnheader\"/\"rowheader\"]` have data cells they describe."
+    "message": "`<th>` 요소 및 `[role=\"columnheader\"/\"rowheader\"]`가 있는 요소에 해당 요소에서 설명하는 데이터 셀이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/valid-lang.js | description": {
-    "message": "Specifying a valid [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question) on elements helps ensure that text is pronounced correctly by a screen reader. [Learn more](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)."
+    "message": "요소에 유효한 [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question)를 지정하면 스크린 리더에서 텍스트를 올바르게 읽는 데 도움이 됩니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/valid-lang.js | failureTitle": {
-    "message": "`[lang]` attributes do not have a valid value"
+    "message": "`[lang]` 속성에 유효한 값이 없습니다"
   },
   "lighthouse-core/audits/accessibility/valid-lang.js | title": {
-    "message": "`[lang]` attributes have a valid value"
+    "message": "`[lang]` 속성에 유효한 값이 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/video-caption.js | description": {
-    "message": "When a video provides a caption it is easier for deaf and hearing impaired users to access its information. [Learn more](https://dequeuniversity.com/rules/axe/2.2/video-caption?application=lighthouse)."
+    "message": "동영상에 자막이 제공되면 청각장애인이나 청력에 문제가 있는 사용자가 동영상의 정보에 보다 쉽게 접근할 수 있습니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/video-caption?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/video-caption.js | failureTitle": {
-    "message": "`<video>` elements do not contain a `<track>` element with `[kind=\"captions\"]`."
+    "message": "`<video>` 요소에 `[kind=\"captions\"]`가 있는 `<track>` 요소가 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/video-caption.js | title": {
-    "message": "`<video>` elements contain a `<track>` element with `[kind=\"captions\"]`"
+    "message": "`<video>` 요소에 `[kind=\"captions\"]`가 있는 `<track>` 요소가 포함되어 있습니다"
   },
   "lighthouse-core/audits/accessibility/video-description.js | description": {
-    "message": "Audio descriptions provide relevant information for videos that dialogue cannot, such as facial expressions and scenes. [Learn more](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
+    "message": "오디오 설명은 얼굴 표정 및 장면과 같이 대화에서는 제공할 수 없는 동영상에 관한 정보를 제공합니다. [자세히 알아보기](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/video-description.js | failureTitle": {
-    "message": "`<video>` elements do not contain a `<track>` element with `[kind=\"description\"]`."
+    "message": "`<video>` 요소에 `[kind=\"description\"]`이 있는 `<track>` 요소가 포함되어 있지 않습니다"
   },
   "lighthouse-core/audits/accessibility/video-description.js | title": {
-    "message": "`<video>` elements contain a `<track>` element with `[kind=\"description\"]`"
+    "message": "`<video>` 요소에 `[kind=\"description\"]`이 있는 `<track>` 요소가 포함되어 있습니다"
   },
   "lighthouse-core/audits/bootup-time.js | chromeExtensionsWarning": {
     "message": "Chrome 확장 프로그램이 이 페이지의 로드 성능에 부정적인 영향을 미쳤습니다. 시크릿 모드나 확장 프로그램이 없는 Chrome 프로필에서 페이지를 검사해 보세요."
@@ -564,7 +564,7 @@
     "message": "사용자 타이밍 표시 및 측정 값"
   },
   "lighthouse-core/audits/uses-rel-preconnect.js | crossoriginWarning": {
-    "message": "A preconnect <link> was found for \"{securityOrigin}\" but was not used by the browser. Check that you are using the `crossorigin` attribute properly."
+    "message": "'{securityOrigin}'에 사전 연결 <link>가 있으나 브라우저에서 사용되지 않습니다. `crossorigin` 속성을 적절하게 사용하고 있는지 확인하세요."
   },
   "lighthouse-core/audits/uses-rel-preconnect.js | description": {
     "message": "사전 연결 또는 DNS 프리페치 리소스 힌트를 추가하여 중요한 타사 원본에 대한 조기 연결을 수립하는 것이 좋습니다. [자세히 알아보기](https://developers.google.com/web/fundamentals/performance/resource-prioritization#preconnect)"
@@ -579,52 +579,52 @@
     "message": "중요한 요청을 미리 로드하기"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupDescription": {
-    "message": "These are opportunities to improve the usage of ARIA in your application which may enhance the experience for users of assistive technology, like a screen reader."
+    "message": "애플리케이션의 ARIA 사용을 개선하도록 추천된 사항입니다. 이를 통해 스크린 리더와 같은 지원 기술을 사용하는 사용자의 환경을 개선할 수 있습니다."
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
-    "message": "ARIA Attributes Follow Best Practices"
+    "message": "ARIA 속성이 권장사항을 준수합니다"
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupDescription": {
-    "message": "These are opportunities to improve the legibility of your content."
+    "message": "콘텐츠의 가독성을 개선할 추천 내용입니다."
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupTitle": {
-    "message": "Color Contrast Is Satisfactory"
+    "message": "색상 대비가 만족스러워야 합니다"
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupDescription": {
-    "message": "These are opportunities to improve the configuration of your HTML elements."
+    "message": "HTML 요소 구성을 개선하도록 추천된 사항입니다."
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupTitle": {
-    "message": "Elements Use Attributes Correctly"
+    "message": "요소가 속성을 올바르게 사용합니다"
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupDescription": {
-    "message": "These are opportunities to make your content easier to understand for a user of assistive technology, like a screen reader."
+    "message": "스크린 리더와 같은 지원 기술을 사용하는 사용자가 콘텐츠를 이해하기 쉽게 만들도록 추천된 사항입니다."
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupTitle": {
-    "message": "Elements Describe Contents Well"
+    "message": "요소가 콘텐츠를 제대로 설명합니다"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupDescription": {
-    "message": "These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader."
+    "message": "애플리케이션 컨트롤의 의미 해석을 개선하도록 추천된 사항입니다. 이를 통해 스크린 리더와 같은 지원 기술을 사용하는 사용자의 환경을 개선할 수 있습니다."
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupTitle": {
-    "message": "Elements Have Discernible Names"
+    "message": "요소에 인식 가능한 이름이 있습니다"
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupDescription": {
-    "message": "These are opportunities to improve the interpretation of your content by users in different locales."
+    "message": "다른 언어를 사용하는 사용자가 콘텐츠를 더 쉽게 이해할 수 있게 개선하도록 추천된 사항입니다."
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupTitle": {
-    "message": "Page Specifies Valid Language"
+    "message": "페이지에서 유효한 언어를 지정합니다"
   },
   "lighthouse-core/config/default-config.js | a11yMetaGroupDescription": {
-    "message": "These are opportunities to improve the user experience of your site."
+    "message": "사이트의 사용자 환경을 개선하도록 추천된 사항입니다."
   },
   "lighthouse-core/config/default-config.js | a11yMetaGroupTitle": {
-    "message": "Meta Tags Used Properly"
+    "message": "메타 태그를 적절하게 사용했습니다"
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupDescription": {
-    "message": "These are opportunities to make sure your HTML is appropriately structured."
+    "message": "HTML 구조가 적절한지 확인하도록 추천된 사항입니다."
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupTitle": {
-    "message": "Elements Are Well Structured"
+    "message": "요소 구조가 적절합니다"
   },
   "lighthouse-core/config/default-config.js | diagnosticsGroupDescription": {
     "message": "애플리케이션 성능 관련 추가 정보"
@@ -657,13 +657,13 @@
     "message": "성능"
   },
   "lighthouse-core/config/default-config.js | pwaFastReliableGroupTitle": {
-    "message": "Fast and reliable"
+    "message": "속도와 안정성"
   },
   "lighthouse-core/config/default-config.js | pwaInstallableGroupTitle": {
-    "message": "Installable"
+    "message": "설치 가능"
   },
   "lighthouse-core/config/default-config.js | pwaOptimizedGroupTitle": {
-    "message": "PWA Optimized"
+    "message": "PWA 최적화됨"
   },
   "lighthouse-core/lib/i18n/i18n.js | columnCacheTTL": {
     "message": "캐시 TTL"
@@ -696,43 +696,43 @@
     "message": "{timeInMs, number, seconds}초"
   },
   "lighthouse-core/lib/lh-error.js | badTraceRecording": {
-    "message": "Something went wrong with recording the trace over your page load. Please run Lighthouse again. ({errorCode})"
+    "message": "페이지 로드의 추적을 기록하는 동안 문제가 발생했습니다. Lighthouse를 다시 실행해 주세요. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | didntCollectScreenshots": {
-    "message": "Chrome didn't collect any screenshots during the page load. Please make sure there is content visible on the page, and then try re-running Lighthouse. ({errorCode})"
+    "message": "Chrome은 페이지가 로드되는 동안 어떠한 스크린샷도 수집하지 않습니다. 페이지에 표시되는 콘텐츠가 있는지 확인한 다음 Lighthouse를 다시 실행해 주세요. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | dnsFailure": {
-    "message": "DNS servers could not resolve the provided domain."
+    "message": "DNS 서버에서 제공된 도메인을 해결하지 못했습니다."
   },
   "lighthouse-core/lib/lh-error.js | internalChromeError": {
-    "message": "An internal Chrome error occurred. Please restart Chrome and try re-running Lighthouse."
+    "message": "Chrome 내부 오류가 발생했습니다. Chrome을 다시 시작한 다음 Lighthouse를 다시 실행해 주세요."
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailed": {
-    "message": "Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests."
+    "message": "Lighthouse에서 사용자가 요청한 페이지를 안정적으로 로드하지 못했습니다. 올바른 URL을 테스트하고 있으며 서버에서 모든 요청에 적절하게 응답하고 있는지 확인하세요."
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedHung": {
-    "message": "Lighthouse was unable to reliably load the URL you requested because the page stopped responding."
+    "message": "페이지 응답이 중지되었기 때문에 Lighthouse에서 사용자가 요청한 URL을 안정적으로 로드하지 못했습니다."
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedInsecure": {
-    "message": "The URL you have provided does not have valid security credentials. ({securityMessages})"
+    "message": "제공한 URL에 유효한 보안 사용자 인증 정보가 포함되어 있지 않습니다. ({securityMessages})"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedWithDetails": {
-    "message": "Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: {errorDetails})"
+    "message": "Lighthouse에서 사용자가 요청한 페이지를 안정적으로 로드하지 못했습니다. 올바른 URL을 테스트하고 있으며 서버에서 모든 요청에 적절하게 응답하고 있는지 확인하세요. (세부정보: {errorDetails})"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedWithStatusCode": {
-    "message": "Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: {statusCode})"
+    "message": "Lighthouse에서 사용자가 요청한 페이지를 안정적으로 로드하지 못했습니다. 올바른 URL을 테스트하고 있으며 서버에서 모든 요청에 적절하게 응답하고 있는지 확인하세요. (상태 코드: {statusCode})"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadTookTooLong": {
-    "message": "Your page took too long to load. Please follow the opportunities in the report to reduce your page load time, and then try re-running Lighthouse. ({errorCode})"
+    "message": "페이지를 로드하는데 시간이 너무 오래 걸립니다. 보고서에 있는 추천 내용에 따라 페이지 로드 시간을 줄인 다음 Lighthouse를 다시 실행해 주세요. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | protocolTimeout": {
-    "message": "Waiting for DevTools protocol response has exceeded the allotted time. (Method: {protocolMethod})"
+    "message": "DevTools 프로토콜 응답 대기시간이 할당된 시간을 초과했습니다. (메소드: {protocolMethod})"
   },
   "lighthouse-core/lib/lh-error.js | requestContentTimeout": {
-    "message": "Fetching resource content has exceeded the allotted time"
+    "message": "리소스 콘텐츠 가져오기 시간이 할당된 시간을 초과했습니다"
   },
   "lighthouse-core/lib/lh-error.js | urlInvalid": {
-    "message": "The URL you have provided appears to be invalid."
+    "message": "사용자가 제공한 URL이 잘못되었습니다."
   },
   "lighthouse-core/report/html/renderer/util.js | auditGroupExpandTooltip": {
     "message": "감사 보기"
@@ -753,7 +753,7 @@
     "message": "실험실 데이터"
   },
   "lighthouse-core/report/html/renderer/util.js | lsPerformanceCategoryDescription": {
-    "message": "[Lighthouse](https://developers.google.com/web/tools/lighthouse/) analysis of the current page on an emulated mobile network. Values are estimated and may vary."
+    "message": "에뮬레이트된 모바일 네트워크에서 분석한 현재 페이지의 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) 결과입니다. 값은 추정치이며 달라질 수 있습니다."
   },
   "lighthouse-core/report/html/renderer/util.js | manualAuditsGroupTitle": {
     "message": "직접 확인해야 하는 추가 항목"

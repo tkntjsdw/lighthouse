@@ -138,7 +138,7 @@
     "message": "Dokumen memiliki elemen `<title>`"
   },
   "lighthouse-core/audits/accessibility/duplicate-id.js | description": {
-    "message": "Nilai atribut ID harus unik untuk mencegah instance lain terabaikan oleh teknologi asistif. [Pelajari lebih lanjut](https://dequeuniversity.com/rules/axe/2.2/duplicate-id?application=lighthouse)."
+    "message": "Nilai atribut id harus unik untuk mencegah instance lain terabaikan oleh teknologi asistif. [Pelajari lebih lanjut](https://dequeuniversity.com/rules/axe/2.2/duplicate-id?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/duplicate-id.js | failureTitle": {
     "message": "Atribut `[id]` di halaman ini tidak unik"
@@ -213,10 +213,10 @@
     "message": "Teks link (dan teks alternatif untuk gambar, saat digunakan sebagai link) yang mudah dilihat, unik, dan dapat difokuskan meningkatkan pengalaman navigasi bagi pengguna pembaca layar. [Pelajari lebih lanjut](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
-    "message": "Link tidak memiliki nama yang mudah dilihat"
+    "message": "Link tidak memiliki nama yang dapat dikenali"
   },
   "lighthouse-core/audits/accessibility/link-name.js | title": {
-    "message": "Link memiliki nama yang mudah dilihat"
+    "message": "Link memiliki nama yang dapat dikenali"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
     "message": "Pembaca layar memiliki cara tertentu untuk membacakan daftar. Memastikan struktur daftar dengan tepat akan membantu output pembaca layar. [Pelajari lebih lanjut](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
@@ -591,7 +591,7 @@
     "message": "Kontras Warna Memuaskan"
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupDescription": {
-    "message": "Ini adalah peluang untuk meningkatkan konfigurasi elemen HTML Anda."
+    "message": "Ini adalah peluang untuk menyempurnakan konfigurasi elemen HTML Anda."
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupTitle": {
     "message": "Elemen Menggunakan Atribut dengan Benar"
@@ -606,7 +606,7 @@
     "message": "Ini adalah peluang untuk meningkatkan semantik kontrol dalam aplikasi Anda. Hal ini dapat menyempurnakan pengalaman bagi pengguna teknologi asistif, seperti pembaca layar."
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupTitle": {
-    "message": "Elemen Memiliki Nama yang Mudah Dilihat"
+    "message": "Elemen Memiliki Nama yang Dapat Dikenali"
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupDescription": {
     "message": "Ini adalah peluang untuk menyempurnakan interpretasi konten Anda oleh pengguna dalam lokal yang berbeda."

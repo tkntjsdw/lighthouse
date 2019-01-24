@@ -156,7 +156,7 @@
     "message": "Для элементов <frame> или <iframe> задан атрибут title"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "Если для страницы не указан атрибут lang, программа чтения с экрана предполагает, что текст приведен на языке по умолчанию, выбранном пользователем при установке программы. Если языки не совпадают, текст страницы может озвучиваться некорректно. [Подробнее…](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
+    "message": "Если для страницы не указан атрибут lang, программа чтения с экрана предполагает, что текст приведен на языке по умолчанию, выбранном пользователем при установке программы. Если текст написан на другом языке, он может озвучиваться некорректно. [Подробнее…](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
     "message": "Для элемента <html> не задан атрибут [lang]"

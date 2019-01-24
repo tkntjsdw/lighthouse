@@ -84,7 +84,7 @@
     "message": "Elementos con errores"
   },
   "lighthouse-core/audits/accessibility/button-name.js | description": {
-    "message": "Si un botón no tiene un nombres accesible, los lectores de pantalla lo leerán en voz alta como \"botón\", por lo que resultan inservibles para los usuarios que necesitan usar lectores de pantalla para navegar. [Más información](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
+    "message": "Si un botón no tiene un nombre accesible, los lectores de pantalla lo leerán en voz alta como \"botón\", por lo que resultan inservibles para los usuarios que necesitan usar lectores de pantalla para navegar. [Más información](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/button-name.js | failureTitle": {
     "message": "Los botones no tienen nombres accesibles"
@@ -309,7 +309,7 @@
     "message": "Los elementos \"<video>\" contienen un elemento \"<track>\" con \"[kind=\"captions\"]\""
   },
   "lighthouse-core/audits/accessibility/video-description.js | description": {
-    "message": "Las descripciones de audio proporcionan información relevante para los vídeos cuyos diálogos no transmiten todo el contenido, como en el caso de las expresiones faciales y las escenas. [Más información](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
+    "message": "Las audiodescripciones proporcionan información relevante para los vídeos cuyos diálogos no transmiten todo el contenido, como en el caso de las expresiones faciales y las escenas. [Más información](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/video-description.js | failureTitle": {
     "message": "Los elementos \"<video>\" no contienen ningún elemento \"<track>\" con \"[kind=\"description\"]\"."

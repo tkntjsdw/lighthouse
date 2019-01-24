@@ -291,7 +291,7 @@
     "message": "Elementiem <th> un elementiem ar atribūtu [role=\"columnheader\"/\"rowheader\"] ir datu šūnas, ko tie raksturo."
   },
   "lighthouse-core/audits/accessibility/valid-lang.js | description": {
-    "message": "Ja elementos norādīsiet derīgu [BCP 47 valodu](https://www.w3.org/International/questions/qa-choosing-language-tags#question), ekrāna lasītāji pareizi atskaņos tekstu. [Uzziniet vairāk](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)."
+    "message": "Ja elementos norādīsiet derīgu [BCP 47 valodu](https://www.w3.org/International/questions/qa-choosing-language-tags#question), ekrāna lasītājs pareizi atskaņos tekstu. [Uzziniet vairāk](https://dequeuniversity.com/rules/axe/2.2/valid-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/valid-lang.js | failureTitle": {
     "message": "Atribūtiem [lang] nav derīgu vērtību"

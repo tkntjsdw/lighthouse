@@ -9,7 +9,7 @@
     "message": "'[accesskey]'-waarden zijn uniek"
   },
   "lighthouse-core/audits/accessibility/aria-allowed-attr.js | description": {
-    "message": "Elke ARIA 'role' ondersteunt een specifieke subset van 'aria-*'-kenmerken. Als deze niet overeenkomen, zijn de 'aria-*'-kenmerken ongeldig. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/aria-allowed-attr?application=lighthouse)."
+    "message": "Elke ARIA-rol ondersteunt een specifieke subset van 'aria-*'-kenmerken. Als deze niet overeenkomen, zijn de 'aria-*'-kenmerken ongeldig. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/aria-allowed-attr?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-allowed-attr.js | failureTitle": {
     "message": "'[aria-*]'-kenmerken komen niet overeen met hun rollen"
@@ -93,7 +93,7 @@
     "message": "Knoppen hebben een toegankelijke naam"
   },
   "lighthouse-core/audits/accessibility/bypass.js | description": {
-    "message": "Als je manieren toevoegt om herhaalde content te omzeilen, kunnen gebruikers van een toetsenbord efficiënter navigeren op de pagina. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
+    "message": "Als je manieren toevoegt om herhaalde content te omzeilen, kunnen toetsenbordgebruikers efficiënter navigeren op de pagina. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/bypass.js | failureTitle": {
     "message": "De pagina bevat geen kop, link voor overslaan of herkenningspuntregio"
@@ -156,7 +156,7 @@
     "message": "'<frame>'- of '<iframe>'-elementen hebben een titel"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "Als de pagina geen lang-kenmerk specificeert, neemt een schermlezer aan dat de pagina is geschreven in de standaardtaal die de gebruiker heeft gekozen toen de schermlezer werd ingesteld. Als de pagina niet daadwerkelijk in de standaardtaal is geschreven, kan de schermlezer de tekst van de pagina mogelijk niet correct aankondigen. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
+    "message": "Als de pagina geen lang-kenmerk specificeert, neemt een schermlezer aan dat de pagina is geschreven in de standaardtaal die de gebruiker heeft gekozen toen de schermlezer werd ingesteld. Als de pagina niet in de standaardtaal is geschreven, kan de schermlezer de tekst van de pagina mogelijk niet correct aankondigen. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
     "message": "'<html>'-element heeft geen '[lang]'-kenmerk"
@@ -183,7 +183,7 @@
     "message": "Afbeeldingselementen hebben '[alt]'-kenmerken"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | description": {
-    "message": "Wanneer een afbeelding wordt gebruikt als '<input>'-knop en je alternatieve tekst levert, kunnen gebruikers van een schermlezer begrijpen wat het doel van de knop is. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
+    "message": "Wanneer een afbeelding wordt gebruikt als '<input>'-knop en je hiervoor alternatieve tekst opgeeft, kunnen gebruikers van een schermlezer beter begrijpen wat het doel van de knop is. [Meer informatie](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | failureTitle": {
     "message": "'<input type=\"image\">'-elementen hebben geen '[alt]'-tekst"

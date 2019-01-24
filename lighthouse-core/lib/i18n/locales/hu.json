@@ -153,7 +153,7 @@
     "message": "Cím nélküli `<frame>` vagy `<iframe>` elemek"
   },
   "lighthouse-core/audits/accessibility/frame-title.js | title": {
-    "message": "A `<frame>` és `<iframe>` elemek rendelkeznek címmel"
+    "message": "A `<frame>` vagy `<iframe>` elemek rendelkeznek címmel"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
     "message": "Ha az oldal nem határoz meg „lang” attribútumot, a képernyőolvasó feltételezi, hogy az oldal nyelve megegyezik a felhasználó által a képernyőolvasó beállításakor megadott alapértelmezett nyelvvel. Ha az oldal tényleges nyelve eltér az alapértelmezett nyelvtől, akkor előfordulhat, hogy a képernyőolvasó helytelen kiejtéssel olvassa fel az oldal szövegét. [További információ](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
@@ -249,7 +249,7 @@
     "message": "A nagyítás letiltása problémát jelent a gyengén látó felhasználók számára, akik a képernyőnagyításra hagyatkoznak ahhoz, hogy megfelelően láthassák a weboldal tartalmát. [További információ](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | failureTitle": {
-    "message": "Használja a `[user-scalable=\"no\"]` értéket a `<meta name=\"viewport\">` elemben, és a `[maximum-scale]` attribútum értéke ötnél kevesebb."
+    "message": "A `[user-scalable=\"no\"]` értéket használja a `<meta name=\"viewport\">` elemben vagy a `[maximum-scale]` attribútum értéke ötnél kevesebb."
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | title": {
     "message": "Nem használja a `[user-scalable=\"no\"]` értéket a `<meta name=\"viewport\">` elemben, és a `[maximum-scale]` attribútum értéke nem kevesebb ötnél."

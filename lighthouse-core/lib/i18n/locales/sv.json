@@ -36,7 +36,7 @@
     "message": "Inga obligatoriska underordnade element med [role] saknas för element med [role]"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | description": {
-    "message": "Vissa element med ARIA-attributet role måste ha ett bestämt överordnat element med role för att hjälpmedlen ska fungera som avsett. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
+    "message": "Vissa underordnade element med ARIA-attributet role måste ha ett bestämt överordnat element med role för att hjälpmedlen ska fungera som avsett. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | failureTitle": {
     "message": "Det finns element med [role]-attribut utan ett obligatoriskt överordnat element"
@@ -111,7 +111,7 @@
     "message": "Kontrasten mellan bakgrundsfärg och förgrundsfärg är tillräckligt stor"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | description": {
-    "message": "Om en definitionslista inte har märkts upp korrekt kan den läsas upp på ett förvirrande eller felaktigt sätt av skärmläsare. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
+    "message": "Om en definitionslista inte har märkts upp korrekt kan den läsas upp på ett missvisande eller felaktigt sätt av skärmläsare. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/definition-list.js | failureTitle": {
     "message": "Alla <dl>-element har inte <dt>- och <dd>-grupper, <script>- eller <template>-element i rätt ordning."
@@ -201,7 +201,7 @@
     "message": "Alla formulärelement har etiketter"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | description": {
-    "message": "I en tabell som används i layoutsyfte ska det inte finnas dataelement som th eller caption eller attributet summary, eftersom det kan bli förvirrande för den som använder skärmläsare. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
+    "message": "I en tabell som används i layoutsyfte ska det inte finnas dataelement som th eller caption eller attributet summary, eftersom det kan bli missvisande för den som använder skärmläsare. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/layout-table.js | failureTitle": {
     "message": "Det finns <table>-element som används i layoutsyfte (role=\"presentation\" eller \"none\") men ändå har <th>- eller <caption>-element eller [summary]-attribut. Detta bör undvikas."
@@ -264,7 +264,7 @@
     "message": "Alla <object>-element har [alt]-text"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | description": {
-    "message": "Med värden större än noll anges en ordningsföljd för navigeringen explicit. Även om detta inte är fel rent tekniskt leder det ofta till en frustrerande upplevelse för den som är beroende av tekniska hjälpmedel. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
+    "message": "Med värden större än noll anges en explicit ordningsföljd för navigeringen. Även om detta inte är fel rent tekniskt leder det ofta till en frustrerande upplevelse för den som är beroende av tekniska hjälpmedel. [Läs mer](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/tabindex.js | failureTitle": {
     "message": "Det finns elementet med ett [tabindex]-värde som är större än 0"
@@ -579,7 +579,7 @@
     "message": "Läs in viktiga resurser i förväg"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupDescription": {
-    "message": "Det här är förslag på hur ARIA kan användas bättre i appen så att den fungerar bättre för den som använder skärmläsare eller andra hjälpmedel."
+    "message": "Det här är förslag på hur ARIA kan förbättras i appen så att den fungerar bättre för den som använder skärmläsare eller andra hjälpmedel."
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
     "message": "ARIA-attributen används på det sätt som rekommenderas"
@@ -711,7 +711,7 @@
     "message": "Det gick inte att läsa in den begärda sidan i Lighthouse. Kontrollera att du testar rätt webbadress och att servern svarar korrekt."
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedHung": {
-    "message": "Det gick inte att läsa in den begära webbadressen med Lighthouse eftersom sidan slutade svara."
+    "message": "Det gick inte att läsa in den begärda webbadressen med Lighthouse eftersom sidan slutade svara."
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedInsecure": {
     "message": "Det finns inga giltiga användaruppgifter för den angivna webbadressen. ({securityMessages})"

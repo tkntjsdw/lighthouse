@@ -27,7 +27,7 @@
     "message": "Os \"[role]\"s têm todos os atributos \"[aria-*]\" obrigatórios"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | description": {
-    "message": "Algumas funções principais ARIA têm de conter funções secundárias específicas para desempenhar as respetivas funções de acessibilidade previstas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)."
+    "message": "Algumas funções superiores ARIA têm de conter funções secundárias específicas para desempenhar as respetivas funções de acessibilidade previstas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | failureTitle": {
     "message": "Os elementos com \"[role]\" que exigem \"[role]\"s secundários específicos estão em falta"
@@ -36,13 +36,13 @@
     "message": "Os elementos com \"[role]\" que exigem \"[role]\"s secundários específicos estão presentes"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | description": {
-    "message": "Algumas funções secundárias ARIA têm de ser contidas por funções principais específicas para desempenharem adequadamente as respetivas funções de acessibilidade pretendidas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
+    "message": "Algumas funções secundárias ARIA têm de ser contidas por funções superiores específicas para desempenharem adequadamente as respetivas funções de acessibilidade pretendidas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | failureTitle": {
-    "message": "Os \"[role]\"s não são contidos pelo respetivo elemento principal obrigatório"
+    "message": "Os \"[role]\"s não são contidos pelo respetivo elemento superior obrigatório"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | title": {
-    "message": "Os \"[role]\"s são contidos pelo respetivo elemento principal obrigatório"
+    "message": "Os \"[role]\"s são contidos pelo respetivo elemento superior obrigatório"
   },
   "lighthouse-core/audits/accessibility/aria-roles.js | description": {
     "message": "As funções ARIA têm de possuir valores válidos para desempenhar as funções de acessibilidade previstas. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-roles?application=lighthouse)."
@@ -54,7 +54,7 @@
     "message": "Os valores \"[role]\" são válidos"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr-value.js | description": {
-    "message": "As tecnologias de assistência, como os leitores de ecrã, não conseguem interpretar atributos ARIA com valores inválidos. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse)."
+    "message": "As tecnologias de assistência, que incluem os leitores de ecrã, não conseguem interpretar atributos ARIA com valores inválidos. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr-value.js | failureTitle": {
     "message": "Os atributos \"[aria-*]\" não têm valores válidos"
@@ -63,7 +63,7 @@
     "message": "Os atributos \"[aria-*]\" têm valores válidos"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | description": {
-    "message": "As tecnologias de assistência, como os leitores de ecrã, não conseguem interpretar atributos ARIA com nomes inválidos. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr?application=lighthouse)."
+    "message": "As tecnologias de assistência, que incluem os leitores de ecrã, não conseguem interpretar atributos ARIA com nomes inválidos. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | failureTitle": {
     "message": "Os atributos \"[aria-*]\" não são válidos ou têm erros ortográficos"
@@ -105,7 +105,7 @@
     "message": "O texto de baixo contraste é difícil ou impossível de ler para muitos utilizadores. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | failureTitle": {
-    "message": "As cores de segundo plano e de primeiro plano não têm uma relação de contraste suficiente"
+    "message": "As cores de primeiro e de segundo plano não têm uma relação de contraste suficiente"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | title": {
     "message": "As cores de segundo plano e de primeiro plano têm uma relação de contraste suficiente"
@@ -120,7 +120,7 @@
     "message": "Os \"<dl>\"s contêm grupos de \"<dt>\" e \"<dd>\" apenas devidamente ordenados, bem como elementos \"<script>\" ou \"<template>\""
   },
   "lighthouse-core/audits/accessibility/dlitem.js | description": {
-    "message": "Os itens de lista de definição (\"<dt>\" e \"<dd>\") têm de estar unidos num elemento \"<dl>\" principal de modo a garantir que os leitores de ecrã os possam anunciar adequadamente. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/dlitem?application=lighthouse)."
+    "message": "Os itens de lista de definição (\"<dt>\" e \"<dd>\") têm de estar unidos num elemento \"<dl>\" superior de modo a garantir que os leitores de ecrã os possam anunciar adequadamente. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/dlitem?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/dlitem.js | failureTitle": {
     "message": "Os itens de lista de definição não estão unidos em elementos \"<dl>\""
@@ -192,7 +192,7 @@
     "message": "Os elementos \"<input type=\"image\">\" têm texto \"[alt]\""
   },
   "lighthouse-core/audits/accessibility/label.js | description": {
-    "message": "As etiquetas garantem que os controlos de formulários são anunciados adequadamente pelas tecnologias de assistência, como os leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/label?application=lighthouse)."
+    "message": "As etiquetas garantem que os controlos de formulários são anunciados adequadamente pelas tecnologias de assistência, que incluem os leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/label?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/label.js | failureTitle": {
     "message": "Os elementos de formulário não têm etiquetas associadas"
@@ -201,7 +201,7 @@
     "message": "Os elementos de formulário têm etiquetas associadas"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | description": {
-    "message": "Uma tabela a ser utilizada para fins de esquema não deve incluir elementos de dados, como os elementos th ou de legenda ou o atributo resumo, porque esta situação pode criar uma experiência confusa para os utilizadores com leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
+    "message": "Uma tabela utilizada para esquemas não deve incluir elementos de dados, como os elementos th ou de legenda ou o atributo resumo, porque esta situação pode criar uma experiência confusa para os utilizadores com leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/layout-table?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/layout-table.js | failureTitle": {
     "message": "Os elementos \"<table>\" de apresentação não evitam a utilização de \"<th>\", \"<caption>\" nem do atributo \"[summary]\"."
@@ -210,7 +210,7 @@
     "message": "Os elementos \"<table>\" de apresentação evitam a utilização de \"<th>\", \"<caption>\" ou do atributo \"[summary]\""
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
-    "message": "O texto de link (e texto alternativo para imagens, quando utilizado como link) que seja percetível, exclusivo e focável melhora a experiência de navegação para os utilizadores de leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
+    "message": "O texto de link (e texto alternativo para imagens, quando utilizado como link) que seja percetível, exclusivo e ajustável melhora a experiência de navegação dos utilizadores de leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
     "message": "Os links não têm um nome percetível"
@@ -228,13 +228,13 @@
     "message": "As listas contêm apenas elementos \"<li>\" e elementos de suporte de script (\"<script>\" e \"<template>\")"
   },
   "lighthouse-core/audits/accessibility/listitem.js | description": {
-    "message": "Os leitores de ecrã necessitam que os itens de lista (\"<li>\") sejam contidos num \"<ul>\" ou \"<ol>\" principal para serem adequadamente anunciados. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/listitem?application=lighthouse)."
+    "message": "Os leitores de ecrã necessitam que os itens de lista (\"<li>\") sejam contidos num \"<ul>\" ou \"<ol>\" superior para serem adequadamente anunciados. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/listitem?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/listitem.js | failureTitle": {
-    "message": "Os itens de lista (\"<li>\") não estão incluídos nos elementos principais \"<ul>\" ou \"<ol>\""
+    "message": "Os itens de lista (\"<li>\") não estão incluídos nos elementos superiores \"<ul>\" ou \"<ol>\""
   },
   "lighthouse-core/audits/accessibility/listitem.js | title": {
-    "message": "Os itens da lista (\"<li>\") estão incluídos nos elementos principais \"<ul>\" ou \"<ol>\""
+    "message": "Os itens da lista (\"<li>\") estão incluídos nos elementos superiores \"<ul>\" ou \"<ol>\""
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | description": {
     "message": "Os utilizadores não esperam que uma página se atualize automaticamente e, se tal acontecer, vai desviar o foco para a parte superior da página. Esta situação pode criar uma experiência frustrante ou confusa. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)."
@@ -282,7 +282,7 @@
     "message": "As células num elemento \"<table>\" que utilizam o atributo \"[headers]\" apenas referenciam outras células dessa mesma tabela."
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | description": {
-    "message": "Os leitores de ecrã têm funcionalidades para facilitar a navegação em tabelas. Garantir que os títulos de tabelas referenciam sempre algum conjunto de células pode melhorar a experiência dos utilizadores com leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
+    "message": "Os leitores de ecrã têm funcionalidades para facilitar a navegação em tabelas. Garantir que os cabeçalhos de tabelas referenciam sempre algum conjunto de células pode melhorar a experiência dos utilizadores com leitores de ecrã. [Saiba mais](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | failureTitle": {
     "message": "Os elementos \"<th>\" e os elementos com \"[role=\"columnheader\"/\"rowheader\"]\" não têm as células de dados que descrevem"
@@ -564,7 +564,7 @@
     "message": "Marcas e medições de Tempos do utilizador"
   },
   "lighthouse-core/audits/uses-rel-preconnect.js | crossoriginWarning": {
-    "message": "Foi encontrado um <link> de pré-ligação para \"{securityOrigin}\", mas não foi utilizado pelo navegador. Confirme se está a utilizar o atributo \"crossorigin\" adequadamente."
+    "message": "Foi encontrado um <link> de pré-ligação para \"{securityOrigin}\", mas este não foi utilizado pelo navegador. Confirme se está a utilizar o atributo \"crossorigin\" adequadamente."
   },
   "lighthouse-core/audits/uses-rel-preconnect.js | description": {
     "message": "Considere adicionar instruções para recursos de pré-ligação ou de obtenção prévia de DNS para estabelecer ligações antecipadamente a origens de terceiros importantes. [Saiba mais](https://developers.google.com/web/fundamentals/performance/resource-prioritization#preconnect)."
@@ -579,7 +579,7 @@
     "message": "Pré-carregue pedidos-chave"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupDescription": {
-    "message": "Estas são oportunidades para otimizar a utilização do ARIA na sua aplicação, que pode melhorar a experiência dos utilizadores de tecnologias de assistência, como um leitor de ecrã."
+    "message": "Estas são oportunidades para otimizar a utilização do ARIA na sua aplicação, que pode melhorar a experiência dos utilizadores de tecnologias de assistência, como os de leitores de ecrã."
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
     "message": "Os atributos ARIA seguem as práticas recomendadas"
@@ -603,7 +603,7 @@
     "message": "Os elementos descrevem bem os conteúdos"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupDescription": {
-    "message": "Estas são oportunidades para melhorar a semântica dos controlos na sua aplicação. Desta forma, poderá melhorar a experiência dos utilizadores de tecnologia de assistência, como um leitor de ecrã."
+    "message": "Estas são oportunidades para melhorar a semântica dos controlos na sua aplicação. Desta forma, poderá melhorar a experiência dos utilizadores de tecnologia de assistência, como os de leitores de ecrã."
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupTitle": {
     "message": "Os elementos têm nomes percetíveis"
@@ -621,7 +621,7 @@
     "message": "Metatags utilizadas adequadamente"
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupDescription": {
-    "message": "Estas são oportunidades para garantir que o seu HTML esteja adequadamente estruturado."
+    "message": "Estas são oportunidades para garantir que o seu HTML está adequadamente estruturado."
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupTitle": {
     "message": "Os elementos estão bem estruturados"

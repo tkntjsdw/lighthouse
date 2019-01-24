@@ -27,7 +27,7 @@
     "message": "`[role]` มีแอตทริบิวต์ `[aria-*]` ที่จำเป็นทั้งหมด"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | description": {
-    "message": "บทบาท ARIA ระดับบนสุดบางบทบาทต้องมีบทบาทย่อยที่เจาะจงเพื่อดำเนินการฟังก์ชันการช่วยเหลือพิเศษตามวัตถุประสงค์ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)"
+    "message": "บทบาท ARIA ระดับบนสุดบางบทบาทต้องมีบทบาทย่อยที่เจาะจงเพื่อใช้ฟังก์ชันการช่วยเหลือพิเศษตามวัตถุประสงค์ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | failureTitle": {
     "message": "ไม่มีองค์ประกอบที่มี `[role]` ซึ่งกำหนดให้มี `[role]` ย่อยที่เจาะจง"
@@ -36,7 +36,7 @@
     "message": "มีองค์ประกอบที่มี `[role]` ซึ่งกำหนดให้มี `[role]` ย่อยที่เจาะจง"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | description": {
-    "message": "บทบาท ARIA ย่อยบางบทบาทต้องอยู่ในบทบาทระดับบนสุดที่เจาะจงเพื่อให้ดำเนินการฟังก์ชันการช่วยเหลือพิเศษตามวัตถุประสงค์ได้อย่างถูกต้อง [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)"
+    "message": "บทบาท ARIA ย่อยบางบทบาทต้องอยู่ในบทบาทระดับบนสุดที่เจาะจงเพื่อให้ใช้ฟังก์ชันการช่วยเหลือพิเศษตามวัตถุประสงค์ได้อย่างถูกต้อง [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | failureTitle": {
     "message": "`[role]` ไม่ได้อยู่ในองค์ประกอบระดับบนสุดที่กำหนด"
@@ -45,7 +45,7 @@
     "message": "`[role]` อยู่ในองค์ประกอบระดับบนสุดที่กำหนด"
   },
   "lighthouse-core/audits/accessibility/aria-roles.js | description": {
-    "message": "บทบาท ARIA ต้องมีค่าที่ถูกต้องเพื่อดำเนินการฟังก์ชันการช่วยเหลือพิเศษตามวัตถุประสงค์ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/aria-roles?application=lighthouse)"
+    "message": "บทบาท ARIA ต้องมีค่าที่ถูกต้องเพื่อใช้ฟังก์ชันการช่วยเหลือพิเศษตามวัตถุประสงค์ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/aria-roles?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/aria-roles.js | failureTitle": {
     "message": "ค่า `[role]` ไม่ถูกต้อง"
@@ -129,7 +129,7 @@
     "message": "รายการย่อยของคำจำกัดความจะรวมอยู่ในองค์ประกอบ `<dl>`"
   },
   "lighthouse-core/audits/accessibility/document-title.js | description": {
-    "message": "ชื่อช่วยให้โปรแกรมอ่านหน้าจอทราบถึงภาพรวมของหน้า และผู้ใช้เครื่องมือค้นหาจะดูความเกี่ยวข้องของหน้ากับการค้นหาของตนจากชื่อ [ดูข้อมูลเพิ่มเติม](https://developers.google.com/web/tools/lighthouse/audits/title)"
+    "message": "ชื่อช่วยให้ผู้ใช้โปรแกรมอ่านหน้าจอทราบถึงภาพรวมของหน้า และผู้ใช้เครื่องมือค้นหาจะดูความเกี่ยวข้องของหน้ากับการค้นหาของตนจากชื่อเป็นหลัก [ดูข้อมูลเพิ่มเติม](https://developers.google.com/web/tools/lighthouse/audits/title)"
   },
   "lighthouse-core/audits/accessibility/document-title.js | failureTitle": {
     "message": "เอกสารไม่มีองค์ประกอบ `<title>`"
@@ -156,7 +156,7 @@
     "message": "องค์ประกอบ `<frame>` หรือ `<iframe>` มีชื่อ"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "หากหน้าเว็บไม่ได้ระบุแอตทริบิวต์ lang โปรแกรมอ่านหน้าจอจะถือว่าหน้าดังกล่าวเป็นภาษาเริ่มต้นที่ผู้ใช้เลือกเมื่อตั้งค่าโปรแกรมอ่านหน้าจอ หากจริงๆ แล้วหน้าไม่ได้เป็นภาษาเริ่มต้น โปรแกรมอ่านหน้าจออาจอ่านข้อความในหน้าได้ไม่ถูกต้อง [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)"
+    "message": "หากหน้าเว็บไม่ได้ระบุแอตทริบิวต์ lang โปรแกรมอ่านหน้าจอจะถือว่าหน้าดังกล่าวใช้ภาษาเริ่มต้นที่ผู้ใช้เลือกเมื่อตั้งค่าโปรแกรมอ่านหน้าจอ หากที่จริงแล้วหน้าดังกล่าวไม่ได้ใช้ภาษาเริ่มต้น โปรแกรมอ่านหน้าจออาจอ่านข้อความในหน้าได้ไม่ถูกต้อง [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
     "message": "องค์ประกอบ `<html>` ไม่มีแอตทริบิวต์ `[lang]`"
@@ -183,7 +183,7 @@
     "message": "องค์ประกอบรูปภาพมีแอตทริบิวต์ `[alt]`"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | description": {
-    "message": "เมื่อมีการใช้รูปภาพเป็นปุ่ม `<input>` การระบุข้อความสำรองช่วยให้ผู้ใช้โปรแกรมอ่านหน้าจอเข้าใจวัตถุประสงค์ของปุ่มได้ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)"
+    "message": "เมื่อมีการใช้รูปภาพเป็นปุ่ม `<input>` การระบุข้อความสำรองจะช่วยให้ผู้ใช้โปรแกรมอ่านหน้าจอเข้าใจวัตถุประสงค์ของปุ่มได้ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | failureTitle": {
     "message": "องค์ประกอบ `<input type=\"image\">` ไม่มีข้อความ `[alt]`"
@@ -207,7 +207,7 @@
     "message": "องค์ประกอบ `<table>` สำหรับการนำเสนอไม่หลีกเลี่ยงการใช้ `<th>`, `<caption>` หรือแอตทริบิวต์ `[summary]`"
   },
   "lighthouse-core/audits/accessibility/layout-table.js | title": {
-    "message": "องค์ประกอบ `<table>` ที่นำเสนอหลีกเลี่ยงการใช้ `<th>`, `<caption>` หรือแอตทริบิวต์ `[summary]`"
+    "message": "องค์ประกอบ `<table>` สำหรับการนำเสนอหลีกเลี่ยงการใช้ `<th>`, `<caption>` หรือแอตทริบิวต์ `[summary]`"
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
     "message": "ข้อความลิงก์ (และข้อความสำรองสำหรับรูปภาพเมื่อใช้เป็นลิงก์) ที่แยกแยะได้ ไม่ซ้ำกัน และโฟกัสได้ ช่วยปรับปรุงประสบการณ์การไปยังส่วนต่างๆ สำหรับผู้ใช้โปรแกรมอ่านหน้าจอ [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)"
@@ -264,7 +264,7 @@
     "message": "องค์ประกอบ `<object>` มีข้อความ `[alt]`"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | description": {
-    "message": "ค่าที่มากกว่า 0 หมายความว่ามีการจัดเรียงการนำทางที่โจ่งแจ้ง แม้ว่าการทำงานนี้จะไม่มีปัญหาในทางเทคนิค แต่มักก่อให้เกิดประสบการณ์การใช้งานที่น่าหงุดหงิดสำหรับผู้ใช้เทคโนโลยีอำนวยความสะดวก [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)"
+    "message": "ค่าที่มากกว่า 0 หมายความว่ามีการจัดเรียงการนำทางที่ชัดเจน แม้ว่าการทำงานนี้จะไม่มีปัญหาในทางเทคนิค แต่มักก่อให้เกิดประสบการณ์การใช้งานที่น่าหงุดหงิดสำหรับผู้ใช้เทคโนโลยีอำนวยความสะดวก [ดูข้อมูลเพิ่มเติม](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | failureTitle": {
     "message": "องค์ประกอบบางอย่างมีค่า `[tabindex]` มากกว่า 0"
@@ -579,7 +579,7 @@
     "message": "โหลดคำขอสำคัญล่วงหน้า"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupDescription": {
-    "message": "นี่เป็นโอกาสปรับปรุงการใช้งาน ARIA ในแอปพลิเคชันของคุณ ซึ่งอาจช่วยให้ผู้ใช้ได้รับประสบการณ์ที่ดียิ่งขึ้นสำหรับการใช้งานเทคโนโลยีอำนวยความสะดวก เช่น โปรแกรมอ่านหน้าจอ"
+    "message": "นี่เป็นโอกาสปรับปรุงการใช้งาน ARIA ในแอปพลิเคชันของคุณ ซึ่งอาจช่วยให้ผู้ใช้ได้รับประสบการณ์การใช้งานเทคโนโลยีอำนวยความสะดวก เช่น โปรแกรมอ่านหน้าจอ ที่ดียิ่งขึ้น"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
     "message": "แอตทริบิวต์ ARIA เป็นไปตามแนวทางปฏิบัติที่ดีที่สุด"
@@ -603,7 +603,7 @@
     "message": "องค์ประกอบต่างๆ อธิบายเนื้อหาได้อย่างดี"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupDescription": {
-    "message": "นี่เป็นโอกาสปรับปรุงความหมายของส่วนควบคุมในแอปพลิเคชันของคุณ การดำเนินการนี้อาจช่วยให้ผู้ใช้ได้รับประสบการณ์ที่ดียิ่งขึ้นสำหรับการใช้งานเทคโนโลยีอำนวยความสะดวก เช่น โปรแกรมอ่านหน้าจอ"
+    "message": "นี่เป็นโอกาสปรับปรุงความหมายของส่วนควบคุมในแอปพลิเคชันของคุณ การดำเนินการนี้อาจช่วยให้ผู้ใช้ได้รับประสบการณ์การใช้งานเทคโนโลยีอำนวยความสะดวก เช่น โปรแกรมอ่านหน้าจอ ที่ดียิ่งขึ้น"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupTitle": {
     "message": "องค์ประกอบมีชื่อที่แยกแยะได้"

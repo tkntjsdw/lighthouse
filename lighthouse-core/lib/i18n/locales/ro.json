@@ -582,7 +582,7 @@
     "message": "Acestea sunt oportunități de a îmbunătăți utilizarea ARIA în aplicație, lucru care poate îmbunătăți experiența pentru utilizatorii tehnologiei care asigură asistență, precum un cititor de ecran."
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
-    "message": "Atributele ARIA urmează cele mai bune practici"
+    "message": "Atributele ARIA respectă cele mai bune practici"
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupDescription": {
     "message": "Acestea sunt oportunități de a-ți îmbunătăți lizibilitatea conținutului."
@@ -696,7 +696,7 @@
     "message": "{timeInMs, number, seconds} s"
   },
   "lighthouse-core/lib/lh-error.js | badTraceRecording": {
-    "message": "A apărut o eroare la înregistrarea urmei peste încărcarea paginii. Te rugăm să rulezi din nou Lighthouse. ({errorCode})"
+    "message": "A apărut o eroare la înregistrarea urmei încărcării paginii. Te rugăm să rulezi din nou Lighthouse. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | didntCollectScreenshots": {
     "message": "Chrome nu a colectat nicio captură de ecran în timpul încărcării paginii. Asigură-te că există conținut vizibil pe pagină, apoi încearcă să rulezi din nou Lighthouse. ({errorCode})"

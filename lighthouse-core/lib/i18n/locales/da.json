@@ -18,7 +18,7 @@
     "message": "\"[aria-*]\"-attributterne stemmer overens med deres roller"
   },
   "lighthouse-core/audits/accessibility/aria-required-attr.js | description": {
-    "message": "Nogle ARIA-roller har opnået attributter, der beskriver tilstanden for elementerne til skærmlæsere. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-required-attr?application=lighthouse)."
+    "message": "Nogle ARIA-roller har opnået attributter, der beskriver elementets tilstand for skærmlæsere. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-required-attr?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-required-attr.js | failureTitle": {
     "message": "\"[role]\"-elementerne har ikke alle de påkrævede \"[aria-*]\"-attributter"
@@ -96,10 +96,10 @@
     "message": "Tastaturbrugere kan nemmere finde rundt på siden, når der tilføjes metoder til tilsidesættelse af gentagelser. [Learn more](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/bypass.js | failureTitle": {
-    "message": "Siden har ikke en overskrift, et overspringslink eller et område for vartegn"
+    "message": "Siden indeholder hverken en heading, et skip link eller en landmark region"
   },
   "lighthouse-core/audits/accessibility/bypass.js | title": {
-    "message": "Siden indeholder en overskrift, et overspringslink eller et område for et vartegn"
+    "message": "Siden indeholder en heading, et skip link eller en landmark region"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | description": {
     "message": "Tekst med lav kontrast er for mange brugere svær eller umulig at læse. [Learn more](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
@@ -213,10 +213,10 @@
     "message": "Linktekst (og alternativ tekst til billeder, når de bruges som links), der er skelnelig, unik og fokuserbar, gør det nemmere for brugere af skærmlæsere at finde rundt. [Learn more](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
-    "message": "Linkene har ikke et skelneligt navn"
+    "message": "Linkene har ikke skelnelige navne"
   },
   "lighthouse-core/audits/accessibility/link-name.js | title": {
-    "message": "Linkene har et skelneligt navn"
+    "message": "Linkene har skelnelige navne"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
     "message": "Skærmlæsere oplæser lister på en bestemt måde. Du kan forbedre skærmlæsernes output ved at angive en ordentlig listestruktur. [Learn more](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
@@ -246,7 +246,7 @@
     "message": "Dokumentet anvender ikke \"<meta http-equiv=\"refresh\">\""
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | description": {
-    "message": "Hvis zoom deaktiveres, kan det skabe problemer for svagtseende brugere, der har brug for skærmforstørrelse til at se indholdet på en webpage. [Learn more](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
+    "message": "Hvis zoom deaktiveres, kan det skabe problemer for svagtseende brugere, der har brug for skærmforstørrelse til at se indholdet på en webside. [Learn more](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | failureTitle": {
     "message": "\"[user-scalable=\"no\"]\" anvendes i elementet \"<meta name=\"viewport\">\", eller attributten \"[maximum-scale]\" er mindre end 5."
@@ -564,7 +564,7 @@
     "message": "Brugstider markerer og måler"
   },
   "lighthouse-core/audits/uses-rel-preconnect.js | crossoriginWarning": {
-    "message": "Der blev fundet et <link> til forbindelse på forhånd for \"{securityOrigin}\", men det blev ikke brugt af browseren. Tjek, at du bruger attributten \"crossorigin\" korrekt."
+    "message": "Der blev fundet et <link>, der kan oprette forbindelse på forhånd for \"{securityOrigin}\", men det blev ikke brugt af browseren. Tjek, at du bruger attributten \"crossorigin\" korrekt."
   },
   "lighthouse-core/audits/uses-rel-preconnect.js | description": {
     "message": "Overvej at tilføje ressourcehints til forbindelse på forhånd eller DNS-forudhentning for at oprette tidlige forbindelser til vigtige tredjepartswebsites. [Få flere oplysninger](https://developers.google.com/web/fundamentals/performance/resource-prioritization#preconnect)."
@@ -726,7 +726,7 @@
     "message": "Det tog for lang tid at indlæse siden. Følg mulighederne i rapporten for at reducere indlæsningstiden for din side. Prøv derefter at køre Lighthouse igen. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | protocolTimeout": {
-    "message": "DevTools-protokollen har overskrevet den tilladte ventetid for svar. (Metode: {protocolMethod})"
+    "message": "DevTools-protokollen har overskredet den tilladte ventetid for svar. (Metode: {protocolMethod})"
   },
   "lighthouse-core/lib/lh-error.js | requestContentTimeout": {
     "message": "Hentning af ressourceindhold har taget længere tid end tilladt"

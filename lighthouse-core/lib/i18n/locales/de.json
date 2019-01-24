@@ -609,7 +609,7 @@
     "message": "Elemente haben leicht erkennbare Namen"
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupDescription": {
-    "message": "Damit können Sie erreichen, dass Ihre Inhalte in verschiedenen Sprachen besser verstanden werden."
+    "message": "Damit können Sie dafür sorgen, dass Ihre Inhalte in verschiedenen Sprachen besser verstanden werden."
   },
   "lighthouse-core/config/default-config.js | a11yLanguageGroupTitle": {
     "message": "Für die Seite ist eine gültige Sprache angegeben"

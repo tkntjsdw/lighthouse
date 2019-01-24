@@ -81,7 +81,7 @@
     "message": "Elementi \"<audio>\" sadrže element \"<track>\" s \"[kind=\"captions\"]\""
   },
   "lighthouse-core/audits/accessibility/axe-audit.js | failingElementsHeader": {
-    "message": "Elementi koji ne prolaze uspješno"
+    "message": "Elementi koji nisu prošli provjeru"
   },
   "lighthouse-core/audits/accessibility/button-name.js | description": {
     "message": "Kada gumb nema pristupačan naziv, čitači zaslona najavljuju ga kao \"gumb\" te je on neupotrebljiv za korisnike koji se oslanjaju na čitače zaslona. [Saznajte više](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)."
@@ -732,7 +732,7 @@
     "message": "Dohvaćanje sadržaja resursa premašilo je dodijeljeno vrijeme"
   },
   "lighthouse-core/lib/lh-error.js | urlInvalid": {
-    "message": "Čini se da je URL koji ste naveli nevažeći."
+    "message": "Čini se da URL koji ste naveli nije važeći."
   },
   "lighthouse-core/report/html/renderer/util.js | auditGroupExpandTooltip": {
     "message": "Prikažite preglede"
