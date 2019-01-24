@@ -29,14 +29,16 @@ function getPropsForType(type) {
     .filter((/** @type {{name: string, parent: Array<string>}} */ prop) =>
       prop.parent.includes(cleanType))
     .map((/** @type {{name: string, parent: Array<string>}} */ prop) => prop.name);
-  const parentTypes = findType(type).parent;
+  const foundType = findType(type);
+  if (!foundType) throw new Error(`Unable to get props for missing type "${type}"`);
+  const parentTypes = foundType.parent;
 
   return parentTypes.reduce((allProps, type) => allProps.concat(getPropsForType(type)), props);
 }
 
 /**
  * @param {string} type
- * @returns {{name: string, parent: Array<string>}}
+ * @returns {{name: string, parent: Array<string>}|undefined}
  */
 function findType(type) {
   const cleanType = cleanName(type);

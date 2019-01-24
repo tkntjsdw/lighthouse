@@ -56,8 +56,9 @@ module.exports = function validateJsonLD(json) {
   /** @type {Array<{path: string, message: string}>} */
   const errors = [];
 
+  // eslint-ignore-next-line no-unused-vars - it's helpful to understand the context
   walkObject(json, (name, value, path, object) => {
-    const error = validateKey.call(null, name, value, path, object);
+    const error = validateKey.call(null, name);
 
     if (error) {
       errors.push({
