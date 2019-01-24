@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const walkObject = require('./helpers/walkObject');
+const walkObject = require('./helpers/walkObject.js');
 
 // This list comes from the JSON-LD 1.1 spec: https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords
 const KEYWORDS = [

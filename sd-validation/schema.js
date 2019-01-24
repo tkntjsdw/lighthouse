@@ -5,9 +5,9 @@
  */
 'use strict';
 
-const walkObject = require('./helpers/walkObject');
+const walkObject = require('./helpers/walkObject.js');
 // @ts-ignore
-const schemaStructure = require('./assets/schema-tree');
+const schemaStructure = require('./assets/schema-tree.json');
 const TYPE_KEYWORD = '@type';
 const SCHEMA_ORG_URL_REGEX = /https?:\/\/schema\.org\//;
 

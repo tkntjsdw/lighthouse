@@ -5,10 +5,10 @@
  */
 'use strict';
 
-const parseJSON = require('./json');
-const validateJsonLD = require('./jsonld');
-const promiseExpand = require('./expand');
-const validateSchemaOrg = require('./schema');
+const parseJSON = require('./json.js');
+const validateJsonLD = require('./jsonld.js');
+const promiseExpand = require('./expand.js');
+const validateSchemaOrg = require('./schema.js');
 
 /**
  * Validates JSON-LD input. Returns array of error objects.
