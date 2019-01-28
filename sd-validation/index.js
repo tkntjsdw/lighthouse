@@ -75,6 +75,7 @@ module.exports = async function validate(textInput) {
         path: error.path,
         message: error.message,
         line: getLineNumberFromJsonPath(inputObject, error.path),
+        types: error.types,
       });
     });
 

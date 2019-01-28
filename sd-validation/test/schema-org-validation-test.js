@@ -47,6 +47,7 @@ describe('schema.org validation', () => {
     }`);
 
     assert.equal(errors.length, 1);
+    assert.equal(errors[0].types[0], 'http://schema.org/Article');
     assert.equal(errors[0].message, 'Unexpected property "controversial"');
     assert.equal(errors[0].line, 11);
   });

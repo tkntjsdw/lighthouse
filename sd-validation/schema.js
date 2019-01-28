@@ -133,14 +133,10 @@ module.exports = function validateSchemaOrg(expandedObj) {
       const keyErrors = validateObjectKeys(value, Object.keys(obj));
 
       keyErrors.forEach(e => {
-        errors.push({
-          // get rid of the last chunk (@type) as it's the same for all errors
-          path: '/' + path.slice(0, -1).concat(e.key).map(cleanName).join('/'),
-          message: e.message,
-        })
-        ;
-      }
-      );
+        // get rid of the last chunk (@type) as it's the same for all errors
+        e.path = '/' + path.slice(0, -1).concat(e.key).map(cleanName).join('/');
+        errors.push(e);
+      });
     }
   });
 
