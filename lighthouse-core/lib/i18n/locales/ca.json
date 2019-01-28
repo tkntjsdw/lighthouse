@@ -33,7 +33,7 @@
     "message": "Falten elements amb l'atribut \"[role]\" que requereixen determinats atributs \"[role]\" secundaris."
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | title": {
-    "message": "Hi ha elements amb l'atribut \"[role]\" que requereixen determinats atributs \"[role]\""
+    "message": "Hi ha elements amb l'atribut \"[role]\" que requereixen determinats atributs \"[role]\" secundaris"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | description": {
     "message": "Les funcions de determinats elements superiors han d'incloure algunes funcions dels elements d'ARIA secundaris perquè puguin dur a terme les seves funcions d'accessibilitat per a què s'han dissenyat. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
@@ -96,10 +96,10 @@
     "message": "Si s'afegeixen maneres d'evitar el contingut repetitiu, els usuaris del teclat poden navegar per la pàgina de manera més eficaç. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/bypass.js | failureTitle": {
-    "message": "La pàgina no conté un encapçalament, un enllaç per ometre l'hipertext o una regió de referència"
+    "message": "La pàgina no conté un encapçalament, un enllaç d'omissió o una regió de referència"
   },
   "lighthouse-core/audits/accessibility/bypass.js | title": {
-    "message": "La pàgina conté un encapçalament, un enllaç per ometre l'hipertext o una regió de referència"
+    "message": "La pàgina conté un encapçalament, un enllaç d'omissió o una regió de referència"
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | description": {
     "message": "El text amb contrast baix resulta difícil o impossible de llegir per a molts usuaris. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
@@ -111,7 +111,7 @@
     "message": "La relació de contrast dels colors de primer i de segon pla és suficient"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | description": {
-    "message": "Si el marcatge de les llistes de definició no és correcte, és possible que els anuncis dels lectors de pantalla siguin confusos o inexactes. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
+    "message": "Si el marcatge de les llistes de definició no és correcte, és possible que els lectors de pantalla expressin els missatges de manera confusa o inexacta. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/definition-list.js | failureTitle": {
     "message": "Els elements \"<dl>\" no contenen només grups de \"<dt>\" i \"<dd>\" ordenats correctament, o bé elements \"<script>\" o \"<template>\"."
@@ -156,7 +156,7 @@
     "message": "Els elements \"<frame>\" o \"<iframe>\" tenen títol"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "Si en una pàgina no s'especifica un atribut d'idioma, els lectors de pantalla suposen que la pàgina està escrita en l'idioma predeterminat que l'usuari ha triat en configurar el programa. Si està escrita en un altre idioma, és possible que el lector de pantalla no en llegeixi el text correctament. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
+    "message": "Si en una pàgina no s'especifica un atribut d'idioma, els lectors de pantalla suposen que la pàgina està escrita en l'idioma predeterminat que l'usuari ha triat en configurar el lector de pantalla. Si està escrita en un altre idioma, és possible que el lector de pantalla no en llegeixi el text correctament. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
     "message": "L'element \"<html>\" no té un atribut \"[lang]\""
@@ -171,7 +171,7 @@
     "message": "L'element \"<html>\" no té un valor vàlid per a l'atribut \"[lang]\" corresponent."
   },
   "lighthouse-core/audits/accessibility/html-lang-valid.js | title": {
-    "message": "L'element \"<html>\" té un valor vàlid per a l'atribut \"[lang]\""
+    "message": "L'element \"<html>\" té un valor vàlid per a l'atribut \"[lang]\" corresponent"
   },
   "lighthouse-core/audits/accessibility/image-alt.js | description": {
     "message": "Els elements informatius han d'utilitzar text alternatiu que sigui breu i descriptiu. Els elements decoratius es poden ignorar amb un atribut alt buit. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/image-alt?application=lighthouse)."
@@ -183,7 +183,7 @@
     "message": "Els elements d'imatge tenen atributs \"[alt]\""
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | description": {
-    "message": "Si s'utilitza una imatge per al botó \"<input>\", el text alternatiu pot ajudar els lectors de pantalla a entendre la funció del botó. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
+    "message": "Si s'utilitza una imatge per al botó \"<input>\", el text alternatiu pot ajudar els usuaris dels lectors de pantalla a entendre la funció del botó. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/input-image-alt?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/input-image-alt.js | failureTitle": {
     "message": "Els elements \"<input type=\"image\">\" no tenen text a l'atribut \"[alt]\""
@@ -210,7 +210,7 @@
     "message": "Els elements \"<table>\" per a presentacions eviten utilitzar \"<th>\", \"<caption>\" o l'atribut \"[summary]\"."
   },
   "lighthouse-core/audits/accessibility/link-name.js | description": {
-    "message": "Si el text dels enllaços (així com el text alternatiu per a les imatges, quan s'utilitzen com enllaços) és discernible, únic i permet posar-hi el focus, millora l'experiència de navegació per als usuaris de lectors de pantalla. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
+    "message": "Si el text dels enllaços (així com el text alternatiu per a les imatges, quan s'utilitzen com enllaços) és discernible, únic i permet que s'hi posi el focus, millora l'experiència de navegació per als usuaris de lectors de pantalla. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/link-name.js | failureTitle": {
     "message": "Els enllaços no tenen noms que es puguin distingir"
@@ -219,7 +219,7 @@
     "message": "Els enllaços tenen noms que es poden distingir"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
-    "message": "Els lectors de pantalla tenen una manera específica de llegir les llistes. Estructurar-les correctament millora els anuncis dels lectors de pantalla. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
+    "message": "Els lectors de pantalla tenen una manera específica de llegir les llistes. Estructurar-les correctament millora la manera com els lectors de pantalla expressen els missatges. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/list.js | failureTitle": {
     "message": "Les llistes no contenen només elements \"<li>\" i elements que admeten scripts (\"<script>\" o \"<template>\")."
@@ -309,7 +309,7 @@
     "message": "Els elements \"<video>\" contenen un element \"<track>\" amb l'atribut \"[kind=\"captions\"]\""
   },
   "lighthouse-core/audits/accessibility/video-description.js | description": {
-    "message": "La informació rellevant que ofereixen les audiodescripcions sobre els vídeos no la poden proporcionar els diàlegs, com ara les expressions facials i les escenes. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
+    "message": "Les audiodescripcions proporcionen informació rellevant dels vídeos que els diàlegs no poden oferir, com ara les expressions facials i les escenes. [Obtén més informació](https://dequeuniversity.com/rules/axe/2.2/video-description?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/video-description.js | failureTitle": {
     "message": "Els elements \"<video>\" no contenen un element \"<track>\" amb l'atribut \"[kind=\"description\"]\"."
@@ -663,7 +663,7 @@
     "message": "Es pot instal·lar"
   },
   "lighthouse-core/config/default-config.js | pwaOptimizedGroupTitle": {
-    "message": "Optimitzada per a PWA"
+    "message": "Optimitzat per a PWA"
   },
   "lighthouse-core/lib/i18n/i18n.js | columnCacheTTL": {
     "message": "TTL de la memòria cau"

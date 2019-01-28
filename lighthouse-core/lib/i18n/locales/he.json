@@ -39,7 +39,7 @@
     "message": "חלק מתפקידי הצאצא ב-ARIA חייבים להיכלל בין תפקידי הורה ספציפיים כדי למלא באופן תקין את פונקציות הנגישות שלהם. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/aria-required-parent?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | failureTitle": {
-    "message": "מאפייני `[role]` אינם בין רכיבי ההורה הנדרשים להם"
+    "message": "מאפייני `[role]` אינם בין רכיבי ההורה הנדרשים"
   },
   "lighthouse-core/audits/accessibility/aria-required-parent.js | title": {
     "message": "מאפייני `[role]` נמצאים בתוך רכיב ההורה הנדרש שלהם"
@@ -66,7 +66,7 @@
     "message": "טכנולוגיות לנגישות, כמו קוראי מסך, לא יכולות לפענח מאפייני ARIA עם שמות לא חוקיים. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | failureTitle": {
-    "message": "מאפייני `‎[aria-*]‎` אינם חוקיים או שכוללים שגיאות איות"
+    "message": "מאפייני `‎[aria-*]‎` אינם חוקיים, או שהם כוללים שגיאות איות"
   },
   "lighthouse-core/audits/accessibility/aria-valid-attr.js | title": {
     "message": "המאפיינים מסוג‎`[aria-*]` ‎חוקיים ואינם כוללים שגיאות איות"
@@ -105,7 +105,7 @@
     "message": "משתמשים רבים מתקשים או לא מסוגלים לקרוא טקסט עם ניגודיות צבעים נמוכה. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | failureTitle": {
-    "message": "יחס הניגודיות של צבעי רקע וחזית אינו מספיק."
+    "message": "יחס הניגודיות של צבעי הרקע והחזית אינו מספיק."
   },
   "lighthouse-core/audits/accessibility/color-contrast.js | title": {
     "message": "יש יחס ניגודיות מספיק בין צבעי הרקע והחזית"
@@ -129,7 +129,7 @@
     "message": "פריטים ברשימת הגדרות מופיעים בין רכיבי `<dl>`"
   },
   "lighthouse-core/audits/accessibility/document-title.js | description": {
-    "message": "הכותרת מספקת למשתמשים של קוראי מסך סקירה כללית של הדף. בנוסף, משתמשים של מנועי חיפוש מסתמכים מאוד על הכותרת כדי להבין אם הדף רלוונטי לחיפוש שלהם. [מידע נוסף](https://developers.google.com/web/tools/lighthouse/audits/title)."
+    "message": "הכותרת מספקת למשתמשים של קוראי מסך סקירה כללית של הדף. בנוסף, משתמשים של מנועי חיפוש מסתמכים במידה רבה על הכותרת כדי להבין אם הדף רלוונטי לחיפוש שלהם. [מידע נוסף](https://developers.google.com/web/tools/lighthouse/audits/title)."
   },
   "lighthouse-core/audits/accessibility/document-title.js | failureTitle": {
     "message": "אין למסמך רכיב `<title>`"
@@ -192,7 +192,7 @@
     "message": "לרכיבי `‎<input type=\"image\">‎` יש טקסט `[alt]`"
   },
   "lighthouse-core/audits/accessibility/label.js | description": {
-    "message": "בעזרת תוויות אפשר לוודא ששמות של פקדי טפסים מוקראים באופן תקין על-ידי טכנולוגיית לנגישות, כמו קוראי מסך. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/label?application=lighthouse)."
+    "message": "בעזרת תוויות אפשר לוודא ששמות של פקדי טפסים מוקראים באופן תקין על-ידי טכנולוגיות לנגישות, כמו קוראי מסך. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/label?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/label.js | failureTitle": {
     "message": "לא שויכו תוויות אל רכיבי טופס"
@@ -219,7 +219,7 @@
     "message": "לקישורים יש שמות ייחודיים"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
-    "message": "קוראי מסך מקריאים רשימות בדרך ספציפית. שמירה על מבנה רשימות תקין מאפשר הקראה תקינה על-ידי קורא המסך. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
+    "message": "קוראי מסך מקריאים רשימות בדרך ספציפית. שמירה על מבנה רשימות תקין מאפשרת הקראה תקינה על-ידי קורא המסך. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/list.js | failureTitle": {
     "message": "הרשימות אינן כוללות רק רכיבי `<li>` ורכיבים שתומכים בסקריפט (`<script>` ו-`<template>`)."
@@ -249,7 +249,7 @@
     "message": "השבתת האפשרות להגדיל את התוכן יוצרת בעיה עבור לקויי ראייה שמסתמכים על הגדלת המסך כדי לראות היטב את תוכן דף האינטרנט. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/meta-viewport?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | failureTitle": {
-    "message": "נעשה שימוש ב-`‎[user-scalable=\"no\"]‎` בתוך הרכיב `‎<meta name=\"viewport\">‎` או שערך המאפיין `[maximum-scale]` קטן מ-5."
+    "message": "נעשה שימוש ב-`‎[user-scalable=\"no\"]‎` בתוך הרכיב `‎<meta name=\"viewport\">‎`, או שערך המאפיין `[maximum-scale]` קטן מ-5."
   },
   "lighthouse-core/audits/accessibility/meta-viewport.js | title": {
     "message": "לא נעשה שימוש ב-`‎[user-scalable=\"no\"]‎` ברכיב `‎<meta name=\"viewport\">‎` וערך המאפיין `[maximum-scale]` אינו פחות מ-5."
@@ -264,13 +264,13 @@
     "message": "לרכיבי `<object>` יש טקסט `[alt]`"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | description": {
-    "message": "ערך גדול מ-0 מרמז על סדר ניווט מפורש. למרות שאפשרות זו תקינה מבחינה טכנית, לרוב היא גורמת לחוויה מתסכלת עבור משתמשים שמסתמכים על טכנולוגיות לנגישות. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
+    "message": "ערך גדול מ-0 מרמז על סדר ניווט מפורש. למרות שאפשרות זו תקינה מבחינה טכנית, במקרים רבים היא גורמת לחוויה מתסכלת עבור משתמשים שמסתמכים על טכנולוגיות לנגישות. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/tabindex?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/tabindex.js | failureTitle": {
     "message": "לחלק מהרכיבים יש ערך `[tabindex]` גדול מ-0"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | title": {
-    "message": "איך רכיב שערך `[tabindex]` שלו גדול מ-0"
+    "message": "לאף רכיב אין ערך `[tabindex]` גדול מ-0"
   },
   "lighthouse-core/audits/accessibility/td-headers-attr.js | description": {
     "message": "קוראי מסכים כוללים תכונות שמקלות את הניווט בטבלאות. כשתאי `<td>` שמשתמשים במאפיין `[headers]` מתייחסים רק לתאים אחרים באותה טבלה, משתמשים של קוראי מסך עשויים ליהנות מחוויה טובה יותר. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/td-headers-attr?application=lighthouse)."
@@ -282,7 +282,7 @@
     "message": "תאים ברכיב `<table>` שמשתמשים במאפיין `[headers]` מתייחסים רק לתאים באותה טבלה."
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | description": {
-    "message": "קוראי מסכים כוללים תכונות שמקלות את הניווט בטבלאות. הקפדה על כך שכותרות טבלה יתייחסו תמיד לקבוצה כלשהי של תאים יכולה לשפר את החוויה של משתמשים הנעזרים בקורא מסך. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
+    "message": "קוראי מסכים כוללים תכונות שמקלות את הניווט בטבלאות. הקפדה שכותרות טבלה יתייחסו תמיד לקבוצה כלשהי של תאים, יכולה לשפר את החוויה של משתמשים הנעזרים בקורא מסך. [מידע נוסף](https://dequeuniversity.com/rules/axe/2.2/th-has-data-cells?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/th-has-data-cells.js | failureTitle": {
     "message": "לרכיבי `<th>` ולרכיבים עם `‎[role=\"columnheader\"/\"rowheader\"]‎` אין תאים שאותם הם מתארים."
@@ -579,31 +579,31 @@
     "message": "יש לטעון מראש בקשות עיקריות"
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupDescription": {
-    "message": "אלה הזדמנויות לשיפור השימוש ב-ARIA באפליקציה, והן יכולות לשפר את חווית המשתמש שנעזרים בטכנולוגיות לנגישות, כמו קורא מסך."
+    "message": "אלו הזדמנויות לשיפור השימוש ב-ARIA באפליקציה, והן יכולות לשפר את החוויה של משתמשים שנעזרים בטכנולוגיות לנגישות, כמו קוראי מסך."
   },
   "lighthouse-core/config/default-config.js | a11yAriaGroupTitle": {
     "message": "מאפייני ARIA מוגדרים בהתאם לשיטות המומלצות"
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupDescription": {
-    "message": "אלו הזדמנויות לשיפור של קלות קריאת התוכן."
+    "message": "אלו הזדמנויות לשיפורים שיאפשרו לקרוא את התוכן בצורה קלה יותר."
   },
   "lighthouse-core/config/default-config.js | a11yColorContrastGroupTitle": {
     "message": "ניגודיות הצבע מספיקה"
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupDescription": {
-    "message": "אלה הזדמנויות לשיפור התצורה של רכיבי ה-HTML שלך."
+    "message": "אלו הזדמנויות לשיפור התצורה של רכיבי ה-HTML שלך."
   },
   "lighthouse-core/config/default-config.js | a11yCorrectAttributesGroupTitle": {
-    "message": "רכיבים משתמשים במאפיינים באופן תקין"
+    "message": "רכיבים שמשתמשים במאפיינים באופן תקין"
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupDescription": {
-    "message": "אלה הזדמנויות ליצור תוכן שמשתמשים וטכנולוגיות לנגישות (כמו קוראי מסך) יוכלו להבין בקלות רבה יותר."
+    "message": "אלו הזדמנויות ליצור תוכן שמשתמשים וטכנולוגיות לנגישות (כמו קוראי מסך) יוכלו להבין בקלות רבה יותר."
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupTitle": {
     "message": "הרכיבים מתארים את התוכן בצורה תקינה"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupDescription": {
-    "message": "אלה הזדמנויות לשיפור הסמנטיקה של פקדים באפליקציה. הן יכולות לשפר את החוויה של משתמשים שנעזרים בטכנולוגיות לנגישות, כמו קורא מסך."
+    "message": "אלו הזדמנויות לשיפור הסמנטיקה של פקדים באפליקציה. הן יכולות לשפר את החוויה של משתמשים שנעזרים בטכנולוגיות לנגישות, כמו קורא מסך."
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupTitle": {
     "message": "לרכיבים יש שמות ייחודיים"
@@ -621,7 +621,7 @@
     "message": "השימוש במטא-תגים תקין"
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupDescription": {
-    "message": "אלה הזדמנויות שמאפשרות לך לוודא שמבנה ה-HTML שלך תקין."
+    "message": "אלו הזדמנויות לוודא שהמבנה של קוד ה-HTML תקין."
   },
   "lighthouse-core/config/default-config.js | a11yWellStructuredGroupTitle": {
     "message": "מבנה הרכיבים תקין"
@@ -696,7 +696,7 @@
     "message": "{timeInMs, number, seconds} שניות"
   },
   "lighthouse-core/lib/lh-error.js | badTraceRecording": {
-    "message": "משהו השתבש בתיעוד של טעינת הדף שלך ובמעקב אחריה. יש להריץ שוב את Lighthouse. ({errorCode})"
+    "message": "משהו השתבש בתיעוד של טעינת הדף ובמעקב אחריה. יש להריץ שוב את Lighthouse. ({errorCode})"
   },
   "lighthouse-core/lib/lh-error.js | didntCollectScreenshots": {
     "message": "Chrome לא אסף צילומי מסך במהלך טעינת הדף. צריך לוודא שיש תוכן גלוי בדף, ולאחר מכן להריץ מחדש את Lighthouse. ({errorCode})"

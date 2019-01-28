@@ -507,10 +507,10 @@
     "message": "CPU bezczynny po raz pierwszy"
   },
   "lighthouse-core/audits/metrics/first-meaningful-paint.js | description": {
-    "message": "Pierwsze wyrenderowanie czegoś znaczącego oznacza czas pojawienia się na ekranie głównej zawartości strony. [Więcej informacji](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)"
+    "message": "Pierwsze wyrenderowanie elementu znaczącego oznacza czas pojawienia się na ekranie głównej zawartości strony. [Więcej informacji](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)"
   },
   "lighthouse-core/audits/metrics/first-meaningful-paint.js | title": {
-    "message": "Pierwsze wyrenderowanie czegoś znaczącego"
+    "message": "Pierwsze wyrenderowanie elementu znaczącego"
   },
   "lighthouse-core/audits/metrics/interactive.js | description": {
     "message": "Czas do pełnej interaktywności oznacza czas, po którym strona jest całkowicie interaktywna. [Więcej informacji](https://developers.google.com/web/tools/lighthouse/audits/consistently-interactive)"
@@ -633,7 +633,7 @@
     "message": "Diagnostyka"
   },
   "lighthouse-core/config/default-config.js | firstPaintImprovementsGroupDescription": {
-    "message": "Najważniejszym aspektem wydajności jest to, jak szybko piksele zostaną wyświetlone na ekranie. Kluczowe wskaźniki: Pierwsze wyrenderowanie treści, Pierwsze wyrenderowanie czegoś znaczącego"
+    "message": "Najważniejszym aspektem wydajności jest to, jak szybko piksele zostaną wyświetlone na ekranie. Kluczowe wskaźniki: Pierwsze wyrenderowanie treści, Pierwsze wyrenderowanie elementu znaczącego"
   },
   "lighthouse-core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Ulepszenia pierwszego renderowania"

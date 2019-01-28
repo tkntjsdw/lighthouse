@@ -81,16 +81,16 @@
     "message": "<audio> 元素包含帶有 [kind=\"captions\"] 的 <track> 元素。"
   },
   "lighthouse-core/audits/accessibility/axe-audit.js | failingElementsHeader": {
-    "message": "稽核失敗的元素"
+    "message": "未通過稽核的元素"
   },
   "lighthouse-core/audits/accessibility/button-name.js | description": {
-    "message": "如果按鈕沒有可存取的名稱，螢幕閱讀器只會讀出「按鈕」，這樣仰賴螢幕閱讀器的使用者並無法使用這個按鈕。[瞭解詳情](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)。"
+    "message": "如果沒有可解讀的按鈕名稱，螢幕閱讀器只會讀出「按鈕」，這樣仰賴螢幕閱讀器的使用者就無法知道這個按鈕的用途。[瞭解詳情](https://dequeuniversity.com/rules/axe/2.2/button-name?application=lighthouse)。"
   },
   "lighthouse-core/audits/accessibility/button-name.js | failureTitle": {
     "message": "按鈕沒有可存取的名稱"
   },
   "lighthouse-core/audits/accessibility/button-name.js | title": {
-    "message": "按鈕具有可存取的名稱"
+    "message": "按鈕具有可解讀的名稱"
   },
   "lighthouse-core/audits/accessibility/bypass.js | description": {
     "message": "針對重複的內容增設略過選項，可提高鍵盤使用者的網頁瀏覽效率。[瞭解詳情](https://dequeuniversity.com/rules/axe/2.2/bypass?application=lighthouse)。"
@@ -219,7 +219,7 @@
     "message": "連結具有可辨別的名稱"
   },
   "lighthouse-core/audits/accessibility/list.js | description": {
-    "message": "螢幕閱讀器會以特定方式朗讀清單。確認清單採用正確的結構有助於螢幕閱讀器順利輸出內容。[瞭解詳情](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)。"
+    "message": "螢幕閱讀器會以特定方式朗讀清單。請務必採用正確的清單結構，這樣螢幕閱讀器才能順利讀出畫面上的內容。[瞭解詳情](https://dequeuniversity.com/rules/axe/2.2/list?application=lighthouse)。"
   },
   "lighthouse-core/audits/accessibility/list.js | failureTitle": {
     "message": "清單中並非只包含 <li> 元素和指令碼支援元素 (<script> 和 <template>)。"
@@ -600,7 +600,7 @@
     "message": "這些稽核建議可讓輔助技術 (例如螢幕閱讀器) 的使用者更容易理解你的網頁內容。"
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupTitle": {
-    "message": "元素貼切描述內容"
+    "message": "元素對於內容提供了貼切的描述"
   },
   "lighthouse-core/config/default-config.js | a11yElementNamesGroupDescription": {
     "message": "這些稽核建議可協助提高應用程式中的控制項語義品質。這或許能改善輔助技術 (例如螢幕閱讀器) 的使用體驗。"
@@ -711,7 +711,7 @@
     "message": "Lighthouse 無法穩定載入你要求的網頁。請確認你測試的網址是否正確，以及伺服器是否正確回應所有要求。"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedHung": {
-    "message": "你要求的網頁停止了回應，因此 Lighthouse 無法穩定載入該網址。"
+    "message": "你要求的網頁已停止回應，因此 Lighthouse 無法穩定載入該網址。"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedInsecure": {
     "message": "你所提供的網址缺少有效的安全性憑證。({securityMessages})"

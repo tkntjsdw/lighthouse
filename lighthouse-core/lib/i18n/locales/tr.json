@@ -1,6 +1,6 @@
 {
   "lighthouse-core/audits/accessibility/accesskeys.js | description": {
-    "message": "Erişim anahtarları kullanıcıların hemen sayfanın bir bölümüne odaklanmalarını sağlar. Gezinmenin düzgün bir şekilde gerçekleştirilebilmesi için her erişim anahtarının benzersiz olması gerekir [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/accesskeys?application=lighthouse)."
+    "message": "Erişim anahtarları, kullanıcıların sayfanın bir bölümüne hızlıca odaklanmalarını sağlar. Gezinmenin düzgün bir şekilde gerçekleştirilebilmesi için her bir erişim anahtarının benzersiz olması gerekir [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/accesskeys?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/accesskeys.js | failureTitle": {
     "message": "\"[accesskey]\" değerleri benzersiz değil"
@@ -27,7 +27,7 @@
     "message": "\"[role]\"ler gereken tüm \"[aria-*]\" özelliklerine sahip"
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | description": {
-    "message": "Bazı ARIA üst rollerinin amaçlanan erişilebilirlik işlevlerini gerçekleştirebilmesi için belirli alt rolleri içermesi gerekir. [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)."
+    "message": "Bazı ARIA üst rollerinin amaçlanan erişilebilirlik işlevlerini gerçekleştirebilmek için belirli alt rolleri içermesi gerekir. [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/aria-required-children?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/aria-required-children.js | failureTitle": {
     "message": "Belirli alt \"[role]\" rolleri gerektiren, \"[role]\" rolüne sahip öğeler eksik."
@@ -111,7 +111,7 @@
     "message": "Arka plan ve ön plan renkleri yeterli kontrast oranına sahip"
   },
   "lighthouse-core/audits/accessibility/definition-list.js | description": {
-    "message": "Tanım listeleri gerektiği gibi işaretlenmediğinde ekran okuyucular kafa karışıklığına yol açan veya yanlış çıkışlar ortaya koyabilir. [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
+    "message": "Tanım listeleri gerektiği gibi işaretlenmediğinde ekran okuyucular kafa karışıklığına yol açan veya yanlış çıkışlar sunabilir. [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/definition-list?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/definition-list.js | failureTitle": {
     "message": "\"<dl>\"ler yalnızca gerektiği gibi sıralanmış \"<dt>\" ve \"<dd>\" gruplarını, \"<script>\" veya \"<template>\" öğelerini içermiyor."
@@ -237,7 +237,7 @@
     "message": "Liste öğeleri (\"<li>\"), \"<ul>\" veya \"<ol>\" üst öğelerinde yer alıyor"
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | description": {
-    "message": "Kullanıcılar bir sayfanın otomatik olarak yenilenmesini beklemez ve bunu yapmak yeniden sayfanın üst tarafına odaklanılmasına neden olur. Bu, can sıkıcı veya kafa karışıklığına yol açan bir deneyime neden olabilir. [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)."
+    "message": "Kullanıcılar bir sayfanın otomatik olarak yenileneceğini düşünmez ve bu işlem yeniden sayfanın üst tarafına odaklanılmasına neden olur. Bu durum, can sıkıcı veya kafa karışıklığına yol açan bir deneyime yol açabilir. [Daha fazla bilgi](https://dequeuniversity.com/rules/axe/2.2/meta-refresh?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/meta-refresh.js | failureTitle": {
     "message": "Doküman \"<meta http-equiv=\"refresh\">\" kullanıyor"
@@ -597,7 +597,7 @@
     "message": "Öğeler Özellikleri Doğru Kullanıyor"
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupDescription": {
-    "message": "Bu fırsatlar, ekran okuyucu gibi yardımcı teknolojilerin kullanıcılarının içeriğinizi daha kolay anlamalarına olanak tanır."
+    "message": "Bu fırsatlar, ekran okuyucu gibi yardımcı teknoloji kullananların içeriğinizi daha kolay anlamasına olanak tanır."
   },
   "lighthouse-core/config/default-config.js | a11yDescribeContentsGroupTitle": {
     "message": "Öğeler İçerikleri İyi Tanımlıyor"
@@ -717,7 +717,7 @@
     "message": "Sağladığınız URL, geçerli güvenlik kimlik bilgilerine sahip değil. ({securityMessages})"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedWithDetails": {
-    "message": "Lighthouse istediğiniz sayfayı güvenli bir şekilde yükleyemedi. Doğru URL'yi test ettiğinizden ve sunucunun tüm isteklere gerektiği gibi yanıt verdiğinden emin olun. (Ayrıntılar: {errorDetails})"
+    "message": "Lighthouse, istediğiniz sayfayı güvenli bir şekilde yükleyemedi. Doğru URL'yi test ettiğinizden ve sunucunun tüm isteklere gerektiği gibi yanıt verdiğinden emin olun. (Ayrıntılar: {errorDetails})"
   },
   "lighthouse-core/lib/lh-error.js | pageLoadFailedWithStatusCode": {
     "message": "Lighthouse istediğiniz sayfayı güvenli bir şekilde yükleyemedi. Doğru URL'yi test ettiğinizden ve sunucunun tüm isteklere gerektiği gibi yanıt verdiğinden emin olun. (Durum kodu: {statusCode})"

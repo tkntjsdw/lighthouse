@@ -156,7 +156,7 @@
     "message": "Елементите <frame> или <iframe> имат заглавие"
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | description": {
-    "message": "Ако за дадена страница не е посочен атрибут lang, екранният четец приема, че тя е написана на стандартния език, който потребителят е избрал при настройването му. Ако страницата всъщност не е на стандартния език, екранният четец може да не прочете текстът й правилно. [Научете повече](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
+    "message": "Ако за дадена страница не е посочен атрибут lang, екранният четец приема, че тя е написана на стандартния език, който потребителят е избрал при настройването му. Ако страницата всъщност не е на стандартния език, екранният четец може да не прочете текста й правилно. [Научете повече](https://dequeuniversity.com/rules/axe/2.2/html-lang?application=lighthouse)."
   },
   "lighthouse-core/audits/accessibility/html-has-lang.js | failureTitle": {
     "message": "Елементът <html> няма атрибут [lang]"
