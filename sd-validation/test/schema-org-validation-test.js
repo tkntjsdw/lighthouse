@@ -83,4 +83,33 @@ describe('schema.org validation', () => {
 
     assert.equal(errors.length, 0);
   });
+
+  it('passes if valid json-ld uses absolute IRIs as keys', async () => {
+    const errors = await validateJSONLD(`{
+      "@type": "http://schema.org/Article",
+      "http://schema.org/author": {
+        "@type": "Person",
+        "http://schema.org/name": "Cat"
+      },
+      "http://schema.org/datePublished": "Oct 29th 2017",
+      "http://schema.org/dateModified": "Oct 29th 2017"
+    }`);
+
+    assert.equal(errors.length, 0);
+  });
+
+  it('fails if invalid json-ld uses absolute IRIs as keys', async () => {
+    const errors = await validateJSONLD(`{
+      "@type": "http://schema.org/Article",
+      "http://schema.org/author": {
+        "@type": "http://schema.org/Person",
+        "http://schema.org/invalidProperty": "",
+        "http://schema.org/name": "Cat"
+      },
+      "http://schema.org/datePublished": "Oct 29th 2017",
+      "http://schema.org/dateModified": "Oct 29th 2017"
+    }`);
+
+    assert.equal(errors.length, 1);
+  });
 });
