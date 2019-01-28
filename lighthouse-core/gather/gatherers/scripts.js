@@ -42,7 +42,7 @@ class Scripts extends Gatherer {
       }
       scripts.push(...inlineScripts.map(code => ({
         code,
-        requestId: mainResource.requestId,
+        requestId: mainResource ? mainResource.requestId : undefined,
       })));
     }
 

@@ -48,7 +48,7 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
 
   /**
    * @param {string} scriptContent
-   * @param {LH.Artifacts.NetworkRequest} networkRecord
+   * @param {LH.Artifacts.NetworkRequest|undefined} networkRecord
    * @return {{url: string, totalBytes: number, wastedBytes: number, wastedPercent: number}}
    */
   static computeWaste(scriptContent, networkRecord) {
@@ -61,7 +61,7 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
     const wastedBytes = Math.round(totalBytes * wastedRatio);
 
     return {
-      url: networkRecord.url,
+      url: networkRecord ? networkRecord.url : '?',
       totalBytes,
       wastedBytes,
       wastedPercent: 100 * wastedRatio,
@@ -78,8 +78,8 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
     const items = [];
     const warnings = [];
     for (const {requestId, code} of artifacts.Scripts) {
+      if (!code) continue;
       const networkRecord = networkRecords.find(record => record.requestId === requestId);
-      if (!networkRecord || !code) continue;
 
       try {
         const result = UnminifiedJavaScript.computeWaste(code, networkRecord);
@@ -90,7 +90,11 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
           !Number.isFinite(result.wastedBytes)) continue;
         items.push(result);
       } catch (err) {
-        warnings.push(`Unable to process ${networkRecord.url}: ${err.message}`);
+        if (networkRecord) {
+          warnings.push(`Unable to process script ${networkRecord.url}: ${err.message}`);
+        } else {
+          warnings.push(`Unable to process script: ${err.message}`);
+        }
       }
     }
 
