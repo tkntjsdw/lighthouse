@@ -2115,12 +2115,36 @@
         "unminified-javascript": {
             "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).", 
             "details": {
-                "headings": [], 
-                "items": [], 
-                "overallSavingsBytes": 0.0, 
+                "headings": [
+                    {
+                        "key": "url", 
+                        "label": "URL", 
+                        "valueType": "url"
+                    }, 
+                    {
+                        "key": "totalBytes", 
+                        "label": "Size (KB)", 
+                        "valueType": "bytes"
+                    }, 
+                    {
+                        "key": "wastedBytes", 
+                        "label": "Potential Savings (KB)", 
+                        "valueType": "bytes"
+                    }
+                ], 
+                "items": [
+                    {
+                        "totalBytes": 35751.0, 
+                        "url": "?", 
+                        "wastedBytes": 15203.0, 
+                        "wastedPercent": 42.52388078488413
+                    }
+                ], 
+                "overallSavingsBytes": 15203.0, 
                 "overallSavingsMs": 0.0, 
                 "type": "opportunity"
             }, 
+            "displayValue": "Potential savings of 15\u00a0KB", 
             "id": "unminified-javascript", 
             "score": 1.0, 
             "scoreDisplayMode": "numeric", 
