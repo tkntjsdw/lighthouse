@@ -31,7 +31,7 @@ class Scripts extends Gatherer {
 
       return getElementsInDocument('script')
         .filter(script => !script.src && script.text.trim())
-        .map(script => meta.text);
+        .map(script => script.text);
     })()`, {useIsolation: true});
 
     if (inlineScripts.length) {
