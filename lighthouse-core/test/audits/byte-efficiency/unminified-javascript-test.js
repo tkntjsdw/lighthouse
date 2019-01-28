@@ -73,6 +73,38 @@ describe('Page uses optimized responses', () => {
     ]);
   });
 
+  it('fails when given unminified scripts even with missing network record', () => {
+    const auditResult = UnminifiedJavascriptAudit.audit_({
+      Scripts: [
+        {
+          requestId: '123.1',
+          code: `
+            var foo = new Set();
+            foo.add(1);
+            foo.add(2);
+
+            if (foo.has(2)) {
+              console.log('hello!')
+            }
+            // we can't fake the size to get over the threshold w/o a network record,
+            // so make some really big code instead
+            var a = 0;
+            // ${'a++;'.repeat(1000)}
+        `,
+        },
+      ],
+    }, []);
+
+    const results = auditResult.items.map(item => Object.assign(item, {
+      wastedKB: Math.round(item.wastedBytes / 1024),
+      wastedPercent: Math.round(item.wastedPercent),
+    }));
+
+    expect(results).toMatchObject([
+      {url: '?', wastedPercent: 98, wastedKB: 2},
+    ]);
+  });
+
   it('passes when scripts are already minified', () => {
     const auditResult = UnminifiedJavascriptAudit.audit_({
       Scripts: [
