@@ -5,6 +5,7 @@
  */
 'use strict';
 
+const log = require('lighthouse-logger');
 const Gatherer = require('./gatherer');
 const NetworkRequest = require('../../lib/network-request');
 const getElementsInDocumentString = require('../../lib/page-functions.js').getElementsInDocumentString; // eslint-disable-line max-len
@@ -38,7 +39,7 @@ class Scripts extends Gatherer {
       const mainResource = loadData.networkRecords.find(
         request => URL.equalWithExcludedFragments(request.url, passContext.url));
       if (!mainResource) {
-        throw new Error('could not locate mainResource');
+        log.warn('Scripts', 'could not locate mainResource');
       }
       scripts.push(...inlineScripts.map(code => ({
         code,
