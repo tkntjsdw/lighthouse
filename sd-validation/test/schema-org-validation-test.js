@@ -29,6 +29,7 @@ describe('schema.org validation', () => {
 
     assert.equal(errors.length, 1);
     assert.equal(errors[0].message, 'Unrecognized schema.org type http://schema.org/Dog');
+    assert.equal(errors[0].line, 3);
   });
 
   it('reports unexpected fields', async () => {
@@ -47,6 +48,7 @@ describe('schema.org validation', () => {
 
     assert.equal(errors.length, 1);
     assert.equal(errors[0].message, 'Unexpected property "controversial"');
+    assert.equal(errors[0].line, 11);
   });
 
   it('passes if non-schema.org context', async () => {
@@ -111,5 +113,6 @@ describe('schema.org validation', () => {
     }`);
 
     assert.equal(errors.length, 1);
+    assert.equal(errors[0].line, 5);
   });
 });
