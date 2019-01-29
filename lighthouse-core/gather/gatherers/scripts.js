@@ -42,10 +42,14 @@ class Scripts extends Gatherer {
       if (!mainResource) {
         log.warn('Scripts', 'could not locate mainResource');
       }
-      scripts.push(...inlineScripts.map(content => ({
-        content,
-        requestId: mainResource ? mainResource.requestId : undefined,
-      })));
+      scripts.push(
+        ...inlineScripts.map(content => {
+          return {
+            content,
+            requestId: mainResource ? mainResource.requestId : undefined,
+          };
+        })
+      );
     }
 
     const scriptRecords = loadData.networkRecords
