@@ -95,14 +95,11 @@ describe('Page uses optimized responses', () => {
       ],
     }, []);
 
-    const results = auditResult.items.map(item => Object.assign(item, {
-      wastedKB: Math.round(item.wastedBytes / 1024),
-      wastedPercent: Math.round(item.wastedPercent),
-    }));
-
-    expect(results).toMatchObject([
-      {url: '?', wastedPercent: 98, wastedKB: 2},
-    ]);
+    assert.strictEqual(auditResult.items.length, 1);
+    const item = auditResult.items[0];
+    assert.strictEqual(item.url, '?');
+    assert.strictEqual(Math.round(item.wastedBytes / 1024), 2);
+    assert.strictEqual(Math.round(item.wastedPercent), 98);
   });
 
   it('passes when scripts are already minified', () => {
