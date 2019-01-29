@@ -90,11 +90,8 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
           !Number.isFinite(result.wastedBytes)) continue;
         items.push(result);
       } catch (err) {
-        if (networkRecord) {
-          warnings.push(`Unable to process script ${networkRecord.url}: ${err.message}`);
-        } else {
-          warnings.push(`Unable to process script: ${err.message}`);
-        }
+        const url = networkRecord ? networkRecord.url : '?';
+        warnings.push(`Unable to process script ${url}: ${err.message}`);
       }
     }
 

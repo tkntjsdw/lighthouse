@@ -36,8 +36,9 @@ class Scripts extends Gatherer {
     })()`, {useIsolation: true});
 
     if (inlineScripts.length) {
-      const mainResource = loadData.networkRecords.find(
-        request => URL.equalWithExcludedFragments(request.url, passContext.url));
+      const mainResource = loadData.networkRecords.find(request =>
+        passContext.url.startsWith(request.url) &&
+          URL.equalWithExcludedFragments(request.url, passContext.url));
       if (!mainResource) {
         log.warn('Scripts', 'could not locate mainResource');
       }

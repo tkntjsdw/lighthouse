@@ -29,9 +29,26 @@ module.exports = [
         details: {
           overallSavingsBytes: '>45000',
           overallSavingsMs: '>500',
-          items: {
-            length: 3,
-          },
+          items: [
+            {
+              url: 'http://localhost:10200/byte-efficiency/script.js',
+              totalBytes: 53181,
+              wastedBytes: 46481,
+              wastedPercent: 87.40117365133875,
+            },
+            {
+              url: 'http://localhost:10200/byte-efficiency/tester.html',
+              totalBytes: 6607,
+              wastedBytes: 6581,
+              wastedPercent: 99.60353766392193,
+            },
+            {
+              url: 'http://localhost:10200/byte-efficiency/tester.html',
+              totalBytes: 6559,
+              wastedBytes: 6559,
+              wastedPercent: 100,
+            },
+          ],
         },
       },
       'unused-css-rules': {
