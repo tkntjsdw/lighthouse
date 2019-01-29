@@ -2134,19 +2134,19 @@
                 ], 
                 "items": [
                     {
-                        "totalBytes": 35751.0, 
-                        "url": "?", 
-                        "wastedBytes": 15203.0, 
+                        "totalBytes": 71654.0, 
+                        "url": "http://localhost:10200/zone.js", 
+                        "wastedBytes": 30470.0, 
                         "wastedPercent": 42.52388078488413
                     }
                 ], 
-                "overallSavingsBytes": 15203.0, 
-                "overallSavingsMs": 0.0, 
+                "overallSavingsBytes": 30470.0, 
+                "overallSavingsMs": 150.0, 
                 "type": "opportunity"
             }, 
-            "displayValue": "Potential savings of 15\u00a0KB", 
+            "displayValue": "Potential savings of 30\u00a0KB", 
             "id": "unminified-javascript", 
-            "score": 1.0, 
+            "score": 0.88, 
             "scoreDisplayMode": "numeric", 
             "title": "Minify JavaScript", 
             "warnings": []

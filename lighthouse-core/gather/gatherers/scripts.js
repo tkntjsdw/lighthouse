@@ -41,8 +41,8 @@ class Scripts extends Gatherer {
       if (!mainResource) {
         log.warn('Scripts', 'could not locate mainResource');
       }
-      scripts.push(...inlineScripts.map(code => ({
-        code,
+      scripts.push(...inlineScripts.map(content => ({
+        content,
         requestId: mainResource ? mainResource.requestId : undefined,
       })));
     }
@@ -55,7 +55,7 @@ class Scripts extends Gatherer {
         const content = await driver.getRequestContent(record.requestId);
         if (content) {
           scripts.push({
-            code: content,
+            content,
             requestId: record.requestId,
           });
         }

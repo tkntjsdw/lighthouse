@@ -1998,10 +1998,10 @@
       "id": "unminified-javascript",
       "title": "Minify JavaScript",
       "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).",
-      "score": 1,
+      "score": 0.88,
       "scoreDisplayMode": "numeric",
-      "rawValue": 0,
-      "displayValue": "Potential savings of 15 KB",
+      "rawValue": 150,
+      "displayValue": "Potential savings of 30 KB",
       "warnings": [],
       "details": {
         "type": "opportunity",
@@ -2024,14 +2024,14 @@
         ],
         "items": [
           {
-            "url": "?",
-            "totalBytes": 35751,
-            "wastedBytes": 15203,
+            "url": "http://localhost:10200/zone.js",
+            "totalBytes": 71654,
+            "wastedBytes": 30470,
             "wastedPercent": 42.52388078488413
           }
         ],
-        "overallSavingsMs": 0,
-        "overallSavingsBytes": 15203
+        "overallSavingsMs": 150,
+        "overallSavingsBytes": 30470
       }
     },
     "unused-css-rules": {
@@ -4875,7 +4875,7 @@
       "lighthouse-core/lib/i18n/i18n.js | displayValueByteSavings": [
         {
           "values": {
-            "wastedBytes": 15203
+            "wastedBytes": 30470
           },
           "path": "audits[unminified-javascript].displayValue"
         },

@@ -19,7 +19,7 @@ describe('Page uses optimized responses', () => {
       Scripts: [
         {
           requestId: '123.1',
-          code: `
+          content: `
             var foo = new Set();
             foo.add(1);
             foo.add(2);
@@ -31,7 +31,7 @@ describe('Page uses optimized responses', () => {
         },
         {
           requestId: '123.2',
-          code: `
+          content: `
             const foo = new Set();
             foo.add(1);
 
@@ -43,7 +43,7 @@ describe('Page uses optimized responses', () => {
         },
         {
           requestId: '123.3',
-          code: /* eslint-disable no-useless-escape */
+          content: /* eslint-disable no-useless-escape */
           `
             const foo = 1
             /Edge\/\d*\.\d*/.exec('foo')
@@ -51,7 +51,7 @@ describe('Page uses optimized responses', () => {
         },
         {
           requestId: '123.4',
-          code: '#$*%dense',
+          content: '#$*%dense',
         },
       ],
     }, [
@@ -78,7 +78,7 @@ describe('Page uses optimized responses', () => {
       Scripts: [
         {
           requestId: '123.1',
-          code: `
+          content: `
             var foo = new Set();
             foo.add(1);
             foo.add(2);
@@ -110,11 +110,11 @@ describe('Page uses optimized responses', () => {
       Scripts: [
         {
           requestId: '123.1',
-          code: 'var f=new Set();f.add(1);f.add(2);if(f.has(2))console.log(1234)',
+          content: 'var f=new Set();f.add(1);f.add(2);if(f.has(2))console.log(1234)',
         },
         {
           requestId: '123.2',
-          code: `
+          content: `
           const foo = new Set();
           foo.add(1);
 
@@ -126,7 +126,7 @@ describe('Page uses optimized responses', () => {
         },
         {
           requestId: '123.3',
-          code: 'for{(wtf',
+          content: 'for{(wtf',
         },
       ],
     }, [
