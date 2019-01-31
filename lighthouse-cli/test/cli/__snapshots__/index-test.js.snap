@@ -43,6 +43,9 @@ Object {
       "path": "metrics/estimated-input-latency",
     },
     Object {
+      "path": "metrics/max-potential-fid",
+    },
+    Object {
       "path": "errors-in-console",
     },
     Object {
@@ -341,6 +344,9 @@ Object {
     },
     Object {
       "path": "seo/robots-txt",
+    },
+    Object {
+      "path": "seo/tap-targets",
     },
     Object {
       "path": "seo/hreflang",
@@ -682,6 +688,10 @@ Object {
           "weight": 0,
         },
         Object {
+          "id": "max-potential-fid",
+          "weight": 0,
+        },
+        Object {
           "group": "load-opportunities",
           "id": "render-blocking-resources",
           "weight": 0,
@@ -947,6 +957,11 @@ Object {
           "weight": 1,
         },
         Object {
+          "group": "seo-mobile",
+          "id": "tap-targets",
+          "weight": 1,
+        },
+        Object {
           "id": "mobile-friendly",
           "weight": 0,
         },
@@ -1042,9 +1057,6 @@ Object {
           "path": "viewport-dimensions",
         },
         Object {
-          "path": "manifest",
-        },
-        Object {
           "path": "runtime-exceptions",
         },
         Object {
@@ -1106,6 +1118,9 @@ Object {
         },
         Object {
           "path": "seo/robots-txt",
+        },
+        Object {
+          "path": "seo/tap-targets",
         },
       ],
       "networkQuietThresholdMs": 1000,
