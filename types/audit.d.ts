@@ -55,14 +55,6 @@ declare global {
       scoreDisplayMode?: Audit.ScoreDisplayMode;
     }
 
-    export interface Heading {
-      key: string;
-      itemType: string;
-      text: string;
-      displayUnit?: string;
-      granularity?: number;
-    }
-
     export interface ByteEfficiencyItem extends Audit.Details.OpportunityItem {
       url: string;
       wastedBytes: number;
@@ -83,7 +75,7 @@ declare global {
     // TODO: placeholder typedefs until Details are typed
     export interface DetailsRendererDetailsJSON {
       type: 'table';
-      headings: Array<Audit.Heading>;
+      headings: Array<Audit.Details.TableColumnHeading>;
       items: Array<DetailsObject>;
       summary?: DetailsRendererDetailsSummary;
     }

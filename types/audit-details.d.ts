@@ -43,6 +43,18 @@ declare global {
       chains: Audit.SimpleCriticalRequestNode;
     }
 
+    export interface Table {
+      type: 'table';
+      headings: TableColumnHeading[];
+      items: any[]; // TODO(bckenny)
+      // summary // TODO(bckenny)
+    }
+
+    // TODO(bckenny)
+    // export interface MultiCheck {}
+    // export interface Table {}
+    // export interface SomeKindOfHiddenThing
+
     // Contents of details below here
 
     export interface OpportunityColumnHeading {
@@ -52,6 +64,18 @@ declare global {
       label: string;
       /** The data format of the column of values being described. */
       valueType: string;
+    }
+
+    export interface TableColumnHeading {
+      /** The name of the property within items being described. */
+      key: string;
+      /** Readable text label of the field. */
+      text: string;
+      // TODO(bckenny): should be just string and let lhr be more specific?
+      itemType: string; // 'url' | 'timespanMs' | 'bytes' | 'thumbnail';
+
+      displayUnit?: string;
+      granularity?: number;
     }
     
     export interface OpportunityItem {

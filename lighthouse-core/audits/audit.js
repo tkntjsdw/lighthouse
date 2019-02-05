@@ -102,7 +102,7 @@ class Audit {
   }
 
   /**
-   * @param {Array<LH.Audit.Heading>} headings
+   * @param {Array<LH.Audit.Details.TableColumnHeading>} headings
    * @param {Array<Object<string, LH.Audit.DetailsItem>>} results
    * @param {LH.Audit.DetailsRendererDetailsSummary=} summary
    * @return {LH.Audit.DetailsRendererDetailsJSON}
