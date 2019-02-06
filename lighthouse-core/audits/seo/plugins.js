@@ -134,14 +134,14 @@ class Plugins extends Audit {
 
         return {
           source: {
-            type: /** @type {'node'} */ ('node'),
             snippet: `<${tagName}${attributes}>${params}</${tagName}>`,
           },
         };
       });
 
+    /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
-      {key: 'source', itemType: 'code', text: 'Element source'},
+      {key: 'source', itemType: 'node', text: 'Element source'},
     ];
 
     const details = Audit.makeTableDetails(headings, plugins);

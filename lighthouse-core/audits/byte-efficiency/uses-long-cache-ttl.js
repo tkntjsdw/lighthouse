@@ -239,14 +239,12 @@ class CacheHeaders extends Audit {
 
         results.push({
           url,
-          // Include cacheControl in results, but cast as any so table types
-          // are happy. cacheControl is not shown in the table so this is OK.
-          // TODO(bckenny): fix DetailsItem
-          cacheControl: /** @type {any} */ (cacheControl),
           cacheLifetimeMs: cacheLifetimeInSeconds * 1000,
           cacheHitProbability,
           totalBytes,
           wastedBytes,
+          // Include cacheControl in results for diagnostics
+          ...cacheControl,
         });
       }
 
@@ -260,6 +258,7 @@ class CacheHeaders extends Audit {
         context.options.scoreMedian
       );
 
+      /** @type {LH.Audit.Details.Table['headings']} */
       const headings = [
         {key: 'url', itemType: 'url', text: str_(i18n.UIStrings.columnURL)},
         // TODO(i18n): pre-compute localized duration

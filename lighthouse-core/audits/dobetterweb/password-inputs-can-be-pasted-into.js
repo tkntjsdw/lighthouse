@@ -29,14 +29,13 @@ class PasswordInputsCanBePastedIntoAudit extends Audit {
   static audit(artifacts) {
     const passwordInputsWithPreventedPaste = artifacts.PasswordInputsWithPreventedPaste;
 
-    /** @type {Array<{node: LH.Audit.DetailsRendererNodeDetailsJSON}>} */
-    const items = [];
-    passwordInputsWithPreventedPaste.forEach(input => {
-      items.push({
-        node: {type: 'node', snippet: input.snippet},
-      });
+    const items = passwordInputsWithPreventedPaste.map(input => {
+      return {
+        node: {snippet: input.snippet},
+      };
     });
 
+    /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
       {key: 'node', itemType: 'node', text: 'Failing Elements'},
     ];

@@ -38,7 +38,6 @@ describe('Avoids front-end JavaScript libraries with known vulnerabilities', () 
     assert.equal(auditResult.details.items.length, 1);
     assert.equal(auditResult.extendedInfo.jsLibs.length, 3);
     assert.equal(auditResult.details.items[0].highestSeverity, 'High');
-    assert.equal(auditResult.details.items[0].detectedLib.type, 'link');
     assert.equal(auditResult.details.items[0].detectedLib.text, 'angular@1.1.4');
     assert.equal(auditResult.details.items[0].detectedLib.url, 'https://snyk.io/vuln/npm:angular?lh=1.1.4&utm_source=lighthouse&utm_medium=ref&utm_campaign=audit');
   });
@@ -54,7 +53,6 @@ describe('Avoids front-end JavaScript libraries with known vulnerabilities', () 
 
     assert.equal(auditResult.rawValue, false);
     assert.equal(auditResult.details.items.length, 1);
-    assert.equal(auditResult.details.items[0].detectedLib.type, 'link');
     assert.equal(auditResult.details.items[0].detectedLib.text, 'jquery@1.8.0');
   });
 

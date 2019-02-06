@@ -41,15 +41,14 @@ class AxeAudit extends Audit {
 
     const violations = artifacts.Accessibility.violations || [];
     const rule = violations.find(result => result.id === this.meta.id);
-    const impact = rule && rule.impact;
-    const tags = rule && rule.tags;
+    // const impact = rule && rule.impact;
+    // const tags = rule && rule.tags;
 
-    /** @type {Array<{node: LH.Audit.DetailsRendererNodeDetailsJSON}>} */
+    /** @type {LH.Audit.Details.Table['items']}>} */
     let items = [];
     if (rule && rule.nodes) {
       items = rule.nodes.map(node => ({
-        node: /** @type {LH.Audit.DetailsRendererNodeDetailsJSON} */ ({
-          type: 'node',
+        node: /** @type {LH.Audit.Details.NodeValue} */ ({
           selector: Array.isArray(node.target) ? node.target.join(' ') : '',
           path: node.path,
           snippet: node.html || node.snippet,
@@ -58,6 +57,7 @@ class AxeAudit extends Audit {
       }));
     }
 
+    /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
       {key: 'node', itemType: 'node', text: str_(UIStrings.failingElementsHeader)},
     ];
@@ -67,7 +67,8 @@ class AxeAudit extends Audit {
       extendedInfo: {
         value: rule,
       },
-      details: {...Audit.makeTableDetails(headings, items), impact, tags},
+      // TODO(bckenny): reexpose impact, tags
+      details: {...Audit.makeTableDetails(headings, items)},
     };
   }
 }

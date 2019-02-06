@@ -62,51 +62,6 @@ declare global {
       wastedPercent?: number;
     }
 
-    // TODO: placeholder typedefs until Details are typed
-    export interface DetailsRendererDetailsSummary {
-      wastedMs?: number;
-      wastedBytes?: number;
-    }
-
-    export interface DetailsObject {
-      [x: string]: DetailsItem
-    }
-
-    // TODO: placeholder typedefs until Details are typed
-    export interface DetailsRendererDetailsJSON {
-      type: 'table';
-      headings: Array<Audit.Details.TableColumnHeading>;
-      items: Array<DetailsObject>;
-      summary?: DetailsRendererDetailsSummary;
-    }
-
-    export interface DetailsRendererCodeDetailJSON {
-      type: 'code',
-      value: string;
-    }
-
-    export type DetailsItem = string | number | DetailsRendererNodeDetailsJSON |
-      DetailsRendererLinkDetailsJSON | DetailsRendererCodeDetailJSON | undefined |
-      boolean | DetailsRendererUrlDetailsJSON | null;
-
-    export interface DetailsRendererNodeDetailsJSON {
-      type: 'node';
-      path?: string;
-      selector?: string;
-      snippet?: string;
-    }
-
-    export interface DetailsRendererLinkDetailsJSON {
-      type: 'link';
-      text: string;
-      url: string;
-    }
-
-    export interface DetailsRendererUrlDetailsJSON {
-      type: 'url';
-      value: string;
-    }
-
     // Type returned by Audit.audit(). Only rawValue is required.
     export interface Product {
       rawValue: boolean | number | null;
@@ -118,8 +73,7 @@ declare global {
       extendedInfo?: {[p: string]: any};
       /** Overrides scoreDisplayMode with notApplicable if set to true */
       notApplicable?: boolean;
-      // TODO(bckenny): define details
-      details?: object;
+      details?: Audit.Details;
     }
 
     /* Audit result returned in Lighthouse report. All audits offer a description and score of 0-1 */
@@ -147,7 +101,7 @@ declare global {
       /** A more detailed description that describes why the audit is important and links to Lighthouse documentation on the audit; markdown links supported. */
       description: string;
       // TODO(bckenny): define details
-      details?: any;
+      details?: Audit.Details;
     }
 
     export interface Results {
@@ -166,16 +120,6 @@ declare global {
         children?: SimpleCriticalRequestNode;
       }
     }
-
-    type MultiCheckAuditP1 = Partial<Record<Artifacts.ManifestValueCheckID, boolean>>;
-    type MultiCheckAuditP2 = Partial<Artifacts.ManifestValues>;
-    interface MultiCheckAuditP3 {
-      failures: Array<string>;
-      manifestValues?: undefined;
-      allChecks?: undefined;
-    }
-
-    export type MultiCheckAuditDetails = MultiCheckAuditP1 & MultiCheckAuditP2 & MultiCheckAuditP3;
   }
 }
 

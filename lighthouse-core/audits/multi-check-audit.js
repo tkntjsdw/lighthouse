@@ -27,7 +27,7 @@ class MultiCheckAudit extends Audit {
    * @return {LH.Audit.Product}
    */
   static createAuditProduct(result) {
-    /** @type {LH.Audit.MultiCheckAuditDetails} */
+    /** @type {LH.Audit.Details.MultiCheck['items'][0]} */
     const detailsItem = {
       ...result,
       ...result.manifestValues,
@@ -41,7 +41,11 @@ class MultiCheckAudit extends Audit {
       });
     }
 
-    const details = {items: [detailsItem]};
+    /** @type {LH.Audit.Details.MultiCheck} */
+    const details = {
+      type: 'multicheck',
+      items: [detailsItem],
+    };
 
     // If we fail, share the failures
     if (result.failures.length > 0) {

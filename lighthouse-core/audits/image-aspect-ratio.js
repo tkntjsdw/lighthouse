@@ -69,7 +69,7 @@ class ImageAspectRatio extends Audit {
 
     /** @type {string[]} */
     const warnings = [];
-    /** @type {Array<{url: string, displayedAspectRatio: string, actualAspectRatio: string, doRatiosMatch: boolean}>} */
+    /** @type {Array<{url: string, displayedAspectRatio: string, actualAspectRatio: string}>} */
     const results = [];
     images.filter(image => {
       // - filter out images that don't have following properties:
@@ -93,6 +93,7 @@ class ImageAspectRatio extends Audit {
       if (!processed.doRatiosMatch) results.push(processed);
     });
 
+    /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
       {key: 'url', itemType: 'thumbnail', text: ''},
       {key: 'url', itemType: 'url', text: 'URL'},

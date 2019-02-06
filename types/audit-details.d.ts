@@ -5,87 +5,159 @@
  */
 
 declare global {
-  module LH.Audit.Details {
-    export interface Filmstrip {
-      type: 'filmstrip';
-      scale: number;
-      items: {
-        /** The relative time from navigationStart to this frame, in milliseconds. */
-        timing: number;
-        /** The raw timestamp of this frame, in microseconds. */
+  module LH.Audit {
+    export type Details =
+      Details.CriticalRequestChain |
+      Details.Diagnostic |
+      Details.Filmstrip |
+      Details.MultiCheck |
+      Details.Opportunity |
+      Details.Screenshot |
+      Details.Table;
+
+    // Details namespace.
+    export module Details {
+      export interface CriticalRequestChain {
+        type: 'criticalrequestchain';
+        longestChain: {
+          duration: number;
+          length: number;
+          transferSize: number;
+        };
+        chains: Audit.SimpleCriticalRequestNode;
+      }
+
+      export interface Filmstrip {
+        type: 'filmstrip';
+        scale: number;
+        items: {
+          /** The relative time from navigationStart to this frame, in milliseconds. */
+          timing: number;
+          /** The raw timestamp of this frame, in microseconds. */
+          timestamp: number;
+          /** The data URL encoding of this frame. */
+          data: string;
+        }[];
+      }
+
+      export type MultiCheck = {
+        type: 'multicheck';
+        // TODO: there's no reason to nest these in items. Consider moving out.
+        items: [
+          Partial<Record<Artifacts.ManifestValueCheckID, boolean>> &
+          Partial<Artifacts.ManifestValues> & {
+            failures: Array<string>;
+            manifestValues?: undefined;
+            allChecks?: undefined;
+          }
+        ];
+      }
+
+      export interface Opportunity {
+        type: 'opportunity';
+        overallSavingsMs: number;
+        overallSavingsBytes?: number;
+        headings: OpportunityColumnHeading[];
+        items: OpportunityItem[];
+      }
+
+      export interface Screenshot {
+        type: 'screenshot';
         timestamp: number;
-        /** The data URL encoding of this frame. */
         data: string;
-      }[];
+      }
+
+      // TODO(bckenny): unify Table/Opportunity headings and items on next breaking change.
+      export interface Table {
+        type: 'table';
+        headings: TableColumnHeading[];
+        items: TableItem[];
+        summary?: { // TODO(bckenny): is this sufficient?
+          wastedMs?: number;
+          wastedBytes?: number;
+        };
+      }
+
+      /**
+       * A details type that does not appear in the final report; usually used
+       * for including diagnostic information in the LHR.
+       */
+      export interface Diagnostic {
+        type: 'diagnostic';
+        items: [{
+          [p: string]: number | undefined;
+        }]
+      }
+
+      // Contents of details below here
+
+      export interface TableColumnHeading {
+        /** The name of the property within items being described. */
+        key: string;
+        /** Readable text label of the field. */
+        text: string;
+        /** The data format of the column of values being described. */
+        itemType: ItemValueTypes;
+
+        displayUnit?: string;
+        granularity?: number;
+      }
+
+      export interface OpportunityColumnHeading {
+        /** The name of the property within items being described. */
+        key: string;
+        /** Readable text label of the field. */
+        label: string;
+        /** The data format of the column of values being described. */
+        valueType: ItemValueTypes;
+
+        // NOTE: not used by opportunity details, but used in the renderer until unification.
+        displayUnit?: string;
+        granularity?: number;
+      }
+
+      type ItemValueTypes = 'bytes' | 'code' | 'link' | 'ms' | 'node' | 'numeric' | 'text' | 'thumbnail' | 'timespanMs' | 'url';
+      
+      export interface OpportunityItem {
+        url: string;
+        wastedBytes?: number;
+        totalBytes?: number;
+        wastedMs?: number;
+        [p: string]: number | boolean | string | undefined;
+      }
+
+      export type TableItem = {
+        [p: string]: string | number | boolean | undefined | NodeValue | LinkValue | UrlValue | CodeValue;
+      }
+
+      // TODO(bckenny): docs for these
+
+      export interface CodeValue {
+        type?: 'code';
+        value: string;
+      }
+
+      export interface LinkValue {
+        type?: 'link',
+        text: string;
+        url: string;
+      }
+
+      /** An HTML Node value used in items. */
+      export interface NodeValue {
+        type?: 'node';
+        path?: string;
+        selector?: string;
+        snippet?: string;
+      }
+
+      export interface UrlValue {
+        type?: 'url';
+        value: string;
+      }
+
+      
     }
-
-    export interface Screenshot {
-      type: 'screenshot';
-      timestamp: number;
-      data: string;
-    }
-
-    export interface Opportunity {
-      type: 'opportunity';
-      overallSavingsMs: number;
-      overallSavingsBytes?: number;
-      headings: OpportunityColumnHeading[];
-      items: OpportunityItem[];
-    }
-
-    export interface CriticalRequestChain {
-      type: 'criticalrequestchain';
-      longestChain: {
-        duration: number;
-        length: number;
-        transferSize: number;
-      };
-      chains: Audit.SimpleCriticalRequestNode;
-    }
-
-    export interface Table {
-      type: 'table';
-      headings: TableColumnHeading[];
-      items: any[]; // TODO(bckenny)
-      // summary // TODO(bckenny)
-    }
-
-    // TODO(bckenny)
-    // export interface MultiCheck {}
-    // export interface Table {}
-    // export interface SomeKindOfHiddenThing
-
-    // Contents of details below here
-
-    export interface OpportunityColumnHeading {
-      /** The name of the property within items being described. */
-      key: string;
-      /** Readable text label of the field. */
-      label: string;
-      /** The data format of the column of values being described. */
-      valueType: string;
-    }
-
-    export interface TableColumnHeading {
-      /** The name of the property within items being described. */
-      key: string;
-      /** Readable text label of the field. */
-      text: string;
-      // TODO(bckenny): should be just string and let lhr be more specific?
-      itemType: string; // 'url' | 'timespanMs' | 'bytes' | 'thumbnail';
-
-      displayUnit?: string;
-      granularity?: number;
-    }
-    
-    export interface OpportunityItem {
-      url: string;
-      wastedBytes?: number;
-      totalBytes?: number;
-      wastedMs?: number;
-      [p: string]: number | boolean | string | undefined;
-    }
-
   }
 }
 

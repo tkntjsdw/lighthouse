@@ -67,7 +67,10 @@ class Diagnostics extends Audit {
     return {
       score: 1,
       rawValue: 1,
-      details: {items: [diagnostics]},
+      details: {
+        type: 'diagnostic',
+        items: [diagnostics],
+      },
     };
   }
 }
