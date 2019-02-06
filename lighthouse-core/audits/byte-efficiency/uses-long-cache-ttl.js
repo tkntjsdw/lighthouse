@@ -237,12 +237,15 @@ class CacheHeaders extends Audit {
         totalWastedBytes += wastedBytes;
         if (url.includes('?')) queryStringCount++;
 
-        // Include cacheControl info per url for diagnostics.
-        /** @type {LH.Audit.Details.Diagnostic} */
-        const diagnostic = {
-          type: 'diagnostic',
-          ...cacheControl,
-        };
+        // Include cacheControl info (if it exists) per url as a diagnostic.
+        /** @type {LH.Audit.Details.Diagnostic|undefined} */
+        let diagnostic;
+        if (cacheControl) {
+          diagnostic = {
+            type: 'diagnostic',
+            ...cacheControl,
+          };
+        }
 
         results.push({
           url,

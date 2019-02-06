@@ -63,12 +63,15 @@ class AxeAudit extends Audit {
       {key: 'node', itemType: 'node', text: str_(UIStrings.failingElementsHeader)},
     ];
 
-    /** @type {LH.Audit.Details.Diagnostic} */
-    const diagnostic = {
-      type: 'diagnostic',
-      impact,
-      tags,
-    };
+    /** @type {LH.Audit.Details.Diagnostic|undefined} */
+    let diagnostic;
+    if (impact || tags) {
+      diagnostic = {
+        type: 'diagnostic',
+        impact,
+        tags,
+      };
+    }
 
     return {
       rawValue: typeof rule === 'undefined',

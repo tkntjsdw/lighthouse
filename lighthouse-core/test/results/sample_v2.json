@@ -1530,10 +1530,7 @@
       "details": {
         "type": "table",
         "headings": [],
-        "items": [],
-        "diagnostic": {
-          "type": "diagnostic"
-        }
+        "items": []
       }
     },
     "color-contrast": {
@@ -1609,10 +1606,7 @@
       "details": {
         "type": "table",
         "headings": [],
-        "items": [],
-        "diagnostic": {
-          "type": "diagnostic"
-        }
+        "items": []
       }
     },
     "duplicate-id": {
@@ -1625,10 +1619,7 @@
       "details": {
         "type": "table",
         "headings": [],
-        "items": [],
-        "diagnostic": {
-          "type": "diagnostic"
-        }
+        "items": []
       }
     },
     "frame-title": {
@@ -1911,10 +1902,7 @@
       "details": {
         "type": "table",
         "headings": [],
-        "items": [],
-        "diagnostic": {
-          "type": "diagnostic"
-        }
+        "items": []
       }
     },
     "object-alt": {
@@ -2143,9 +2131,6 @@
         "items": [
           {
             "url": "http://localhost:10200/zone.js",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 71654,
@@ -2153,9 +2138,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 24741,
@@ -2163,9 +2145,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.js",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 1703,
@@ -2173,9 +2152,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_disabled.css?delay=200&isdisabled",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 1108,
@@ -2183,9 +2159,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=2000&async=true",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 821,
@@ -2193,9 +2166,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=100",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 821,
@@ -2203,9 +2173,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=2200",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 821,
@@ -2213,9 +2180,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&async=true",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 821,
@@ -2223,9 +2187,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?scriptActivated&delay=200",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 821,
@@ -2233,9 +2194,6 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/empty_module.js?delay=500",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 144,
@@ -2243,9 +2201,6 @@
           },
           {
             "url": "blob:http://localhost:10200/ae0eac03-ab9b-4a6a-b299-f5212153e277",
-            "diagnostic": {
-              "type": "diagnostic"
-            },
             "cacheLifetimeMs": 0,
             "cacheHitProbability": 0,
             "totalBytes": 0,

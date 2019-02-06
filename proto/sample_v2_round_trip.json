@@ -140,9 +140,6 @@
         "bypass": {
             "description": "Adding ways to bypass repetitive content lets keyboard users navigate the page more efficiently. [Learn more](https://dequeuniversity.com/rules/axe/3.1/bypass?application=lighthouse).", 
             "details": {
-                "diagnostic": {
-                    "type": "diagnostic"
-                }, 
                 "headings": [], 
                 "items": [], 
                 "type": "table"
@@ -473,9 +470,6 @@
         "document-title": {
             "description": "The title gives screen reader users an overview of the page, and search engine users rely on it heavily to determine if a page is relevant to their search. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/title).", 
             "details": {
-                "diagnostic": {
-                    "type": "diagnostic"
-                }, 
                 "headings": [], 
                 "items": [], 
                 "type": "table"
@@ -536,9 +530,6 @@
         "duplicate-id": {
             "description": "The value of an id attribute must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.1/duplicate-id?application=lighthouse).", 
             "details": {
-                "diagnostic": {
-                    "type": "diagnostic"
-                }, 
                 "headings": [], 
                 "items": [], 
                 "type": "table"
@@ -1561,9 +1552,6 @@
         "meta-viewport": {
             "description": "Disabling zooming is problematic for users with low vision who rely on screen magnification to properly see the contents of a web page. [Learn more](https://dequeuniversity.com/rules/axe/3.1/meta-viewport?application=lighthouse).", 
             "details": {
-                "diagnostic": {
-                    "type": "diagnostic"
-                }, 
                 "headings": [], 
                 "items": [], 
                 "type": "table"
@@ -2696,9 +2684,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 71654.0, 
                         "url": "http://localhost:10200/zone.js", 
                         "wastedBytes": 71654.0
@@ -2706,9 +2691,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 24741.0, 
                         "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg", 
                         "wastedBytes": 24741.0
@@ -2716,9 +2698,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 1703.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_tester.js", 
                         "wastedBytes": 1703.0
@@ -2726,9 +2705,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 1108.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_disabled.css?delay=200&isdisabled", 
                         "wastedBytes": 1108.0
@@ -2736,9 +2712,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 821.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=2000&async=true", 
                         "wastedBytes": 821.0
@@ -2746,9 +2719,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 821.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=100", 
                         "wastedBytes": 821.0
@@ -2756,9 +2726,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 821.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=2200", 
                         "wastedBytes": 821.0
@@ -2766,9 +2733,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 821.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&async=true", 
                         "wastedBytes": 821.0
@@ -2776,9 +2740,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 821.0, 
                         "url": "http://localhost:10200/dobetterweb/dbw_tester.css?scriptActivated&delay=200", 
                         "wastedBytes": 821.0
@@ -2786,9 +2747,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 144.0, 
                         "url": "http://localhost:10200/dobetterweb/empty_module.js?delay=500", 
                         "wastedBytes": 144.0
@@ -2796,9 +2754,6 @@
                     {
                         "cacheHitProbability": 0.0, 
                         "cacheLifetimeMs": 0.0, 
-                        "diagnostic": {
-                            "type": "diagnostic"
-                        }, 
                         "totalBytes": 0.0, 
                         "url": "blob:http://localhost:10200/ae0eac03-ab9b-4a6a-b299-f5212153e277", 
                         "wastedBytes": 0.0
