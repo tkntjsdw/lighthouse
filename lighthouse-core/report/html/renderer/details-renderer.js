@@ -47,42 +47,19 @@ class DetailsRenderer {
    */
   render(details) {
     switch (details.type) {
-      case 'text':
-        return this._renderText(/** @type {StringDetailsJSON} */ (details));
-      case 'url':
-        return this._renderTextURL(/** @type {StringDetailsJSON} */ (details));
-      case 'bytes':
-        return this._renderBytes(/** @type {NumericUnitDetailsJSON} */ (details));
-      case 'ms':
-        // eslint-disable-next-line max-len
-        return this._renderMilliseconds(/** @type {NumericUnitDetailsJSON} */ (details));
-      case 'link':
-        // @ts-ignore - TODO(bckenny): Fix type hierarchy
-        return this._renderLink(/** @type {LinkDetailsJSON} */ (details));
-      case 'thumbnail':
-        return this._renderThumbnail(/** @type {ThumbnailDetails} */ (details));
       case 'filmstrip':
-        // @ts-ignore - TODO(bckenny): Fix type hierarchy
-        return this._renderFilmstrip(/** @type {FilmstripDetails} */ (details));
+        return this._renderFilmstrip(details);
       case 'table':
-        // @ts-ignore - TODO(bckenny): Fix type hierarchy
-        return this._renderTable(/** @type {TableDetailsJSON} */ (details));
-      case 'code':
-        return this._renderCode(/** @type {DetailsJSON} */ (details));
-      case 'node':
-        return this.renderNode(/** @type {LH.Audit.Details.NodeValue} */(details));
-      case 'criticalrequestchain':
-        return CriticalRequestChainRenderer.render(this._dom, this._templateContext,
-          // @ts-ignore - TODO(bckenny): Fix type hierarchy
-          /** @type {LH.Audit.Details.CriticalRequestChain} */ (details));
-      case 'opportunity':
-        // @ts-ignore - TODO(bckenny): Fix type hierarchy
         return this._renderTable(details);
-      case 'numeric':
-        return this._renderNumeric(/** @type {StringDetailsJSON} */ (details));
+      case 'criticalrequestchain':
+        return CriticalRequestChainRenderer.render(this._dom, this._templateContext, details);
+      case 'opportunity':
+        return this._renderTable(details);
+
       case 'screenshot':
       case 'diagnostic':
         return null;
+
       default: {
         // @ts-ignore tsc thinks this unreachable, but ignore for better error message just in case.
         const detailsType = details.type;
@@ -300,17 +277,17 @@ class DetailsRenderer {
   }
 
   /**
-   * Unify the two two column heading types until we have audits all use the
-   * same format. Outputs the newer OpportunityColumnHeading.
-   * @param {Array<LH.Audit.Details.TableColumnHeading|LH.Audit.Details.OpportunityColumnHeading>} headings
+   * Convert the Table column heading type into the Opportunity column heading
+   * type until we have table-like details all use the same heading format.
+   * @param {LH.Audit.Details.Table|LH.Audit.Details.Opportunity} tableLike
    * @return {Array<LH.Audit.Details.OpportunityColumnHeading>} header
    */
-  _canonicalizeTableHeadings(headings) {
-    return headings.map(heading => {
-      if ('label' in heading) {
-        return heading;
-      }
+  _getCanonicalizedTableHeadings(tableLike) {
+    if (tableLike.type === 'opportunity') {
+      return tableLike.headings;
+    }
 
+    return tableLike.headings.map(heading => {
       return {
         key: heading.key,
         label: heading.text,
@@ -332,7 +309,7 @@ class DetailsRenderer {
     const theadElem = this._dom.createChildOf(tableElem, 'thead');
     const theadTrElem = this._dom.createChildOf(theadElem, 'tr');
 
-    const headings = this._canonicalizeTableHeadings(details.headings);
+    const headings = this._getCanonicalizedTableHeadings(details);
 
     for (const heading of headings) {
       const valueType = heading.valueType || 'text';

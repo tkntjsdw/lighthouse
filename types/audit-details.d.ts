@@ -102,7 +102,7 @@ declare global {
       }
 
       type ItemValueTypes = 'bytes' | 'code' | 'link' | 'ms' | 'node' | 'numeric' | 'text' | 'thumbnail' | 'timespanMs' | 'url';
-      
+
       export interface OpportunityItem {
         url: string;
         wastedBytes?: number;
@@ -142,8 +142,6 @@ declare global {
         type: 'url';
         value: string;
       }
-
-      
     }
   }
 }

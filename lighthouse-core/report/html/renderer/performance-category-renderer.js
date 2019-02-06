@@ -161,7 +161,7 @@ class PerformanceCategoryRenderer extends CategoryRenderer {
     if (thumbnailResult && thumbnailResult.details) {
       timelineEl.id = thumbnailResult.id;
       const filmstripEl = this.detailsRenderer.render(thumbnailResult.details);
-      timelineEl.appendChild(filmstripEl);
+      filmstripEl && timelineEl.appendChild(filmstripEl);
     }
 
     // Opportunities
