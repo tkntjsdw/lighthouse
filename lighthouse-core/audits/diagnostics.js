@@ -69,6 +69,7 @@ class Diagnostics extends Audit {
       rawValue: 1,
       details: {
         type: 'diagnostic',
+        // TODO: Consider not nesting diagnostics under `items`.
         items: [diagnostics],
       },
     };

@@ -43,7 +43,7 @@ class DetailsRenderer {
 
   /**
    * @param {LH.Audit.Details} details
-   * @return {Element}
+   * @return {Element|null}
    */
   render(details) {
     switch (details.type) {
@@ -81,13 +81,12 @@ class DetailsRenderer {
       case 'numeric':
         return this._renderNumeric(/** @type {StringDetailsJSON} */ (details));
       case 'screenshot':
-      case 'multicheck':
       case 'diagnostic':
-        // Don't do this.
-        return this._dom.createElement('div');
+        return null;
       default: {
-        details.type
-        throw new Error(`Unknown type: ${details.type}`);
+        // @ts-ignore tsc thinks this unreachable, but ignore for better error message just in case.
+        const detailsType = details.type;
+        throw new Error(`Unknown type: ${detailsType}`);
       }
     }
   }
@@ -413,55 +412,3 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
   self.DetailsRenderer = DetailsRenderer;
 }
-
-// TODO, what's the diff between DetailsJSON and NumericUnitDetailsJSON?
-/**
- * @typedef {{
-      type: string,
-      value: (string|number|undefined),
-      granularity?: number,
-      displayUnit?: string
-  }} DetailsJSON
- */
-
-/**
- * @typedef {{
-      type: string,
-      value: string,
-      granularity?: number,
-      displayUnit?: string,
-  }} StringDetailsJSON
- */
-
-/**
- * @typedef {{
-      type: string,
-      value: number,
-      granularity?: number,
-      displayUnit?: string,
-  }} NumericUnitDetailsJSON
- */
-
-/**
- * @typedef {{
-      itemType: string,
-      key: string,
-      text?: string,
-      granularity?: number,
-      displayUnit?: string,
-  }} TableHeaderJSON
- */
-
-/** @typedef {{
-      type: string,
-      items: Array<DetailsJSON>,
-      headings: Array<TableHeaderJSON>
-  }} TableDetailsJSON
- */
-
-/** @typedef {{
-      type: string,
-      value: string,
-  }} ThumbnailDetails
- */
-

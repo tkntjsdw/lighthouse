@@ -92,6 +92,7 @@ class PredictivePerf extends Audit {
       displayValue: Util.formatMilliseconds(values.roughEstimateOfTTI),
       details: {
         type: 'diagnostic',
+        // TODO: Consider not nesting values under `items`.
         items: [values],
       },
     };

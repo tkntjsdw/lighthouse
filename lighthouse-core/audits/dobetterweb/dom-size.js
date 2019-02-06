@@ -118,6 +118,7 @@ class DOMSize extends Audit {
       {
         statistic: str_(UIStrings.statisticDOMDepth),
         element: {
+          type: 'code',
           value: stats.depth.snippet,
         },
         value: Util.formatNumber(stats.depth.max),
@@ -125,6 +126,7 @@ class DOMSize extends Audit {
       {
         statistic: str_(UIStrings.statisticDOMWidth),
         element: {
+          type: 'code',
           value: stats.width.snippet,
         },
         value: Util.formatNumber(stats.width.max),

@@ -247,6 +247,7 @@ function getTableItems(overlapFailures) {
  */
 function targetToTableNode(target) {
   return {
+    type: 'node',
     snippet: target.snippet,
     path: target.path,
     selector: target.selector,

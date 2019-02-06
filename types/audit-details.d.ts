@@ -10,7 +10,6 @@ declare global {
       Details.CriticalRequestChain |
       Details.Diagnostic |
       Details.Filmstrip |
-      Details.MultiCheck |
       Details.Opportunity |
       Details.Screenshot |
       Details.Table;
@@ -40,19 +39,6 @@ declare global {
         }[];
       }
 
-      export type MultiCheck = {
-        type: 'multicheck';
-        // TODO: there's no reason to nest these in items. Consider moving out.
-        items: [
-          Partial<Record<Artifacts.ManifestValueCheckID, boolean>> &
-          Partial<Artifacts.ManifestValues> & {
-            failures: Array<string>;
-            manifestValues?: undefined;
-            allChecks?: undefined;
-          }
-        ];
-      }
-
       export interface Opportunity {
         type: 'opportunity';
         overallSavingsMs: number;
@@ -72,21 +58,20 @@ declare global {
         type: 'table';
         headings: TableColumnHeading[];
         items: TableItem[];
-        summary?: { // TODO(bckenny): is this sufficient?
+        summary?: {
           wastedMs?: number;
           wastedBytes?: number;
         };
+        diagnostic?: Diagnostic;
       }
 
       /**
-       * A details type that does not appear in the final report; usually used
-       * for including diagnostic information in the LHR.
+       * A details type that is not rendered in the final report; usually used
+       * for including diagnostic information in the LHR. Can contain anything.
        */
       export interface Diagnostic {
         type: 'diagnostic';
-        items: [{
-          [p: string]: number | undefined;
-        }]
+        [p: string]: any;
       }
 
       // Contents of details below here
@@ -123,36 +108,38 @@ declare global {
         wastedBytes?: number;
         totalBytes?: number;
         wastedMs?: number;
-        [p: string]: number | boolean | string | undefined;
+        diagnostic?: Diagnostic;
+        [p: string]: number | boolean | string | undefined | Diagnostic;
       }
 
       export type TableItem = {
-        [p: string]: string | number | boolean | undefined | NodeValue | LinkValue | UrlValue | CodeValue;
+        diagnostic?: Diagnostic;
+        [p: string]: string | number | boolean | undefined | Diagnostic | NodeValue | LinkValue | UrlValue | CodeValue;
       }
 
       // TODO(bckenny): docs for these
 
       export interface CodeValue {
-        type?: 'code';
+        type: 'code';
         value: string;
       }
 
       export interface LinkValue {
-        type?: 'link',
+        type: 'link',
         text: string;
         url: string;
       }
 
       /** An HTML Node value used in items. */
       export interface NodeValue {
-        type?: 'node';
+        type: 'node';
         path?: string;
         selector?: string;
         snippet?: string;
       }
 
       export interface UrlValue {
-        type?: 'url';
+        type: 'url';
         value: string;
       }
 

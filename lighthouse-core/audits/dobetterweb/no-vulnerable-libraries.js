@@ -154,6 +154,7 @@ class NoVulnerableLibrariesAudit extends Audit {
           detectedLib: {
             text: lib.name + '@' + version,
             url: `https://snyk.io/vuln/npm:${lib.npmPkgName}?lh=${version}&utm_source=lighthouse&utm_medium=ref&utm_campaign=audit`,
+            type: 'link',
           },
         });
       }
@@ -180,7 +181,7 @@ class NoVulnerableLibrariesAudit extends Audit {
       {key: 'vulnCount', itemType: 'text', text: 'Vulnerability Count'},
       {key: 'highestSeverity', itemType: 'text', text: 'Highest Severity'},
     ];
-    const details = Audit.makeTableDetails(headings, vulnerabilityResults);
+    const details = Audit.makeTableDetails(headings, vulnerabilityResults, {});
 
     return {
       rawValue: totalVulns === 0,

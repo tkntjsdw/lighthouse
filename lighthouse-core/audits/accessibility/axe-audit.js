@@ -41,14 +41,15 @@ class AxeAudit extends Audit {
 
     const violations = artifacts.Accessibility.violations || [];
     const rule = violations.find(result => result.id === this.meta.id);
-    // const impact = rule && rule.impact;
-    // const tags = rule && rule.tags;
+    const impact = rule && rule.impact;
+    const tags = rule && rule.tags;
 
     /** @type {LH.Audit.Details.Table['items']}>} */
     let items = [];
     if (rule && rule.nodes) {
       items = rule.nodes.map(node => ({
         node: /** @type {LH.Audit.Details.NodeValue} */ ({
+          type: 'node',
           selector: Array.isArray(node.target) ? node.target.join(' ') : '',
           path: node.path,
           snippet: node.html || node.snippet,
@@ -62,13 +63,19 @@ class AxeAudit extends Audit {
       {key: 'node', itemType: 'node', text: str_(UIStrings.failingElementsHeader)},
     ];
 
+    /** @type {LH.Audit.Details.Diagnostic} */
+    const diagnostic = {
+      type: 'diagnostic',
+      impact,
+      tags,
+    };
+
     return {
       rawValue: typeof rule === 'undefined',
       extendedInfo: {
         value: rule,
       },
-      // TODO(bckenny): reexpose impact, tags
-      details: {...Audit.makeTableDetails(headings, items)},
+      details: {...Audit.makeTableDetails(headings, items), diagnostic},
     };
   }
 }

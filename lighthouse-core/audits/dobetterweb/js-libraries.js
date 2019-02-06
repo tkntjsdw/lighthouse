@@ -41,7 +41,7 @@ class JsLibrariesAudit extends Audit {
       {key: 'name', itemType: 'text', text: 'Name'},
       {key: 'version', itemType: 'text', text: 'Version'},
     ];
-    const details = Audit.makeTableDetails(headings, libDetails);
+    const details = Audit.makeTableDetails(headings, libDetails, {});
 
     return {
       rawValue: true, // Always pass for now.
