@@ -16,8 +16,19 @@ const MainResource = require('../../computed/main-resource.js');
  * @returns {string}
  */
 function getPrimaryDomain(url) {
-  return url.hostname.split('.').slice(-2).join('.');
+  return url.hostname
+    .split('.')
+    .slice(-2)
+    .join('.');
 }
+
+/**
+ * @typedef CanonicalURLData
+ * @property {Set<string>} uniqueCanonicalURLs
+ * @property {Set<string>} hreflangURLs
+ * @property {LH.Artifacts.LinkElement|undefined} invalidCanonicalLink
+ * @property {LH.Artifacts.LinkElement|undefined} relativeCanonicallink
+ */
 
 class Canonical extends Audit {
   /**
@@ -28,7 +39,8 @@ class Canonical extends Audit {
       id: 'canonical',
       title: 'Document has a valid `rel=canonical`',
       failureTitle: 'Document does not have a valid `rel=canonical`',
-      description: 'Canonical links suggest which URL to show in search results. ' +
+      description:
+        'Canonical links suggest which URL to show in search results. ' +
         '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/canonical).',
       requiredArtifacts: ['LinkElements', 'URL'],
     };
@@ -36,19 +48,13 @@ class Canonical extends Audit {
 
   /**
    * @param {LH.Artifacts} artifacts
-   * @param {LH.Audit.Context} context
-   * @return {Promise<LH.Audit.Product>}
+   * @return {CanonicalURLData}
    */
-  static async audit(artifacts, context) {
-    const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
-
-    const mainResource = await MainResource.request({devtoolsLog, URL: artifacts.URL}, context);
-    const baseURL = new URL(mainResource.url);
-
+  static collectCanonicalURLs(artifacts) {
     /** @type {Set<string>} */
     const uniqueCanonicalURLs = new Set();
-    /** @type {string[]} */
-    const hreflangURLs = [];
+    /** @type {Set<string>} */
+    const hreflangURLs = new Set();
 
     /** @type {LH.Artifacts.LinkElement|undefined} */
     let invalidCanonicalLink;
@@ -64,9 +70,19 @@ class Canonical extends Audit {
         else if (!URL.isValid(link.hrefRaw)) relativeCanonicallink = link;
         else uniqueCanonicalURLs.add(link.href);
       } else if (link.rel === 'alternate') {
-        if (link.href && link.hreflang) hreflangURLs.push(link.href);
+        if (link.href && link.hreflang) hreflangURLs.add(link.href);
       }
     }
+
+    return {uniqueCanonicalURLs, hreflangURLs, invalidCanonicalLink, relativeCanonicallink};
+  }
+
+  /**
+   * @param {CanonicalURLData} canonicalURLData
+   * @return {string|LH.Audit.Product}
+   */
+  static findValidCanonicaURLOrFinish(canonicalURLData) {
+    const {uniqueCanonicalURLs, invalidCanonicalLink, relativeCanonicallink} = canonicalURLData;
 
     // the canonical link is totally invalid
     if (invalidCanonicalLink) {
@@ -103,11 +119,24 @@ class Canonical extends Audit {
       };
     }
 
-    const canonicalURL = new URL(canonicalURLs[0]);
+    return canonicalURLs[0];
+  }
+
+  /**
+   * @param {CanonicalURLData} canonicalURLData
+   * @param {URL} canonicalURL
+   * @param {URL} baseURL
+   * @return {LH.Audit.Product|undefined}
+   */
+  static findCommonCanonicalURLMistakes(canonicalURLData, canonicalURL, baseURL) {
+    const {hreflangURLs} = canonicalURLData;
 
     // cross-language or cross-country canonicals are a common issue
-    if (hreflangURLs.includes(baseURL.href) && hreflangURLs.includes(canonicalURL.href) &&
-      baseURL.href !== canonicalURL.href) {
+    if (
+      hreflangURLs.has(baseURL.href) &&
+      hreflangURLs.has(canonicalURL.href) &&
+      baseURL.href !== canonicalURL.href
+    ) {
       return {
         rawValue: false,
         explanation: `Points to another hreflang location (${baseURL.href})`,
@@ -124,13 +153,43 @@ class Canonical extends Audit {
     }
 
     // another common mistake is to have canonical pointing from all pages of the website to its root
-    if (canonicalURL.origin === baseURL.origin &&
-      canonicalURL.pathname === '/' && baseURL.pathname !== '/') {
+    if (
+      canonicalURL.origin === baseURL.origin &&
+      canonicalURL.pathname === '/' &&
+      baseURL.pathname !== '/'
+    ) {
       return {
         rawValue: false,
         explanation: 'Points to a root of the same origin',
       };
     }
+  }
+
+  /**
+   * @param {LH.Artifacts} artifacts
+   * @param {LH.Audit.Context} context
+   * @return {Promise<LH.Audit.Product>}
+   */
+  static async audit(artifacts, context) {
+    const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
+
+    const mainResource = await MainResource.request({devtoolsLog, URL: artifacts.URL}, context);
+    const baseURL = new URL(mainResource.url);
+
+    const canonicalURLData = Canonical.collectCanonicalURLs(artifacts);
+    const canonicalURLOrAuditProduct = Canonical.findValidCanonicaURLOrFinish(canonicalURLData);
+    // We didn't find a valid canonical URL, we found an error result so go ahead and return it.
+    if (typeof canonicalURLOrAuditProduct === 'object') return canonicalURLOrAuditProduct;
+
+    // We found a valid canonical URL, so we'll just check for common mistakes.
+    const canonicalURL = new URL(canonicalURLOrAuditProduct);
+    const mistakeAuditProduct = Canonical.findCommonCanonicalURLMistakes(
+      canonicalURLData,
+      canonicalURL,
+      baseURL
+    );
+
+    if (mistakeAuditProduct) return mistakeAuditProduct;
 
     return {
       rawValue: true,
