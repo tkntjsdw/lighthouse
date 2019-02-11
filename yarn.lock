@@ -5496,10 +5496,10 @@ jsonld@^1.5.0:
     semver "^5.6.0"
     xmldom "0.1.19"
 
-jsonlint-mod@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/jsonlint-mod/-/jsonlint-mod-1.7.2.tgz#fdcdeddef86bf9282ddb86f8663178bf8b10851a"
-  integrity sha512-ZZHgYWI+qYr5vNvmBpEfXHyuLB0H05i61sd4OP+vut2TxO+4fWmN9Tfxdyqbc2+sJJD08n0xeFlR9EsnARIkOA==
+jsonlint-mod@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/jsonlint-mod/-/jsonlint-mod-1.7.4.tgz#310390e1a6a85cef99f45f200e662ef23b48f7a6"
+  integrity sha512-FYOkwHqiuBbdVCHgXYlmtL+iUOz9AxCgjotzXl+edI0Hc1km1qK6TrBEAyPpO+5R0/IX3XENRp66mfob4jwxow==
   dependencies:
     JSV ">= 4.0.x"
     nomnom ">= 1.5.x"
