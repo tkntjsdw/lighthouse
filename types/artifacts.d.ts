@@ -254,13 +254,10 @@ declare global {
 
       export interface OptimizedImage {
         failed: false;
-        fromProtocol: boolean;
         originalSize: number;
-        jpegSize: number;
-        webpSize: number;
+        jpegSize?: number;
+        webpSize?: number;
 
-        isSameOrigin: boolean;
-        isBase64DataUri: boolean;
         requestId: string;
         url: string;
         mimeType: string;
@@ -271,8 +268,6 @@ declare global {
         failed: true;
         errMsg: string;
 
-        isSameOrigin: boolean;
-        isBase64DataUri: boolean;
         requestId: string;
         url: string;
         mimeType: string;
