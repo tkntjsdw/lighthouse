@@ -72,6 +72,21 @@ class Util {
       }
     }
 
+    if (clone.stackPacks) {
+      for (const audit of Object.values(clone.audits)) {
+        audit.stackPacks = {};
+        clone.stackPacks.forEach(pack => {
+          // if advice exist for this audit
+          if (pack.advice[audit.id]) {
+            audit.stackPacks[pack.id] = {
+              icon: pack.icon,
+              advice: pack.advice[audit.id],
+            };
+          }
+        });
+      }
+    }
+
     // For convenience, smoosh all AuditResults into their auditDfn (which has just weight & group)
     for (const category of clone.reportCategories) {
       category.auditRefs.forEach(auditMeta => {

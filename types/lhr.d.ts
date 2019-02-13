@@ -27,6 +27,13 @@ declare global {
       benchmarkIndex: number;
     }
 
+    export interface StackPacks {
+      id: string;
+      icon: string;
+      detectedLibraries: string[];
+      advice: Record<string, string>;
+    }
+
     /**
      * The full output of a Lighthouse run.
      */
@@ -62,6 +69,8 @@ declare global {
       timing: Result.Timing;
       /** The record of all formatted string locations in the LHR and their corresponding source values. */
       i18n: {rendererFormattedStrings: I18NRendererStrings, icuMessagePaths: I18NMessages};
+      /** An object containing the result of all stackpacks */
+      stackPacks: StackPacks[];
     }
 
     // Result namespace

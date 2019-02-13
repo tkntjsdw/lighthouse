@@ -84,6 +84,29 @@ class CategoryRenderer {
     this.dom.find('.lh-audit__description', auditEl)
         .appendChild(this.dom.convertMarkdownLinkSnippets(audit.result.description));
 
+    if (audit.result.stackPacks) {
+      Object.entries(audit.result.stackPacks).forEach(([name, pack]) => {
+        const packElm = this.dom.createElement('div');
+        packElm.classList.add('lh-audit__description');
+        packElm.style.display = 'flex';
+        packElm.style.alignItems = 'center';
+
+        const packElmImg = this.dom.createElement('img');
+        packElmImg.src = pack.icon;
+        packElmImg.alt = name;
+        packElmImg.style.maxWidth = '50px';
+        packElmImg.style.marginRight = '15px';
+
+        const packElmSpan = this.dom.createElement('span');
+        packElmSpan.appendChild(this.dom.convertMarkdownLinkSnippets(pack.advice))
+
+        packElm.appendChild(packElmImg);
+        packElm.appendChild(packElmSpan);
+        this.dom.find('.lh-audit__stackpacks', auditEl)
+          .appendChild(packElm);
+      });
+    }
+
     const header = /** @type {HTMLDetailsElement} */ (this.dom.find('details', auditEl));
     if (audit.result.details && audit.result.details.type) {
       // @ts-ignore TODO(bckenny): fix detailsRenderer.render input type
