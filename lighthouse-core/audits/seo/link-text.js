@@ -30,7 +30,7 @@ class LinkText extends Audit {
       failureTitle: 'Links do not have descriptive text',
       description: 'Descriptive link text helps search engines understand your content. ' +
       '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/descriptive-link-text).',
-      requiredArtifacts: ['URL', 'CrawlableLinks'],
+      requiredArtifacts: ['URL', 'AnchorElements'],
     };
   }
 
@@ -39,7 +39,8 @@ class LinkText extends Audit {
    * @return {LH.Audit.Product}
    */
   static audit(artifacts) {
-    const failingLinks = artifacts.CrawlableLinks
+    const failingLinks = artifacts.AnchorElements
+      .filter(link => link.href && !link.rel.includes('nofollow'))
       .filter(link => {
         const href = link.href.toLowerCase();
         if (
@@ -59,6 +60,7 @@ class LinkText extends Audit {
         };
       });
 
+    /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
       {key: 'href', itemType: 'url', text: 'Link destination'},
       {key: 'text', itemType: 'text', text: 'Link Text'},
