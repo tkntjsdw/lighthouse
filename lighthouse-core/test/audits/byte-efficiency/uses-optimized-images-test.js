@@ -136,4 +136,13 @@ describe('Page uses optimized images', () => {
     expect(auditResult.items).toHaveLength(0);
     expect(auditResult.warnings).toHaveLength(1);
   });
+
+  it('warns when missing ImageElement', () => {
+    const artifacts = generateArtifacts([{originalSize: 1e6}]);
+    artifacts.ImageElements = [];
+    const auditResult = OptimizedImagesAudit.audit_(artifacts);
+
+    expect(auditResult.items).toHaveLength(0);
+    expect(auditResult.warnings).toHaveLength(1);
+  });
 });
