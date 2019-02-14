@@ -8,5 +8,5 @@
 // Add plugin to default Lighthouse audits.
 module.exports = {
   extends: 'lighthouse:default',
-  plugins: ['searchable'],
+  plugins: ['lighthouse-plugin-preload-as'],
 };

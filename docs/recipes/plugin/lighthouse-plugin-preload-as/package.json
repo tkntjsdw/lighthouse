@@ -1,0 +1,5 @@
+{
+  "name": "lighthouse-plugin-preload-as",
+  "private": true,
+  "main": "./plugin-config.js"
+}
