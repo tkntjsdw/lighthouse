@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const Audit = require('../../../../lighthouse-core/index.js').Audit;
+const Audit = require('lighthouse').Audit;
 
 /**
  * @fileoverview A fake additional check of the robots.txt file.
@@ -17,7 +17,7 @@ const allowedTypes = new Set(['font', 'image', 'script', 'serviceworker', 'style
 class LoadAudit extends Audit {
   static get meta() {
     return {
-      id: 'preload-as',
+      id: 'preload-as-audit',
       title: 'Preloaded requests have proper `as` attributes',
       failureTitle: 'Some preloaded requests do not have proper `as` attributes',
       description: '`<link rel=preload>` tags need an `as` attribute to specify the type of ' +
