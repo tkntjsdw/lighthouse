@@ -217,7 +217,7 @@ class FontSize extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
-    const viewportMeta = await ComputedViewportMeta.request(artifacts, context)
+    const viewportMeta = await ComputedViewportMeta.request(artifacts, context);
     if (!viewportMeta.hasMobileViewport) {
       return {
         rawValue: false,
