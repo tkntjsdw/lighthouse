@@ -3800,6 +3800,12 @@
             {
                 "duration": 100.0, 
                 "entryType": "measure", 
+                "name": "lh:computed:ViewportMeta", 
+                "startTime": 0.0
+            }, 
+            {
+                "duration": 100.0, 
+                "entryType": "measure", 
                 "name": "lh:audit:without-javascript", 
                 "startTime": 0.0
             }, 
