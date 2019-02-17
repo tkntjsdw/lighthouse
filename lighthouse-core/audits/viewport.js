@@ -41,7 +41,7 @@ class Viewport extends Audit {
     }
 
     return {
-      rawValue: !!viewportMeta.hasMobileViewport,
+      rawValue: viewportMeta.hasMobileViewport,
       warnings: viewportMeta.parserWarnings,
     };
   }
