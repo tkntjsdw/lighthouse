@@ -348,6 +348,15 @@ declare global {
         }[];
       }
 
+      export type ViewportMeta = {
+        /** Whether the page has any viewport tag  */
+        hasViewportTag: boolean;
+        /** Whether the viewport tag is optimized for mobile screens */
+        hasMobileViewport: boolean;
+        /** Warnings if the parser encountered invalid content in the viewport tag */
+        parserWarnings: string[];
+      }
+
       export interface MeasureEntry extends PerformanceEntry {
         /** Whether timing entry was collected during artifact gathering. */
         gather?: boolean;

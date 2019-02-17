@@ -12,68 +12,69 @@ const assert = require('assert');
 
 describe('Mobile-friendly: viewport audit', () => {
   const makeMetaElements = viewport => [{name: 'viewport', content: viewport}];
+  const fakeContext = {computedCache: new Map()};
 
-  it('fails when HTML does not contain a viewport meta tag', () => {
-    return assert.equal(Audit.audit({
+  it('fails when HTML does not contain a viewport meta tag', async () => {
+    const auditResult = await Audit.audit({
       MetaElements: [],
-    }).rawValue, false);
+    }, fakeContext);
+    return assert.equal(auditResult.rawValue, false);
   });
 
-  it('fails when HTML contains a non-mobile friendly viewport meta tag', () => {
+  it('fails when HTML contains a non-mobile friendly viewport meta tag', async () => {
     const viewport = 'maximum-scale=1';
-    assert.equal(Audit.audit({MetaElements: makeMetaElements(viewport)}).rawValue, false);
-    assert.equal(Audit.audit({
-      MetaElements: makeMetaElements(viewport),
-    }).warnings[0], undefined);
+    const auditResult = await Audit.audit({MetaElements: makeMetaElements(viewport)}, fakeContext);
+    assert.equal(auditResult.rawValue, false);
+    assert.equal(auditResult.warnings[0], undefined);
   });
 
-  it('fails when HTML contains an invalid viewport meta tag key', () => {
+  it('fails when HTML contains an invalid viewport meta tag key', async () => {
     const viewport = 'nonsense=true';
-    assert.equal(Audit.audit({MetaElements: makeMetaElements(viewport)}).rawValue, false);
-    assert.equal(Audit.audit({
-      MetaElements: makeMetaElements(viewport),
-    }).warnings[0], 'Invalid properties found: {"nonsense":"true"}');
+    const auditResult = await Audit.audit({MetaElements: makeMetaElements(viewport)}, fakeContext);
+    assert.equal(auditResult.rawValue, false);
+    assert.equal(auditResult.warnings[0], 'Invalid properties found: {"nonsense":"true"}');
   });
 
-  it('fails when HTML contains an invalid viewport meta tag value', () => {
+  it('fails when HTML contains an invalid viewport meta tag value', async () => {
     const viewport = 'initial-scale=microscopic';
-    assert.equal(Audit.audit({MetaElements: makeMetaElements(viewport)}).rawValue, false);
-    assert.equal(Audit.audit({
-      MetaElements: makeMetaElements(viewport),
-    }).warnings[0], 'Invalid values found: {"initial-scale":"microscopic"}');
+    const auditResult = await Audit.audit({MetaElements: makeMetaElements(viewport)}, fakeContext);
+    assert.equal(auditResult.rawValue, false);
+    assert.equal(auditResult.warnings[0], 'Invalid values found: {"initial-scale":"microscopic"}');
   });
 
-  it('fails when HTML contains an invalid viewport meta tag key and value', () => {
+  it('fails when HTML contains an invalid viewport meta tag key and value', async () => {
     const viewport = 'nonsense=true, initial-scale=microscopic';
-    const {rawValue, warnings} = Audit.audit({MetaElements: makeMetaElements(viewport)});
+    const {rawValue, warnings} =
+      await Audit.audit({MetaElements: makeMetaElements(viewport)}, fakeContext);
     assert.equal(rawValue, false);
     assert.equal(warnings[0], 'Invalid properties found: {"nonsense":"true"}');
     assert.equal(warnings[1], 'Invalid values found: {"initial-scale":"microscopic"}');
   });
 
-  it('passes when a valid viewport is provided', () => {
+  it('passes when a valid viewport is provided', async () => {
     const viewports = [
       'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1',
       'width = device-width, initial-scale = 1',
       'initial-scale=1',
       'width=device-width     ',
     ];
-    viewports.forEach(viewport => {
-      assert.equal(Audit.audit({
+    await Promise.all(viewports.map(async viewport => {
+      const auditResult = await Audit.audit({
         MetaElements: makeMetaElements(viewport),
-      }).rawValue, true);
-    });
+      }, fakeContext);
+      assert.equal(auditResult.rawValue, true);
+    }));
   });
 
-  it('doesn\'t throw when viewport contains "invalid" iOS properties', () => {
+  it('doesn\'t throw when viewport contains "invalid" iOS properties', async () => {
     const viewports = [
       'width=device-width, shrink-to-fit=no',
       'width=device-width, viewport-fit=cover',
     ];
-    viewports.forEach(viewport => {
-      const result = Audit.audit({MetaElements: makeMetaElements(viewport)});
+    await Promise.all(viewports.map(async viewport => {
+      const result = await Audit.audit({MetaElements: makeMetaElements(viewport)}, fakeContext);
       assert.equal(result.rawValue, true);
       assert.equal(result.warnings[0], undefined);
-    });
+    }));
   });
 });
