@@ -172,23 +172,22 @@ describe('SEO: Tap targets audit', () => {
     assert.equal(auditResult.rawValue, false);
   });
 
-  it('reports 2 items if the main target is overlapped both vertically and horizontally',
-    async () => {
+  it('reports 2 items if a target overlapped both vertically and horizontally', async () => {
     // Main is overlapped by right + below, right and below are each overlapped by main
-      const auditResult = await auditTapTargets(
+    const auditResult = await auditTapTargets(
       getBorderlineTapTargets({
         overlapRight: true,
         reduceRightWidth: true,
         overlapBelow: true,
       })
-      );
-      assert.equal(Math.round(auditResult.score * 100), 0); // all tap targets are overlapped by something
-      const failures = auditResult.details.items;
-      assert.equal(failures.length, 2);
-      // Right and Main overlap each other, but Right has a worse score because it's smaller
-      // so it's the failure that appears in the report
-      assert.equal(failures[0].tapTarget.snippet, '<right></right>');
-    });
+    );
+    assert.equal(Math.round(auditResult.score * 100), 0); // all tap targets are overlapped by something
+    const failures = auditResult.details.items;
+    assert.equal(failures.length, 2);
+    // Right and Main overlap each other, but Right has a worse score because it's smaller
+    // so it's the failure that appears in the report
+    assert.equal(failures[0].tapTarget.snippet, '<right></right>');
+  });
 
   it('reports 1 failure if only one tap target involved in an overlap fails', async () => {
     const auditResult = await auditTapTargets(
