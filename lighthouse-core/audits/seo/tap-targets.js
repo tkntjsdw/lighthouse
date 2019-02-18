@@ -275,7 +275,7 @@ class TapTargets extends Audit {
    */
   static async audit(artifacts, context) {
     const viewportMeta = await ComputedViewportMeta.request(artifacts, context);
-    if (!viewportMeta.hasMobileViewport) {
+    if (!viewportMeta.isMobileOptimized) {
       return {
         rawValue: false,
         explanation: str_(UIStrings.explanationViewportMetaNotOptimized),

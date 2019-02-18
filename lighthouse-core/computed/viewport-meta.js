@@ -21,7 +21,7 @@ class ViewportMeta {
     if (!viewportMeta) {
       return {
         hasViewportTag: false,
-        hasMobileViewport: false,
+        isMobileOptimized: false,
         parserWarnings: [],
       };
     }
@@ -37,10 +37,10 @@ class ViewportMeta {
     }
 
     const viewportProps = parsedProps.validProperties;
-    const hasMobileViewport = Boolean(viewportProps.width || viewportProps['initial-scale']);
+    const isMobileOptimized = Boolean(viewportProps.width || viewportProps['initial-scale']);
 
     return {
-      hasMobileViewport,
+      isMobileOptimized,
       hasViewportTag: true,
       parserWarnings: warnings,
     };

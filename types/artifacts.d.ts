@@ -352,7 +352,7 @@ declare global {
         /** Whether the page has any viewport tag  */
         hasViewportTag: boolean;
         /** Whether the viewport tag is optimized for mobile screens */
-        hasMobileViewport: boolean;
+        isMobileOptimized: boolean;
         /** Warnings if the parser encountered invalid content in the viewport tag */
         parserWarnings: string[];
       }
