@@ -12,7 +12,7 @@ const assert = require('assert');
 
 const fakeContext = {computedCache: new Map()};
 
-async function auditTapTargets(tapTargets, metaElements = [{
+function auditTapTargets(tapTargets, metaElements = [{
   name: 'viewport',
   content: 'width=device-width',
 }]) {
