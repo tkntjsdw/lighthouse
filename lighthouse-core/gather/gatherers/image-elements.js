@@ -87,8 +87,8 @@ function collectImageElementInfo() {
       displayedHeight: element.clientHeight,
       clientRect: getClientRect(element),
       // CSS Images do not expose natural size, we'll determine the size later
-      naturalWidth: Number.MAX_VALUE,
-      naturalHeight: Number.MAX_VALUE,
+      naturalWidth: 0,
+      naturalHeight: 0,
       isCss: true,
       isPicture: false,
       usesObjectFit: false,
@@ -137,7 +137,7 @@ class ImageElements extends Gatherer {
       return Object.assign(element, size);
     } catch (_) {
       // determineNaturalSize fails on invalid images, which we treat as non-visible
-      return Object.assign(element, {naturalWidth: 0, naturalHeight: 0});
+      return element;
     }
   }
 
