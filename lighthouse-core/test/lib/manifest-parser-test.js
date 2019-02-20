@@ -456,7 +456,7 @@ describe('Manifest Parser', function() {
     });
   });
 
-  describe.only('background_color, theme_color', () => {
+  describe('background_color, theme_color', () => {
     /**
      * Create a manifest with the specified colors and return the parsed result.
      * @param {string} backgroundColor
