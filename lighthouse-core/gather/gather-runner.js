@@ -395,10 +395,19 @@ class GatherRunner {
    * @return {Promise<LH.BaseArtifacts>}
    */
   static async getBaseArtifacts(options) {
+    const hostUserAgent = (await options.driver.getBrowserVersion()).userAgent;
+
+    const {emulatedFormFactor} = options.settings;
+    const IsMobileHost = hostUserAgent.includes('Android') || hostUserAgent.includes('Mobile');
+    const IsMobile = emulatedFormFactor === 'mobile' ||
+      (emulatedFormFactor !== 'desktop' && IsMobileHost);
+
     return {
       fetchTime: (new Date()).toJSON(),
       LighthouseRunWarnings: [],
-      HostUserAgent: (await options.driver.getBrowserVersion()).userAgent,
+      IsMobile,
+      IsMobileHost,
+      HostUserAgent: hostUserAgent,
       NetworkUserAgent: '', // updated later
       BenchmarkIndex: 0, // updated later
       WebAppManifest: null, // updated later
