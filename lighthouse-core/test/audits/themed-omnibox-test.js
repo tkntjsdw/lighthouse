@@ -126,6 +126,16 @@ describe('PWA: themed omnibox audit', () => {
     });
   });
 
+  it('succeeds when theme-color has a CSS4 nickname content value', async () => {
+    const artifacts = generateMockArtifacts();
+    artifacts.MetaElements = [{name: 'theme-color', content: 'rebeccapurple'}]; // <3
+    const context = generateMockAuditContext();
+
+    const result = await ThemedOmniboxAudit.audit(artifacts, context);
+    console.log(JSON.stringify(result, null, 2));
+    assert.equal(result.rawValue, true);
+    assert.equal(result.explanation, undefined);
+  });
 
   it('fails if HTML theme color is good, but manifest themecolor is bad', () => {
     const artifacts = generateMockArtifacts();
