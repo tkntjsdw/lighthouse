@@ -132,7 +132,6 @@ describe('PWA: themed omnibox audit', () => {
     const context = generateMockAuditContext();
 
     const result = await ThemedOmniboxAudit.audit(artifacts, context);
-    console.log(JSON.stringify(result, null, 2));
     assert.equal(result.rawValue, true);
     assert.equal(result.explanation, undefined);
   });
