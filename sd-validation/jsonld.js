@@ -7,7 +7,8 @@
 
 const walkObject = require('./helpers/walk-object.js');
 
-// This list comes from the JSON-LD 1.1 spec: https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords
+// This list comes from the JSON-LD 1.1 editors draft:
+// https://w3c.github.io/json-ld-syntax/#syntax-tokens-and-keywords
 const VALID_KEYWORDS = new Set([
   '@base',
   '@container',
