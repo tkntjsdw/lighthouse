@@ -10,7 +10,7 @@
 const TapTargetsAudit = require('../../../audits/seo/tap-targets.js');
 const assert = require('assert');
 
-const fakeContext = {computedCache: new Map()};
+const getFakeContext = () => ({computedCache: new Map()});
 
 function auditTapTargets(tapTargets, metaElements = [{
   name: 'viewport',
@@ -21,7 +21,7 @@ function auditTapTargets(tapTargets, metaElements = [{
     MetaElements: metaElements,
   };
 
-  return TapTargetsAudit.audit(artifacts, fakeContext);
+  return TapTargetsAudit.audit(artifacts, getFakeContext());
 }
 
 const tapTargetSize = 10;

@@ -15,7 +15,7 @@ const validViewport = 'width=device-width';
 
 describe('SEO: Font size audit', () => {
   const makeMetaElements = viewport => [{name: 'viewport', content: viewport}];
-  const fakeContext = {computedCache: new Map()};
+  const getFakeContext = () => ({computedCache: new Map()});
 
   it('fails when viewport is not set', async () => {
     const artifacts = {
@@ -24,7 +24,7 @@ describe('SEO: Font size audit', () => {
       FontSize: [],
     };
 
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     assert.equal(auditResult.rawValue, false);
     expect(auditResult.explanation)
       .toBeDisplayString('Text is illegible because there\'s ' +
@@ -47,7 +47,7 @@ describe('SEO: Font size audit', () => {
       },
     };
 
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     assert.equal(auditResult.rawValue, false);
     expect(auditResult.explanation).toBeDisplayString('41% of text is too small.');
     expect(auditResult.displayValue).toBeDisplayString('59% legible text');
@@ -68,7 +68,7 @@ describe('SEO: Font size audit', () => {
       },
     };
 
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     assert.equal(auditResult.rawValue, true);
   });
 
@@ -87,7 +87,7 @@ describe('SEO: Font size audit', () => {
         ],
       },
     };
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     assert.equal(auditResult.rawValue, true);
     expect(auditResult.displayValue).toBeDisplayString('90% legible text');
   });
@@ -124,7 +124,7 @@ describe('SEO: Font size audit', () => {
         ],
       },
     };
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
 
     assert.equal(auditResult.rawValue, false);
     assert.equal(auditResult.details.items.length, 2);
@@ -146,7 +146,7 @@ describe('SEO: Font size audit', () => {
         ],
       },
     };
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     assert.equal(auditResult.rawValue, false);
     assert.equal(auditResult.details.items.length, 3);
     assert.equal(auditResult.details.items[1].source, 'Add\'l illegible text');
@@ -168,7 +168,7 @@ describe('SEO: Font size audit', () => {
         ],
       },
     };
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     assert.equal(auditResult.rawValue, false);
     expect(auditResult.explanation)
       .toBeDisplayString('100% of text is too small (based on 50% sample).');
@@ -190,7 +190,7 @@ describe('SEO: Font size audit', () => {
         ],
       },
     };
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     expect(auditResult.displayValue).toBeDisplayString('89.78% legible text');
   });
 
@@ -209,7 +209,7 @@ describe('SEO: Font size audit', () => {
         ],
       },
     };
-    const auditResult = await FontSizeAudit.audit(artifacts, fakeContext);
+    const auditResult = await FontSizeAudit.audit(artifacts, getFakeContext());
     expect(auditResult.displayValue).toBeDisplayString('2.48% legible text');
   });
 });
