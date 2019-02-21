@@ -8,7 +8,6 @@
 const Audit = require('./audit');
 const ComputedViewportMeta = require('../computed/viewport-meta.js');
 
-
 class Viewport extends Audit {
   /**
    * @return {LH.Audit.Meta}
