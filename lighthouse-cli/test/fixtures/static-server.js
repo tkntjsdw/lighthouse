@@ -9,6 +9,7 @@
 /* eslint-disable no-console */
 
 const http = require('http');
+const zlib = require('zlib');
 const path = require('path');
 const fs = require('fs');
 const parseQueryString = require('querystring').parse;
@@ -71,6 +72,7 @@ function requestHandler(request, response) {
     }
 
     let delay = 0;
+    let gzip = false;
     if (queryString) {
       const params = new URLSearchParams(queryString);
       // set document status-code
@@ -93,10 +95,18 @@ function requestHandler(request, response) {
         }
       }
 
+      if (params.has('gzip')) {
+        gzip = Boolean(params.get('gzip'));
+      }
+
       // redirect url to new url if present
       if (params.has('redirect')) {
         return setTimeout(sendRedirect, delay, params.get('redirect'));
       }
+    }
+
+    if (gzip) {
+      headers['Content-Encoding'] = 'gzip';
     }
 
     response.writeHead(statusCode, headers);
@@ -106,7 +116,7 @@ function requestHandler(request, response) {
       return setTimeout(finishResponse, delay, data);
     }
 
-    finishResponse(data);
+    finishResponse(data, gzip);
   }
 
   function sendRedirect(url) {
@@ -117,8 +127,12 @@ function requestHandler(request, response) {
     response.end();
   }
 
-  function finishResponse(data) {
-    response.write(data, 'binary');
+  function finishResponse(data, gzip) {
+    if (gzip) {
+      response.write(zlib.gzipSync(data), 'binary');
+    } else {
+      response.write(data, 'binary');
+    }
     response.end();
   }
 }
