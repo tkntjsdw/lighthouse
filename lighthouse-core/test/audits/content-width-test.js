@@ -24,19 +24,6 @@ describe('Mobile-friendly: content-width audit', () => {
     assert.ok(result.explanation);
   });
 
-  it('fails when host user agent is a phone', () => {
-    const result = Audit.audit({
-      IsMobile: true,
-      ViewportDimensions: {
-        innerWidth: 100,
-        outerWidth: 300,
-      },
-    });
-
-    assert.equal(result.rawValue, false);
-    assert.ok(result.explanation);
-  });
-
   it('passes when widths match', () => {
     return assert.equal(Audit.audit({
       HostUserAgent: '',
