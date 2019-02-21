@@ -159,6 +159,7 @@ describe('GatherRunner', function() {
 
   describe('collects IsMobile and IsMobileHost as artifacts', () => {
     const url = 'https://example.com';
+
     it('works when running on desktop device without emulation', async () => {
       const driver = fakeDriver;
       const config = new Config({passes: [{}]});
@@ -169,6 +170,7 @@ describe('GatherRunner', function() {
       expect(results.IsMobile).toBe(false);
       expect(results.IsMobileHost).toBe(false);
     });
+
     it('works when running on desktop device with mobile emulation', async () => {
       const driver = fakeDriver;
       const config = new Config({passes: [{}]});
@@ -179,6 +181,7 @@ describe('GatherRunner', function() {
       expect(results.IsMobile).toBe(true);
       expect(results.IsMobileHost).toBe(false);
     });
+
     it('works when running on mobile device without emulation', async () => {
       const driver = fakeDriverUsingRealMobileDevice;
       const config = new Config({passes: [{}]});
@@ -189,6 +192,7 @@ describe('GatherRunner', function() {
       expect(results.IsMobile).toBe(true);
       expect(results.IsMobileHost).toBe(true);
     });
+
     it('works when running on mobile device with desktop emulation', async () => {
       const driver = fakeDriverUsingRealMobileDevice;
       const config = new Config({passes: [{}]});
