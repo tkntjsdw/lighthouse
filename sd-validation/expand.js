@@ -14,18 +14,19 @@ const SCHEMA_ORG_HOST = 'schema.org';
  * Custom loader that prevents network calls and allows us to return local version of the
  * schema.org document
  * @param {string} schemaUrl
- * @param {function(null|Error, Object|undefined):void} callback
+ * @param {(err: null|Error, value?: any) => void} callback
  */
 function documentLoader(schemaUrl, callback) {
   let urlObj = null;
 
   try {
+    // Give a dummy base URL so relative URLs will be considered valid.
     urlObj = new URL(schemaUrl, 'http://example.com');
   } catch (e) {
-    return callback(Error('Error parsing URL: ' + schemaUrl), undefined);
+    return callback(new Error('Error parsing URL: ' + schemaUrl), undefined);
   }
 
-  if (urlObj && urlObj.host === SCHEMA_ORG_HOST && urlObj.pathname === '/') {
+  if (urlObj.host === SCHEMA_ORG_HOST && urlObj.pathname === '/') {
     callback(null, {
       document: schemaOrgContext,
     });
@@ -41,8 +42,8 @@ function documentLoader(schemaUrl, callback) {
  * Takes JSON-LD object and normalizes it by following the expansion algorithm
  * (https://json-ld.org/spec/latest/json-ld-api/#expansion).
  *
- * @param {Object} inputObject
- * @returns {Promise<Object>}
+ * @param {any} inputObject
+ * @returns {Promise<any>}
  */
 module.exports = async function expand(inputObject) {
   try {

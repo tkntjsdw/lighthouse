@@ -6,7 +6,6 @@
 'use strict';
 
 const walkObject = require('./helpers/walk-object.js');
-/** @type {import('jsonlint-mod').JSONSchemaTree} */
 const schemaStructure = require('./assets/schema-tree.json');
 const TYPE_KEYWORD = '@type';
 const SCHEMA_ORG_URL_REGEX = /https?:\/\/schema\.org\//;
@@ -43,24 +42,23 @@ function getPropsForType(type) {
 function findType(type) {
   const cleanType = cleanName(type);
 
-  return schemaStructure.types
-    .find((/** @type {{name: string}} */ typeObj) => typeObj.name === cleanType);
+  return schemaStructure.types.find(typeObj => typeObj.name === cleanType);
 }
 
 /**
  * @param {string} type
  * @returns {boolean}
  */
-function isKnownType(type) {
-  return findType(type) !== undefined;
+function isUnknownType(type) {
+  return !findType(type);
 }
 
 /**
- * Validates keys of given object based on it's type(s). Returns an array of error messages.
+ * Validates keys of given object based on its type(s). Returns an array of error messages.
  *
- * @param {String|Array<String>} typeOrTypes
- * @param {Array<String>} keys
- * @returns {Array<String>}
+ * @param {string|Array<string>} typeOrTypes
+ * @param {Array<string>} keys
+ * @returns {Array<string>}
  */
 function validateObjectKeys(typeOrTypes, keys) {
   /** @type {Array<string>} */
@@ -78,16 +76,16 @@ function validateObjectKeys(typeOrTypes, keys) {
     return ['Unknown value type'];
   }
 
-  const unknownTypes = types.filter(t => !isKnownType(t));
+  const unknownTypes = types.filter(t => isUnknownType(t));
 
-  unknownTypes
-    .forEach(type => {
-      if (typeof type !== 'string' || SCHEMA_ORG_URL_REGEX.test(type)) {
-        errors.push(`Unrecognized schema.org type ${type}`);
-      }
-    });
+  if (unknownTypes.length) {
+    unknownTypes
+      .forEach(type => {
+        if (SCHEMA_ORG_URL_REGEX.test(type)) {
+          errors.push(`Unrecognized schema.org type ${type}`);
+        }
+      });
 
-  if (unknownTypes && unknownTypes.length) {
     return errors;
   }
 
@@ -112,7 +110,8 @@ function validateObjectKeys(typeOrTypes, keys) {
 }
 
 /**
- * @param {Object} expandedObj Valid JSON-LD object in expanded form
+ * @param {any} expandedObj Valid JSON-LD object in expanded form
+ * @return {Array<{path: string, message: string}>}
  */
 module.exports = function validateSchemaOrg(expandedObj) {
   /** @type {Array<{path: string, message: string}>} */
@@ -128,13 +127,13 @@ module.exports = function validateSchemaOrg(expandedObj) {
 
   walkObject(expandedObj, (name, value, path, obj) => {
     if (name === TYPE_KEYWORD) {
-      const keyErrors = validateObjectKeys(value, Object.keys(obj));
+      const keyErrorMessages = validateObjectKeys(value, Object.keys(obj));
 
-      keyErrors.forEach(e =>
+      keyErrorMessages.forEach(message =>
         errors.push({
           // get rid of the first chunk (/@type) as it's the same for all errors
           path: '/' + path.slice(0, -1).map(cleanName).join('/'),
-          message: e,
+          message,
         })
       );
     }

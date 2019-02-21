@@ -6,7 +6,7 @@
 'use strict';
 
 /**
-  * Call this script to update assets/schema-tree.json with the latest schema.org spec
+ * Call this script to update assets/schema-tree.json with the latest schema.org spec
  */
 
 const fetch = require('isomorphic-fetch');
@@ -43,9 +43,10 @@ function processData(data) {
   }
 
   /**
+   * Accepts some set of id references and returns the array of cleaned references without the `http://schema.org` prefix.
    * @param {Array<IDRef>|IDRef|undefined} parents
    */
-  function getParents(parents) {
+  function cleanIdPrefixes(parents) {
     if (Array.isArray(parents)) {
       return parents.map(item => removePrefix(item['@id']));
     } else if (parents && parents['@id']) {
@@ -63,12 +64,12 @@ function processData(data) {
     if (item['@type'] === 'rdf:Property') {
       properties.push({
         name: item['rdfs:label'],
-        parent: getParents(item['http://schema.org/domainIncludes']),
+        parent: cleanIdPrefixes(item['http://schema.org/domainIncludes']),
       });
     } else {
       types.push({
         name: item['rdfs:label'],
-        parent: getParents(item['rdfs:subClassOf']),
+        parent: cleanIdPrefixes(item['rdfs:subClassOf']),
       });
     }
   });
@@ -78,14 +79,14 @@ function processData(data) {
 
 async function run() {
   try {
-    const response = await fetch(SCHEMA_ORG_URL)
-    const data = await response.json()
+    const response = await fetch(SCHEMA_ORG_URL);
+    const data = await response.json();
     const processed = processData(data);
-    fs.writeFileSync(SCHEMA_TREE_FILE, JSON.stringify(processed));
+    fs.writeFileSync(SCHEMA_TREE_FILE, JSON.stringify(processed, null, 2));
     console.log('Success.'); // eslint-disable-line no-console
   } catch (e) {
     console.error(e); // eslint-disable-line no-console
   }
 }
 
-run()
+run();

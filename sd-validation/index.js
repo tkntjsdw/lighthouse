@@ -7,7 +7,7 @@
 
 const parseJSON = require('./json.js');
 const validateJsonLD = require('./jsonld.js');
-const promiseExpand = require('./expand.js');
+const expandAsync = require('./expand.js');
 const validateSchemaOrg = require('./schema.js');
 
 /** @typedef {'json'|'json-ld'|'json-ld-expand'|'schema-org'} ValidatorType */
@@ -55,12 +55,12 @@ module.exports = async function validate(textInput) {
   // STEP 3: EXPAND
   let expandedObj = null;
   try {
-    expandedObj = await promiseExpand(inputObject);
+    expandedObj = await expandAsync(inputObject);
   } catch (error) {
     errors.push({
       validator: 'json-ld-expand',
       path: null,
-      message: error && error.toString(),
+      message: error.message,
     });
 
     return errors;
@@ -69,7 +69,7 @@ module.exports = async function validate(textInput) {
   // STEP 4: VALIDATE SCHEMA
   const schemaOrgErrors = validateSchemaOrg(expandedObj);
 
-  if (schemaOrgErrors && schemaOrgErrors.length) {
+  if (schemaOrgErrors.length) {
     schemaOrgErrors.forEach(error => {
       errors.push({
         validator: 'schema-org',
