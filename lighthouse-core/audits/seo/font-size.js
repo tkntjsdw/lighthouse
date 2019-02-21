@@ -10,7 +10,7 @@
 const URL = require('../../lib/url-shim');
 const i18n = require('../../lib/i18n/i18n.js');
 const Audit = require('../audit');
-const ComputedViewportMeta = require('../../computed/viewport-meta');
+const ComputedViewportMeta = require('../../computed/viewport-meta.js');
 const MINIMAL_PERCENTAGE_OF_LEGIBLE_TEXT = 60;
 
 const UIStrings = {
