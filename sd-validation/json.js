@@ -9,7 +9,7 @@ const jsonlint = require('jsonlint-mod');
 
 /**
  * @param {string} input
- * @returns {{error: {message: string, line: string|null}|null, result: *}}
+ * @returns {{message: string, line: string|null}|null}
  */
 module.exports = function parseJSON(input) {
   try {
@@ -27,7 +27,10 @@ module.exports = function parseJSON(input) {
       }
     }
 
-    // adjust jsonlint error output to our needs
+    // jsonlint error message points to a specific character, but we just want the message.
+    // Example:
+    //    ---------^
+    //    Unexpected character {
     const regexMessageResult = error.message.match(/-+\^\n(.+)$/);
 
     if (regexMessageResult) {
@@ -35,16 +38,10 @@ module.exports = function parseJSON(input) {
     }
 
     return {
-      error: {
-        message,
-        line,
-      },
-      result: undefined,
+      message,
+      line,
     };
   }
 
-  return {
-    error: null,
-    result: JSON.parse(input),
-  };
+  return null;
 };

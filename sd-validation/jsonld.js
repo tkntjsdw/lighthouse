@@ -5,10 +5,10 @@
  */
 'use strict';
 
-const walkObject = require('./helpers/walkObject.js');
+const walkObject = require('./helpers/walk-object.js');
 
 // This list comes from the JSON-LD 1.1 spec: https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords
-const KEYWORDS = [
+const VALID_KEYWORDS = new Set([
   '@base',
   '@container',
   '@context',
@@ -26,43 +26,21 @@ const KEYWORDS = [
   '@value',
   '@version',
   '@vocab',
-];
+]);
 
 /**
- * @param {string} fieldName
- * @returns boolean
- */
-function validKeyword(fieldName) {
-  return KEYWORDS.includes(fieldName);
-}
-
-/**
- * @param {string} keyName
- * @returns {string | null} error
- */
-function validateKey(keyName) {
-  if (keyName[0] === '@' && !validKeyword(keyName)) {
-    return 'Unknown keyword';
-  }
-
-  return null;
-}
-
-/**
- * @param {Object} json
- * @returns {Array<{path: string, message: string}>}
+ * @param {*} json
+ * @return {Array<{path: string, message: string}>}
  */
 module.exports = function validateJsonLD(json) {
   /** @type {Array<{path: string, message: string}>} */
   const errors = [];
 
   walkObject(json, (name, value, path) => {
-    const error = validateKey.call(null, name);
-
-    if (error) {
+    if (name.startsWith('@') && !VALID_KEYWORDS.has(name)) {
       errors.push({
         path: path.join('/'),
-        message: error,
+        message: 'Unknown keyword',
       });
     }
   });

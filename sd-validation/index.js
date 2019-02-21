@@ -10,40 +10,42 @@ const validateJsonLD = require('./jsonld.js');
 const promiseExpand = require('./expand.js');
 const validateSchemaOrg = require('./schema.js');
 
+/** @typedef {'json'|'json-ld'|'json-ld-expand'|'schema-org'} ValidatorType */
+
 /**
  * Validates JSON-LD input. Returns array of error objects.
  *
  * @param {string} textInput
- * @returns {Promise<Array<{path: ?string, validator: string, message: string}>>}
+ * @returns {Promise<Array<{path: ?string, validator: ValidatorType, message: string}>>}
  */
 module.exports = async function validate(textInput) {
-  /** @type {Array<{path: ?string, validator: string, message: string}>} */
+  /** @type {Array<{path: ?string, validator: ValidatorType, message: string}>} */
   const errors = [];
 
   // STEP 1: VALIDATE JSON
-  const parseOutput = parseJSON(textInput);
+  const parseError = parseJSON(textInput);
 
-  if (parseOutput.error) {
+  if (parseError) {
     errors.push({
       validator: 'json',
-      path: parseOutput.error.line,
-      message: parseOutput.error.message,
+      path: parseError.line,
+      message: parseError.message,
     });
 
     return errors;
   }
 
-  const inputObject = parseOutput.result;
+  const inputObject = JSON.parse(textInput);
 
   // STEP 2: VALIDATE JSONLD
   const jsonLdErrors = validateJsonLD(inputObject);
 
-  if (jsonLdErrors && jsonLdErrors.length) {
+  if (jsonLdErrors.length) {
     jsonLdErrors.forEach(error => {
       errors.push({
         validator: 'json-ld',
         path: error.path,
-        message: error.message.toString(),
+        message: error.message,
       });
     });
 

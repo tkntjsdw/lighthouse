@@ -8,17 +8,16 @@
 /**
  * Recursively (DFS) traverses an object and calls provided function for each field.
  *
- * @param {Object} obj
- * @param {function(String, any, Array<String>, Object): void} callback
- * @param {Array<String>} path
+ * @param {*} obj
+ * @param {function(string, any, Array<string>, any): void} callback
+ * @param {Array<string>} path
  */
 module.exports = function walkObject(obj, callback, path = []) {
   if (obj === null) {
     return;
   }
 
-  Object.keys(obj).forEach(fieldName => {
-    const fieldValue = obj[fieldName];
+  Object.entries(obj).forEach(([fieldName, fieldValue]) => {
     const newPath = Array.from(path);
     newPath.push(fieldName);
 

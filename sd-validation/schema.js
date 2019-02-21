@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const walkObject = require('./helpers/walkObject.js');
+const walkObject = require('./helpers/walk-object.js');
 /** @type {import('jsonlint-mod').JSONSchemaTree} */
 const schemaStructure = require('./assets/schema-tree.json');
 const TYPE_KEYWORD = '@type';
