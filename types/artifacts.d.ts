@@ -25,7 +25,7 @@ declare global {
       LighthouseRunWarnings: string[];
       /** Whether the page was loaded on either a real or emulated mobile device. */
       IsMobile: boolean;
-      /** Whether Lighthouse was run on a mobile device (i.e. not on a desktop machine) */
+      /** Whether Lighthouse was run on a mobile device (i.e. not on a desktop machine). */
       IsMobileHost: boolean;
       /** The user agent string of the version of Chrome used. */
       HostUserAgent: string;
