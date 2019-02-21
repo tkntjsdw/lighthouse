@@ -12,9 +12,8 @@ const makeComputedArtifact = require('./computed-artifact.js');
 class ViewportMeta {
   /**
    * @param {{MetaElements: LH.GathererArtifacts['MetaElements']}} artifacts
-   * @return {Promise<LH.Artifacts.ViewportMeta>}
+   * @return {Promise<ViewportMetaResult>}
   */
-
   static async compute_({MetaElements}) {
     const viewportMeta = MetaElements.find(meta => meta.name === 'viewport');
 
@@ -40,11 +39,18 @@ class ViewportMeta {
     const isMobileOptimized = Boolean(viewportProps.width || viewportProps['initial-scale']);
 
     return {
-      isMobileOptimized,
       hasViewportTag: true,
+      isMobileOptimized,
       parserWarnings: warnings,
     };
   }
 }
 
 module.exports = makeComputedArtifact(ViewportMeta);
+
+/**
+ * @typedef {object} ViewportMetaResult
+ * @property {boolean} hasViewportTag Whether the page has any viewport tag.
+ * @property {boolean} isMobileOptimized Whether the viewport tag is optimized for mobile screens.
+ * @property {Array<string>} parserWarnings Warnings if the parser encountered invalid content in the viewport tag.
+ */
