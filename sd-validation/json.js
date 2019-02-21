@@ -9,14 +9,11 @@ const jsonlint = require('jsonlint-mod');
 
 /**
  * @param {string} input
- * @returns {{error: {message: string, line: string|null}|null, result: Object|null}}
+ * @returns {{error: {message: string, line: string|null}|null, result: *}}
  */
 module.exports = function parseJSON(input) {
-  let result;
-
   try {
     jsonlint.parse(input);
-    result = JSON.parse(input);
   } catch (error) {
     let line = error.at;
     let message = error.message;
@@ -42,12 +39,12 @@ module.exports = function parseJSON(input) {
         message,
         line,
       },
-      result,
+      result: undefined,
     };
   }
 
   return {
     error: null,
-    result,
+    result: JSON.parse(input),
   };
 };

@@ -22,8 +22,6 @@
   ],
   "exclude": [
     "lighthouse-core/test/**/*.js",
-    "sd-validation/test/**/*.js",
-    "sd-validation/scripts/**/*.js",
     "clients/test/**/*.js",
     "lighthouse-cli/test/fixtures/**/*.js",
   ]

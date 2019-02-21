@@ -6,7 +6,7 @@
 'use strict';
 
 const walkObject = require('./helpers/walkObject.js');
-// @ts-ignore
+/** @type {import('jsonlint-mod').JSONSchemaTree} */
 const schemaStructure = require('./assets/schema-tree.json');
 const TYPE_KEYWORD = '@type';
 const SCHEMA_ORG_URL_REGEX = /https?:\/\/schema\.org\//;

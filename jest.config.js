@@ -11,6 +11,7 @@ module.exports = {
   collectCoverageFrom: [
     '**/lighthouse-core/**/*.js',
     '**/lighthouse-cli/**/*.js',
+    '**/sd-validation/**/*.js',
     '!**/test/',
     '!**/scripts/',
   ],
@@ -19,5 +20,6 @@ module.exports = {
   testMatch: [
     '**/lighthouse-core/**/*-test.js',
     '**/lighthouse-cli/**/*-test.js',
+    '**/sd-validation/**/*-test.js',
   ],
 };

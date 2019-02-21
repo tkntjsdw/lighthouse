@@ -9,28 +9,42 @@
   * Call this script to update assets/schema-tree.json with the latest schema.org spec
  */
 
-const request = require('request-promise-native');
+const fetch = require('isomorphic-fetch');
 const path = require('path');
 const fs = require('fs');
 
 const SCHEMA_ORG_URL = 'https://schema.org/version/latest/schema.jsonld';
 const SCHEMA_TREE_FILE = path.join(__dirname, '../assets/schema-tree.json');
 
-request(SCHEMA_ORG_URL)
-  .then(text => JSON.parse(text))
-  .then(processData)
-  .then(result => fs.writeFileSync(SCHEMA_TREE_FILE, JSON.stringify(result)))
-  .then(() => console.log('Success.'))// eslint-disable-line no-console
-  .catch(e => console.error(e));// eslint-disable-line no-console
+/**
+ * @typedef {import('jsonlint-mod').SchemaTreeItem} SchemaDefinition
+ */
 
+/**
+ * @typedef {import('jsonlint-mod').JSONSchemaSource} SchemaSource
+ */
+
+/**
+ * @typedef {{'@id': string}} IDRef
+ */
+
+/**
+ * @param {SchemaSource} data
+ */
 function processData(data) {
+  /** @type {SchemaDefinition[]} */
   const types = [];
+  /** @type {SchemaDefinition[]} */
   const properties = [];
 
+  /** @param {string} str */
   function removePrefix(str) {
     return str.replace('http://schema.org/', '');
   }
 
+  /**
+   * @param {Array<IDRef>|IDRef|undefined} parents
+   */
   function getParents(parents) {
     if (Array.isArray(parents)) {
       return parents.map(item => removePrefix(item['@id']));
@@ -61,3 +75,17 @@ function processData(data) {
 
   return {types, properties};
 }
+
+async function run() {
+  try {
+    const response = await fetch(SCHEMA_ORG_URL)
+    const data = await response.json()
+    const processed = processData(data);
+    fs.writeFileSync(SCHEMA_TREE_FILE, JSON.stringify(processed));
+    console.log('Success.'); // eslint-disable-line no-console
+  } catch (e) {
+    console.error(e); // eslint-disable-line no-console
+  }
+}
+
+run()
