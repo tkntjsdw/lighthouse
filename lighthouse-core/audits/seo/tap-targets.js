@@ -10,7 +10,7 @@
  * no other tap target that's too close so that the user might accidentally tap on.
  */
 const Audit = require('../audit');
-const ComputedViewportMeta = require('../../computed/viewport-meta');
+const ComputedViewportMeta = require('../../computed/viewport-meta.js');
 const {
   rectsTouchOrOverlap,
   getRectOverlapArea,
